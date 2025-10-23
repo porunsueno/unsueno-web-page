@@ -3,7 +3,6 @@
   <div class="hero__background"></div>
   <div class="hero__pattern"></div>
 
-  <!-- Content -->
   <div class="hero__container">
     <div class="hero__content">
       <h1 class="hero__title">
@@ -17,7 +16,26 @@
       <p class="hero__subtitle">
         {{ t().hero.subtitle }}
       </p>
-      
+
+      <div class="hero__countdown">
+        <div class="hero__countdown-item">
+          <span class="hero__countdown-number">{{ days }}</span>
+          <span class="hero__countdown-label">Días</span>
+        </div>
+        <div class="hero__countdown-item">
+          <span class="hero__countdown-number">{{ hours }}</span>
+          <span class="hero__countdown-label">Horas</span>
+        </div>
+        <div class="hero__countdown-item">
+          <span class="hero__countdown-number">{{ minutes }}</span>
+          <span class="hero__countdown-label">Min</span>
+        </div>
+        <div class="hero__countdown-item">
+          <span class="hero__countdown-number">{{ seconds }}</span>
+          <span class="hero__countdown-label">Seg</span>
+        </div>
+      </div>
+
       <div class="hero__actions">
         <a href="#contact" class="btn btn--primary hero__cta-primary">
           {{ t().hero.cta.primary }}
@@ -26,34 +44,24 @@
           {{ t().hero.cta.secondary }}
         </a>
       </div>
-
-      <!-- Stats -->
-      <div class="hero__stats">
-        <div class="hero__stat">
-          <div class="hero__stat-number">{{ t().hero.stats.stat1.number }}</div>
-          <div class="hero__stat-label">{{ t().hero.stats.stat1.label }}</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-number">{{ t().hero.stats.stat2.number }}</div>
-          <div class="hero__stat-label">{{ t().hero.stats.stat2.label }}</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-number">{{ t().hero.stats.stat3.number }}</div>
-          <div class="hero__stat-label">{{ t().hero.stats.stat3.label }}</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-number">{{ t().hero.stats.stat4.number }}</div>
-          <div class="hero__stat-label">{{ t().hero.stats.stat4.label }}</div>
-        </div>
-      </div>
     </div>
   </div>
 
   <!-- Scroll Indicator -->
   <div class="hero__scroll">
     <a href="#about" class="hero__scroll-link">
-      <svg class="hero__scroll-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      <svg
+        class="hero__scroll-icon"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+        ></path>
       </svg>
     </a>
   </div>
