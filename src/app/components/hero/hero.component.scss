@@ -41,7 +41,8 @@
     text-align: center;
     color: $primary-50;
     margin-top: $spacing-3xl;
-    @media (min-width: 1024px) {
+
+    @include desktop {
       margin-top: 0;
     }
   }
@@ -81,6 +82,17 @@
     gap: $spacing-md;
     flex-wrap: nowrap;
     margin-top: $spacing-xl;
+
+    /* Mobile single-line layout */
+    @include mobile {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Oculta scrollbars */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   &__countdown-item {
@@ -125,34 +137,21 @@
     gap: $spacing-md;
     margin-top: $spacing-2xl;
 
-    @media (min-width: 1024px) {
+    @include desktop {
       flex-direction: row;
       gap: $spacing-lg;
     }
   }
 
   &__cta-primary {
-    background-color: white;
-    color: $primary-600;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
-
-    &:hover {
-      background-color: $primary-50;
-      color: $primary-700;
-    }
+    @include btn-primary;
   }
 
   &__cta-secondary {
-    background-color: transparent;
+    @include btn-secondary;
     border: 2px solid white;
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    font-size: 1rem;
+    background-color: transparent;
 
     &:hover {
       background-color: white;
@@ -200,10 +199,9 @@
     }
   }
 
-  /* --- RESPONSIVE UPGRADES --- */
+  /* --- RESPONSIVE BREAKPOINTS USING MIXINS --- */
 
-  /* Tablets */
-  @media (min-width: 640px) {
+  @include tablet {
     &__title {
       font-size: 2.5rem;
     }
@@ -227,8 +225,7 @@
     }
   }
 
-  /* Desktop */
-  @media (min-width: 1024px) {
+  @include desktop {
     &__title {
       font-size: 3rem;
     }
@@ -252,6 +249,21 @@
 
     &__countdown-label {
       font-size: 0.9rem;
+    }
+  }
+
+  @include wide {
+    &__countdown-item {
+      width: 120px;
+      height: 120px;
+    }
+
+    &__countdown-number {
+      font-size: 2.5rem;
+    }
+
+    &__countdown-label {
+      font-size: 1rem;
     }
   }
 }
