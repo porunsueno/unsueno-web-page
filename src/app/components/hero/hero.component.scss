@@ -40,6 +40,10 @@
     z-index: 10;
     text-align: center;
     color: $primary-50;
+    margin-top: $spacing-3xl;
+    @media (min-width: 1024px) {
+      margin-top: 0;
+    }
   }
 
   &__content {
