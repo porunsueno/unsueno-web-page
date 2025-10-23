@@ -1,0 +1,87 @@
+<section id="portfolio" class="portfolio">
+  <div class="portfolio__container">
+    <!-- Section Header -->
+    <div class="portfolio__header">
+      <h2 class="portfolio__title">
+        {{ t().portfolio.title.main }}
+        <span class="portfolio__title-accent">{{ t().portfolio.title.highlight }}</span>
+      </h2>
+      <p class="portfolio__description">
+        {{ t().portfolio.description }}
+      </p>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio__grid">
+      <div *ngFor="let template of templates; let i = index" 
+           class="portfolio__card"
+           [style.animation-delay.s]="i * 0.1">
+        
+        <!-- Template Image -->
+        <div class="portfolio__image-wrapper">
+          <img 
+            [src]="template.image" 
+            [alt]="template.title"
+            class="portfolio__image"
+          >
+          
+          <!-- Overlay -->
+          <div class="portfolio__overlay">
+            <div class="portfolio__overlay-content">
+              <div class="portfolio__tags">
+                <span *ngFor="let tag of template.tags" class="portfolio__tag">
+                  {{ tag }}
+                </span>
+              </div>
+              <div class="portfolio__actions">
+                <button class="btn btn--primary portfolio__btn">
+                  <svg class="portfolio__btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                  </svg>
+                  {{ t().portfolio.buttons.livePreview }}
+                </button>
+                <button class="btn btn--secondary portfolio__btn">
+                  <svg class="portfolio__btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                  {{ t().portfolio.buttons.download }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template Content -->
+        <div class="portfolio__content">
+          <h3 class="portfolio__card-title">
+            {{ template.title }}
+          </h3>
+          
+          <p class="portfolio__card-description">
+            {{ template.description }}
+          </p>
+
+          <!-- Template Stats -->
+          <div class="portfolio__stats">
+            <span class="portfolio__stat">{{ template.category }}</span>
+            <span class="portfolio__stat-divider">•</span>
+            <span class="portfolio__stat">{{ template.pages }} Pages</span>
+            <span class="portfolio__stat-divider">•</span>
+            <span class="portfolio__stat portfolio__stat--price">${{ template.price }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All Templates Button -->
+    <div class="portfolio__cta">
+      <button class="btn btn--primary portfolio__view-all">
+        {{ t().portfolio.viewAllButton }}
+      </button>
+      <p class="portfolio__cta-note">
+        Over 50+ premium templates available
+      </p>
+    </div>
+  </div>
+</section>

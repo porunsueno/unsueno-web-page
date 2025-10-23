@@ -1,0 +1,164 @@
+<section id="contact" class="contact">
+  <div class="contact__container">
+    <!-- Section Header -->
+    <div class="contact__header">
+      <h2 class="contact__title">
+        [Contact Section Title]
+        <span class="contact__title-accent">[Highlight]</span>
+      </h2>
+      <p class="contact__description">
+        [Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you,
+        and include any incentives like free consultations or estimates.]
+      </p>
+    </div>
+
+    <div class="contact__grid">
+      <!-- Contact Form -->
+      <div class="contact__form-wrapper">
+        <div class="contact__form-container">
+          <h3 class="contact__form-title">Send us a message</h3>
+          
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact__form">
+            <!-- Name Field -->
+            <div class="contact__field">
+              <label for="name" class="contact__label">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="formData.name"
+                required
+                class="contact__input"
+                placeholder="Your full name"
+              >
+            </div>
+
+            <!-- Email Field -->
+            <div class="contact__field">
+              <label for="email" class="contact__label">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="formData.email"
+                required
+                class="contact__input"
+                placeholder="your.email@example.com"
+              >
+            </div>
+
+            <!-- Subject Field -->
+            <div class="contact__field">
+              <label for="subject" class="contact__label">
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                [(ngModel)]="formData.subject"
+                class="contact__input"
+                placeholder="[Subject placeholder]"
+              >
+            </div>
+
+            <!-- Message Field -->
+            <div class="contact__field">
+              <label for="message" class="contact__label">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                [(ngModel)]="formData.message"
+                required
+                rows="5"
+                class="contact__textarea"
+                placeholder="[Your message placeholder text here...]"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              [disabled]="!contactForm.valid || isSubmitting"
+              class="btn btn--primary contact__submit"
+              [class.contact__submit--loading]="isSubmitting"
+            >
+              <span *ngIf="!isSubmitting">Send Message</span>
+              <span *ngIf="isSubmitting" class="contact__loading">
+                <svg class="contact__spinner" fill="none" viewBox="0 0 24 24">
+                  <circle class="contact__spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="contact__spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Sending...
+              </span>
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div *ngIf="showSuccessMessage" class="contact__success">
+            <div class="contact__success-content">
+              <svg class="contact__success-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <p class="contact__success-text">Thank you! Your message has been sent successfully.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="contact__info">
+        <div class="contact__info-container">
+          <h3 class="contact__info-title">Contact Information</h3>
+          
+          <div class="contact__info-items">
+            <!-- Email -->
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg class="contact__info-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div class="contact__info-content">
+                <h4 class="contact__info-label">Email Address</h4>
+                <p class="contact__info-value">[your.email&#64;company.com]</p>
+              </div>
+            </div>
+
+            <!-- Support -->
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg class="contact__info-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+              </div>
+              <div class="contact__info-content">
+                <h4 class="contact__info-label">Support</h4>
+                <p class="contact__info-value">24/7 Customer Support</p>
+              </div>
+            </div>
+
+            <!-- Response Time -->
+            <div class="contact__info-item">
+              <div class="contact__info-icon">
+                <svg class="contact__info-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div class="contact__info-content">
+                <h4 class="contact__info-label">Response Time</h4>
+                <p class="contact__info-value">Within 24 hours</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

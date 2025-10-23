@@ -1,0 +1,28 @@
+@import 'variables';
+@import 'mixins';
+
+.btn {
+  @include btn-base;
+
+  &--primary {
+    @include btn-primary;
+  }
+
+  &--secondary {
+    @include btn-secondary;
+  }
+
+  &--full {
+    @include btn-full;
+  }
+
+  &--small {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  &--large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+}

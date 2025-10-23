@@ -1,0 +1,227 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.contact {
+  @include section-padding;
+  background-color: $secondary-50;
+
+  &__container {
+    @include container;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__title {
+    @include heading-2;
+    color: $secondary-900;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__title-accent {
+    color: $primary-600;
+  }
+
+  &__description {
+    font-size: 1.125rem;
+    color: $secondary-600;
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+
+    @include desktop {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__form-wrapper {
+    // Container for form
+  }
+
+  &__form-container {
+    @include card;
+    padding: $spacing-2xl;
+  }
+
+  &__form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondary-900;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__field {
+    // Base field styles
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $secondary-700;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__input, &__textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $secondary-300;
+    border-radius: $radius-lg;
+    font-family: $font-sans;
+    transition: all $transition-normal;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    &::placeholder {
+      color: $secondary-400;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  &__submit {
+    width: 100%;
+    position: relative;
+
+    &--loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+  }
+
+  &__spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    animation: spin 1s linear infinite;
+  }
+
+  &__spinner-track {
+    opacity: 0.25;
+  }
+
+  &__spinner-path {
+    opacity: 0.75;
+  }
+
+  &__success {
+    margin-top: $spacing-lg;
+    padding: $spacing-md;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: $radius-lg;
+  }
+
+  &__success-content {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__success-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #16a34a;
+    flex-shrink: 0;
+  }
+
+  &__success-text {
+    color: #15803d;
+    font-size: 0.875rem;
+  }
+
+  &__info {
+    // Info section
+  }
+
+  &__info-container {
+    @include card;
+    padding: $spacing-2xl;
+  }
+
+  &__info-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondary-900;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__info-items {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-md;
+  }
+
+  &__info-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: $primary-100;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__info-svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: $primary-600;
+  }
+
+  &__info-content {
+    flex: 1;
+  }
+
+  &__info-label {
+    font-weight: 600;
+    color: $secondary-900;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__info-value {
+    color: $secondary-600;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
