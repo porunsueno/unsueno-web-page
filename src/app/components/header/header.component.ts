@@ -1,22 +1,25 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslationService, Language } from '../../services/translation.service';
+import {
+  TranslationService,
+  Language,
+} from '../../services/translation.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  isScrolled = false;
+  isScrolled = true;
   isMenuOpen = false;
 
   constructor(public translationService: TranslationService) {}
 
   ngOnInit() {
-    this.updateScrollState();
+    //this.updateScrollState();
   }
 
   t = () => this.translationService.translations();
@@ -28,11 +31,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.updateScrollState();
-  }
-
-  private updateScrollState() {
-    this.isScrolled = window.pageYOffset > 10;
+    //this.updateScrollState();
   }
 
   toggleMobileMenu() {
@@ -45,16 +44,14 @@ export class HeaderComponent implements OnInit {
 
   get headerClasses() {
     return `header ${
-      this.isScrolled 
-        ? 'header--scrolled' 
-        : 'header--transparent'
+      this.isScrolled ? 'header--scrolled' : 'header--transparent'
     }`;
   }
 
   get mobileMenuClasses() {
     return `header__mobile-menu-wrapper ${
-      this.isMenuOpen 
-        ? 'header__mobile-menu-wrapper--open' 
+      this.isMenuOpen
+        ? 'header__mobile-menu-wrapper--open'
         : 'header__mobile-menu-wrapper--closed'
     }`;
   }

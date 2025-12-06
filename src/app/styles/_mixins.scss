@@ -36,7 +36,7 @@
   cursor: pointer;
   transition: all $transition-normal;
   font-family: $font-sans;
-  
+
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -45,15 +45,16 @@
 
 @mixin btn-primary {
   @include btn-base;
-  background-color: $primary-600;
-  color: white;
-  
+  background-color: #fff;
+  color: $primary-500;
+
   &:hover:not(:disabled) {
     background-color: $primary-700;
     transform: translateY(-1px);
+    color: $accent-500;
     box-shadow: $shadow-lg;
   }
-  
+
   &:active {
     transform: translateY(0);
   }
@@ -61,13 +62,13 @@
 
 @mixin btn-secondary {
   @include btn-base;
-  background-color: $secondary-100;
-  color: $secondary-800;
+  background-color: $secondary-700;
+  color: $primary-500;
   border: 1px solid $secondary-300;
-  
+
   &:hover:not(:disabled) {
-    background-color: $secondary-200;
-    border-color: $secondary-400;
+    background-color: $secondary-600;
+    border-color: $secondary-500;
   }
 }
 
@@ -81,7 +82,7 @@
   border-radius: $radius-xl;
   box-shadow: $shadow-md;
   transition: all $transition-normal;
-  
+
   &:hover {
     box-shadow: $shadow-xl;
     transform: translateY(-2px);
@@ -93,7 +94,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $spacing-md;
-  
+
   @include mobile {
     padding: 0 $spacing-lg;
   }
@@ -101,7 +102,7 @@
 
 @mixin section-padding {
   padding: 4rem 0;
-  
+
   @include tablet {
     padding: 6rem 0;
   }
@@ -113,11 +114,11 @@
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
-  
+
   @include tablet {
     font-size: 3rem;
   }
-  
+
   @include desktop {
     font-size: 3.75rem;
   }
@@ -128,11 +129,11 @@
   font-size: 2rem;
   font-weight: 700;
   line-height: 1.3;
-  
+
   @include tablet {
     font-size: 2.5rem;
   }
-  
+
   @include desktop {
     font-size: 3rem;
   }
@@ -143,7 +144,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.4;
-  
+
   @include tablet {
     font-size: 1.875rem;
   }

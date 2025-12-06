@@ -1,9 +1,10 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .about {
   @include section-padding;
-  background-color: $secondary-50;
+  //background-color: $secondary-500;
+  inset: 0;
 
   &__container {
     @include container;
@@ -30,17 +31,17 @@
 
   &__title {
     @include heading-2;
-    color: $secondary-900;
+    color: $primary-500;
     margin-bottom: $spacing-lg;
   }
 
   &__title-accent {
-    color: $primary-600;
+    color: $accent-500;
   }
 
   &__description {
     font-size: 1.125rem;
-    color: $secondary-600;
+    color: black;
     margin-bottom: $spacing-lg;
     line-height: 1.7;
   }
@@ -65,7 +66,7 @@
   &__feature-icon {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: $primary-600;
+    background-color: $danger-500;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -86,7 +87,7 @@
 
   &__feature-title {
     font-weight: 600;
-    color: $secondary-900;
+    color: $accent-500;
     margin-bottom: $spacing-xs;
   }
 
@@ -114,7 +115,7 @@
   &__image-background {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, $primary-600, $accent-600);
+    background: linear-gradient(135deg, $danger-500, $accent-600);
     border-radius: $radius-2xl;
     transform: rotate(3deg);
   }
@@ -145,7 +146,7 @@
   &__badge-number {
     font-size: 1.5rem;
     font-weight: 700;
-    color: $primary-600;
+    color: $danger-500;
     margin-bottom: $spacing-xs;
   }
 

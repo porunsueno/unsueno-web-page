@@ -12,20 +12,24 @@
 
       <!-- Desktop Navigation -->
       <div class="header__nav-desktop">
-        <a href="#home" class="header__nav-link">{{ t().header.navigation.home }}</a>
-        <a href="#about" class="header__nav-link">{{ t().header.navigation.about }}</a>
-        <a href="#services" class="header__nav-link">{{ t().header.navigation.services }}</a>
-        <a href="#portfolio" class="header__nav-link">{{ t().header.navigation.portfolio }}</a>
-        <a href="#testimonials" class="header__nav-link">{{ t().header.navigation.testimonials }}</a>
-        <a href="#contact" class="header__nav-link">{{ t().header.navigation.contact }}</a>
-      </div>
-
-      <!-- Language Selector -->
-      <div class="header__language">
-        <select (change)="onLanguageChange($event)" [value]="translationService.getCurrentLanguage()" class="header__language-select">
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-        </select>
+        <a href="#home" class="header__nav-link">{{
+          t().header.navigation.home
+        }}</a>
+        <a href="#about" class="header__nav-link">{{
+          t().header.navigation.about
+        }}</a>
+        <a href="#services" class="header__nav-link">{{
+          t().header.navigation.services
+        }}</a>
+        <a href="#portfolio" class="header__nav-link">{{
+          t().header.navigation.portfolio
+        }}</a>
+        <a href="#testimonials" class="header__nav-link">{{
+          t().header.navigation.testimonials
+        }}</a>
+        <a href="#contact" class="header__nav-link">{{
+          t().header.navigation.contact
+        }}</a>
       </div>
 
       <!-- CTA Button -->
@@ -38,10 +42,20 @@
       <!-- Mobile Menu Button -->
       <div class="header__mobile-toggle">
         <button (click)="toggleMobileMenu()" class="header__menu-btn">
-          <svg class="header__menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  [attr.d]="isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'">
-            </path>
+          <svg
+            class="header__menu-icon"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              [attr.d]="
+                isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'
+              "
+            ></path>
           </svg>
         </button>
       </div>
@@ -50,14 +64,48 @@
     <!-- Mobile Navigation -->
     <div [class]="mobileMenuClasses">
       <div class="header__mobile-menu">
-        <a href="#home" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.home }}</a>
-        <a href="#about" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.about }}</a>
-        <a href="#services" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.services }}</a>
-        <a href="#portfolio" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.portfolio }}</a>
-        <a href="#testimonials" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.testimonials }}</a>
-        <a href="#contact" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.contact }}</a>
+        <a
+          href="#home"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.home }}</a
+        >
+        <a
+          href="#about"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.about }}</a
+        >
+        <a
+          href="#services"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.services }}</a
+        >
+        <a
+          href="#portfolio"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.portfolio }}</a
+        >
+        <a
+          href="#testimonials"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.testimonials }}</a
+        >
+        <a
+          href="#contact"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >{{ t().header.navigation.contact }}</a
+        >
         <div class="header__mobile-cta">
-          <a href="#contact" (click)="closeMobileMenu()" class="btn btn--primary btn--full">
+          <a
+            href="#contact"
+            (click)="closeMobileMenu()"
+            class="btn btn--primary btn--full"
+          >
             {{ t().header.cta }}
           </a>
         </div>

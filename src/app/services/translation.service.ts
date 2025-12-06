@@ -483,7 +483,7 @@ const translations: Record<Language, Translations> = {
   },
   es: {
     header: {
-      companyName: '[Nombre de tu empresa]',
+      companyName: 'Corramos por un sueño',
       navigation: {
         home: 'Inicio',
         about: 'Acerca de',
@@ -502,7 +502,7 @@ const translations: Record<Language, Translations> = {
       },
       subtitle: '',
       cta: {
-        primary: '[Acción Primaria]',
+        primary: '¡Quiero inscribirme!',
         secondary: '[Acción Secundaria]',
       },
       stats: {
@@ -514,13 +514,12 @@ const translations: Record<Language, Translations> = {
     },
     about: {
       title: {
-        main: '[Título Sección Acerca de]',
-        highlight: '[Destacado]',
+        main: '¿Por qué es especial?',
+        highlight: '',
       },
       description1:
-        '[La misión y visión de tu empresa va aquí. Describe lo que hace tu empresa, qué valores impulsan tu trabajo y qué te hace diferente de la competencia. Aquí es donde cuentas tu historia y generas confianza con clientes potenciales.]',
-      description2:
-        '[Información adicional sobre tu empresa, equipo o enfoque. Puedes mencionar tu audiencia objetivo, años de experiencia o cualquier metodología única que uses.]',
+        '“Corramos por un sueño” es más que una carrera: es un encuentro donde el deporte, la solidaridad y la educación se unen para transformar vidas. Cada paso apoya la formación de niños y jóvenes, fortalece a sus familias y hace posible la construcción de nuevos espacios de aprendizaje, en medio de paisajes increíbles y una causa que convierte sueños en realidades.',
+      description2: '',
       features: {
         feature1: {
           title: '[Título Característica 1]',

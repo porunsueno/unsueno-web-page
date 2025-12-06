@@ -14,24 +14,25 @@
   &__background {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      135deg,
-      $primary-600,
-      $primary-700,
-      $accent-600
-    );
+    z-index: -2;
+
+    background-image: url("/hero-section-background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    filter: grayscale(100%);
+    transform: scale(1.02);
   }
 
   &__pattern {
     position: absolute;
     inset: 0;
-    opacity: 0.1;
-    background-image: radial-gradient(
-      circle at 25% 25%,
-      $primary-50 2px,
-      transparent 2px
-    );
-    background-size: 60px 60px;
+    z-index: -1;
+
+    background: linear-gradient(135deg, $primary-600, $primary-700);
+
+    opacity: 0.5;
   }
 
   &__container {
@@ -60,7 +61,7 @@
   }
 
   &__title-accent {
-    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    background: $accent-500;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -97,6 +98,7 @@
 
   &__countdown-item {
     background: rgba(255, 255, 255, 0.15);
+    background-color: $primary-500;
     border-radius: 0.75rem;
     padding: $spacing-sm;
     backdrop-filter: blur(8px);
@@ -265,5 +267,42 @@
     &__countdown-label {
       font-size: 1rem;
     }
+  }
+
+  &__discover {
+    margin-top: $spacing-3xl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+    text-decoration: none;
+    cursor: pointer;
+    animation: fade-in 1.2s ease both;
+
+    &:hover .hero__discover-text {
+      color: $accent-500;
+      transform: translateY(-3px);
+    }
+
+    &:hover .hero__discover-icon {
+      color: $accent-500;
+      transform: translateY(3px);
+    }
+  }
+
+  &__discover-text {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  &__discover-icon {
+    width: 28px;
+    height: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: bounce 2.2s infinite;
+    transition: all 0.3s ease;
   }
 }

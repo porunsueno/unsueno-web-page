@@ -5,7 +5,7 @@ import { TranslationService } from '../../services/translation.service';
   selector: 'app-about',
   standalone: true,
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
 })
 export class AboutComponent {
   constructor(public translationService: TranslationService) {}
