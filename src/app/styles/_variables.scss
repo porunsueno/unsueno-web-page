@@ -1,62 +1,65 @@
 // ===============================
-// Colors
+// Colors (Actualizado con tu nueva paleta)
 // ===============================
 
-// Verde militar (primary)
-$primary-50: #f3f6ef;
-$primary-100: #e6ecd9;
-$primary-200: #d0dcb8;
-$primary-300: #b8c791;
-$primary-400: #9bad68;
-$primary-500: #5a6f42; // Color base
-$primary-600: #4c5e38;
-$primary-700: #3d4b2e;
-$primary-800: #2e3923;
-$primary-900: #21281a;
+// Primario — Verde oscuro
+$primary-50: #e6f1ed;
+$primary-100: #cce3db;
+$primary-200: #99c7b6;
+$primary-300: #66ab92;
+$primary-400: #338f6d;
+$primary-500: #1e3c28; // Color base (desde la paleta)
+$primary-600: #193222;
+$primary-700: #14281b;
+$primary-800: #0f1e15;
+$primary-900: #0a211d; // Verde casi negro (segunda base)
 
-// Amarillo (accent)
-$accent-50: #fffde8;
-$accent-100: #fffbc2;
-$accent-200: #fff68f;
-$accent-300: #fff15c;
-$accent-400: #ffe927;
+// Accent — Amarillo vibrante
+$accent-50: #fffdea;
+$accent-100: #fff9c2;
+$accent-200: #fff48c;
+$accent-300: #ffef4f;
+$accent-400: #ffe916;
 $accent-500: #eedf00; // Color base
 $accent-600: #c7b900;
-$accent-700: #9d9200;
-$accent-800: #746c00;
-$accent-900: #4d4700;
+$accent-700: #9e9300;
+$accent-800: #756e00;
+$accent-900: #4d4800;
 
-// Beige (secondary)
-$secondary-50: #fefaf4;
-$secondary-100: #fcf3e4;
-$secondary-200: #f9e8cc;
-$secondary-300: #f5ddb3;
-$secondary-400: #f0d399;
-$secondary-500: #f5e5c3; // Color base
-$secondary-600: #d6c5a5;
-$secondary-700: #b7a688;
-$secondary-800: #98876b;
-$secondary-900: #7a6a51;
+// Secondary — Verde pálido / Aqua suave
+$secondary-50: #f8fcfb;
+$secondary-100: #f0f8f7;
+$secondary-200: #d6eae1; // Color base de la paleta
+$secondary-300: #b9d3c9;
+$secondary-400: #9cbbb0;
+$secondary-500: #80a398;
+$secondary-600: #69897f;
+$secondary-700: #526f66;
+$secondary-800: #3b554d;
+$secondary-900: #243b34;
 
-// Rojo (danger)
-$danger-50: #fcebea;
-$danger-100: #f8ccc8;
-$danger-200: #f39b92;
-$danger-300: #ed6a5b;
-$danger-400: #e74232;
-$danger-500: #d43d2a; // Color base
-$danger-600: #b73522;
-$danger-700: #982d1c;
-$danger-800: #7a2416;
-$danger-900: #5f1d11;
+// Danger — Rojo (nuevo)
+$danger-50: #ffe8ed;
+$danger-100: #ffbfcd;
+$danger-200: #ff8aa5;
+$danger-300: #ff547c;
+$danger-400: #f91f57;
+$danger-500: #f70e3c; // Color base (paleta)
+$danger-600: #d20c34;
+$danger-700: #ac0a2b;
+$danger-800: #860822;
+$danger-900: #600619;
 
-// Otros estados
+// Warning — Naranja / Dorado
+$warning-500: #c89200; // Color base de paleta
+
+// Success — se mantiene
 $success-500: #10b981;
-$warning-500: #f59e0b;
-$error-500: #ef4444;
 
 // ===============================
 // Typography
+// ===============================
+
 $font-sans: "Inter", system-ui, sans-serif;
 $font-display: "Poppins", "Inter", system-ui, sans-serif;
 

@@ -497,8 +497,8 @@ const translations: Record<Language, Translations> = {
     hero: {
       title: {
         main: '',
-        highlight: 'La Union, 2 Febrero',
-        rest: '2026',
+        highlight: '01-feb-2026',
+        rest: 'La Unión ANT.',
       },
       subtitle: '',
       cta: {
@@ -522,23 +522,23 @@ const translations: Record<Language, Translations> = {
       description2: '',
       features: {
         feature1: {
-          title: '[Título Característica 1]',
-          text: '[Descripción de tu primera característica clave o ventaja]',
+          title: 'Educación que transforma vidas',
+          text: 'Cada inscripción apoya directamente la formación de niños y jóvenes',
         },
         feature2: {
-          title: '[Título Característica 2]',
-          text: '[Descripción de tu segunda característica clave o ventaja]',
+          title: 'Deporte con propósito',
+          text: 'No es solo correr: es unir el espíritu deportivo con una causa social',
         },
         feature3: {
-          title: '[Título Característica 3]',
-          text: '[Descripción de tu tercera característica clave o ventaja]',
+          title: 'Impacto en las familias',
+          text: 'El proyecto fortalece no solo a los niños, sino también a sus familias, generando bienestar, acompañamiento y nuevas oportunidades.',
         },
         feature4: {
-          title: '[Título Característica 4]',
-          text: '[Descripción de tu cuarta característica clave o ventaja]',
+          title: 'Paisajes que inspiran',
+          text: 'La carrera se vive en medio de escenarios naturales increíbles, donde mente, cuerpo y corazón avanzan juntos por un sueño.',
         },
       },
-      cta: '[CTA Sección Acerca de]',
+      cta: 'Inscríbete solo por $140.000',
       badge: { number: '[Número]', text: '[Métrica]' },
       imageAlt: '[Descripción de imagen de tu empresa]',
     },
@@ -752,7 +752,7 @@ const translations: Record<Language, Translations> = {
   providedIn: 'root',
 })
 export class TranslationService {
-  private currentLanguage = signal<Language>('en');
+  private currentLanguage = signal<Language>('es');
 
   constructor() {
     // Load saved language from localStorage
