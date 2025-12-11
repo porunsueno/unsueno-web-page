@@ -1,82 +1,42 @@
-<section id="home" class="hero">
+<section id="home" class="what-includes">
   <!-- Background Elements -->
-  <div class="hero__background"></div>
-  <div class="hero__pattern"></div>
+  <div class="what-includes__background"></div>
+  <div class="what-includes__pattern"></div>
 
-  <div class="hero__container">
-    <div class="hero__content">
-      <h1 class="hero__title">
-        {{ t().hero.title.main }}
-        <span class="hero__title-accent">
-          {{ t().hero.title.highlight }}
-        </span>
-        {{ t().hero.title.rest }}
+  <div class="what-includes__container">
+    <div class="what-includes__content">
+      <h1 class="what-includes__title">
+        {{ t().whatIncludes.title }}
       </h1>
+      <div class="what-includes__cards">
+        <div class="what-includes__card">
+          <h3 class="what-includes__card-title">Medalla Finisher</h3>
+          <p class="what-includes__card-text">
+            Una medalla exclusiva que celebra tu esfuerzo y dedicación.
+          </p>
+        </div>
 
-      <p class="hero__subtitle">
-        {{ t().hero.subtitle }}
-      </p>
+        <div class="what-includes__card">
+          <h3 class="what-includes__card-title">Kit del Corredor</h3>
+          <p class="what-includes__card-text">
+            Camiseta, número, souvenirs y más sorpresas especiales.
+          </p>
+        </div>
 
-      <div class="hero__countdown">
-        <div class="hero__countdown-item">
-          <span class="hero__countdown-number">{{ days }}</span>
-          <span class="hero__countdown-label">Días</span>
+        <div class="what-includes__card">
+          <h3 class="what-includes__card-title">Hidratación</h3>
+          <p class="what-includes__card-text">
+            Puntos de hidratación durante la ruta y en meta.
+          </p>
         </div>
-        <div class="hero__countdown-item">
-          <span class="hero__countdown-number">{{ hours }}</span>
-          <span class="hero__countdown-label">Horas</span>
-        </div>
-        <div class="hero__countdown-item">
-          <span class="hero__countdown-number">{{ minutes }}</span>
-          <span class="hero__countdown-label">Min</span>
-        </div>
-        <div class="hero__countdown-item">
-          <span class="hero__countdown-number">{{ seconds }}</span>
-          <span class="hero__countdown-label">Seg</span>
+
+        <div class="what-includes__card">
+          <h3 class="what-includes__card-title">Acompañamiento</h3>
+          <p class="what-includes__card-text">
+            Logística, guías y seguridad durante todo el recorrido.
+          </p>
         </div>
       </div>
-
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary hero__cta-primary">
-          {{ t().hero.cta.primary }}
-        </a>
-      </div>
-      <a href="#about" class="hero__discover">
-        <span class="hero__discover-text">Inscripciones 2026</span>
-
-        <svg
-          class="hero__discover-icon"
-          width="35"
-          height="35"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
-      </a>
     </div>
-  </div>
-
-  <!-- Scroll Indicator -->
-  <div class="hero__scroll">
-    <a href="#about" class="hero__scroll-link">
-      <svg
-        class="hero__scroll-icon"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"
-        ></path>
-      </svg>
-    </a>
   </div>
 </section>

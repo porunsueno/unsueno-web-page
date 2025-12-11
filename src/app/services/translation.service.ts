@@ -59,21 +59,8 @@ export interface Translations {
     imageAlt: string;
   };
 
-  // Services
-  services: {
-    title: {
-      main: string;
-      highlight: string;
-    };
-    description: string;
-    ctaText: string;
-    ctaButton: string;
-    serviceList: {
-      service1: { title: string; description: string; features: string[] };
-      service2: { title: string; description: string; features: string[] };
-      service3: { title: string; description: string; features: string[] };
-      service4: { title: string; description: string; features: string[] };
-    };
+  whatIncludes: {
+    title: string;
   };
 
   // Portfolio
@@ -277,62 +264,8 @@ const translations: Record<Language, Translations> = {
       badge: { number: '[Number]', text: '[Metric]' },
       imageAlt: '[Your company image description]',
     },
-    services: {
-      title: {
-        main: '[Your Services Section Title]',
-        highlight: '[Highlight]',
-      },
-      description:
-        '[Description of your services goes here. Explain what you offer, how it benefits your customers, and what makes your services unique. This helps visitors understand your value proposition.]',
-      ctaText:
-        '[Additional call-to-action text. Encourage visitors to take the next step or contact you for more information.]',
-      ctaButton: '[Services CTA Button]',
-      serviceList: {
-        service1: {
-          title: '[Service 1 Title]',
-          description:
-            '[Description of your first service. Explain what it includes and how it benefits your customers.]',
-          features: [
-            '[Feature 1]',
-            '[Feature 2]',
-            '[Feature 3]',
-            '[Feature 4]',
-          ],
-        },
-        service2: {
-          title: '[Service 2 Title]',
-          description:
-            '[Description of your second service. Explain what it includes and how it benefits your customers.]',
-          features: [
-            '[Feature 1]',
-            '[Feature 2]',
-            '[Feature 3]',
-            '[Feature 4]',
-          ],
-        },
-        service3: {
-          title: '[Service 3 Title]',
-          description:
-            '[Description of your third service. Explain what it includes and how it benefits your customers.]',
-          features: [
-            '[Feature 1]',
-            '[Feature 2]',
-            '[Feature 3]',
-            '[Feature 4]',
-          ],
-        },
-        service4: {
-          title: '[Service 4 Title]',
-          description:
-            '[Description of your fourth service. Explain what it includes and how it benefits your customers.]',
-          features: [
-            '[Feature 1]',
-            '[Feature 2]',
-            '[Feature 3]',
-            '[Feature 4]',
-          ],
-        },
-      },
+    whatIncludes: {
+      title: '',
     },
     portfolio: {
       title: {
@@ -542,62 +475,8 @@ const translations: Record<Language, Translations> = {
       badge: { number: '[Número]', text: '[Métrica]' },
       imageAlt: '[Descripción de imagen de tu empresa]',
     },
-    services: {
-      title: {
-        main: '[Título Sección de Servicios]',
-        highlight: '[Destacado]',
-      },
-      description:
-        '[La descripción de tus servicios va aquí. Explica qué ofreces, cómo beneficia a tus clientes y qué hace únicos tus servicios. Esto ayuda a los visitantes a entender tu propuesta de valor.]',
-      ctaText:
-        '[Texto adicional de llamada a la acción. Anima a los visitantes a dar el siguiente paso o contactarte para más información.]',
-      ctaButton: '[Botón CTA Servicios]',
-      serviceList: {
-        service1: {
-          title: '[Título Servicio 1]',
-          description:
-            '[Descripción de tu primer servicio. Explica qué incluye y cómo beneficia a tus clientes.]',
-          features: [
-            '[Característica 1]',
-            '[Característica 2]',
-            '[Característica 3]',
-            '[Característica 4]',
-          ],
-        },
-        service2: {
-          title: '[Título Servicio 2]',
-          description:
-            '[Descripción de tu segundo servicio. Explica qué incluye y cómo beneficia a tus clientes.]',
-          features: [
-            '[Característica 1]',
-            '[Característica 2]',
-            '[Característica 3]',
-            '[Característica 4]',
-          ],
-        },
-        service3: {
-          title: '[Título Servicio 3]',
-          description:
-            '[Descripción de tu tercer servicio. Explica qué incluye y cómo beneficia a tus clientes.]',
-          features: [
-            '[Característica 1]',
-            '[Característica 2]',
-            '[Característica 3]',
-            '[Característica 4]',
-          ],
-        },
-        service4: {
-          title: '[Título Servicio 4]',
-          description:
-            '[Descripción de tu cuarto servicio. Explica qué incluye y cómo beneficia a tus clientes.]',
-          features: [
-            '[Característica 1]',
-            '[Característica 2]',
-            '[Característica 3]',
-            '[Característica 4]',
-          ],
-        },
-      },
+    whatIncludes: {
+      title: 'Qué incluye',
     },
     portfolio: {
       title: {
