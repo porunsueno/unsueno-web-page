@@ -10,7 +10,7 @@ export interface Translations {
       home: string;
       about: string;
       services: string;
-      portfolio: string;
+      categories: string;
       testimonials: string;
       contact: string;
     };
@@ -63,8 +63,8 @@ export interface Translations {
     title: string;
   };
 
-  // Portfolio
-  portfolio: {
+  // categories
+  categories: {
     title: {
       main: string;
       highlight: string;
@@ -208,7 +208,7 @@ const translations: Record<Language, Translations> = {
         home: 'Home',
         about: 'About',
         services: 'Services',
-        portfolio: 'Portfolio',
+        categories: 'categories',
         testimonials: 'Testimonials',
         contact: 'Contact',
       },
@@ -267,9 +267,9 @@ const translations: Record<Language, Translations> = {
     whatIncludes: {
       title: '',
     },
-    portfolio: {
+    categories: {
       title: {
-        main: '[Portfolio Section Title]',
+        main: '[categories Section Title]',
         highlight: '[Highlight]',
       },
       description:
@@ -421,7 +421,7 @@ const translations: Record<Language, Translations> = {
         home: 'Inicio',
         about: 'Acerca de',
         services: 'Servicios',
-        portfolio: 'Portafolio',
+        categories: 'Portafolio',
         testimonials: 'Testimonios',
         contact: 'Contacto',
       },
@@ -478,7 +478,7 @@ const translations: Record<Language, Translations> = {
     whatIncludes: {
       title: 'Qué incluye',
     },
-    portfolio: {
+    categories: {
       title: {
         main: '[Título Sección Portafolio]',
         highlight: '[Destacado]',

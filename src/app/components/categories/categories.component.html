@@ -1,0 +1,35 @@
+<section id="categories" class="categories">
+  <div class="categories__container">
+    <div class="categories__header">
+      <h2 class="categories__title">Distancias</h2>
+      <p class="categories__description">
+        Distancias para todos: desde principiantes hasta corredores
+        experimentados.
+      </p>
+    </div>
+
+    <div class="categories__grid">
+      @for (d of distances; track $index) {
+      <div
+        class="categories__card"
+        [ngClass]="'categories__card--' + d.title.toLowerCase()"
+      >
+        <div class="categories__content">
+          <h3 class="categories__card-title">{{ d.title }}</h3>
+          <p class="categories__card-description">{{ d.description }}</p>
+
+          <div class="categories__stats">
+            <span class="categories__stat">{{ d.category }}</span>
+            <span class="categories__stat-divider">•</span>
+            <span class="categories__stat">Pages</span>
+            <span class="categories__stat-divider">•</span>
+            <span class="categories__stat categories__stat--price">
+              ${{ d.price }}
+            </span>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
