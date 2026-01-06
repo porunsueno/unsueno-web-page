@@ -9,33 +9,21 @@
         {{ t().whatIncludes.title }}
       </h1>
       <div class="what-includes__cards">
+        @for (item of items; track $index) {
         <div class="what-includes__card">
-          <h3 class="what-includes__card-title">Medalla Finisher</h3>
-          <p class="what-includes__card-text">
-            Una medalla exclusiva que celebra tu esfuerzo y dedicación.
-          </p>
-        </div>
+          <h3 class="what-includes__card-title">
+            {{ item.title }}
+          </h3>
 
-        <div class="what-includes__card">
-          <h3 class="what-includes__card-title">Kit del Corredor</h3>
+          <div
+            class="what-includes__icon"
+            [style.--icon-url]="'url(' + item.icon + ')'"
+          ></div>
           <p class="what-includes__card-text">
-            Camiseta, número, souvenirs y más sorpresas especiales.
+            {{ item.detail }}
           </p>
         </div>
-
-        <div class="what-includes__card">
-          <h3 class="what-includes__card-title">Hidratación</h3>
-          <p class="what-includes__card-text">
-            Puntos de hidratación durante la ruta y en meta.
-          </p>
-        </div>
-
-        <div class="what-includes__card">
-          <h3 class="what-includes__card-title">Acompañamiento</h3>
-          <p class="what-includes__card-text">
-            Logística, guías y seguridad durante todo el recorrido.
-          </p>
-        </div>
+        }
       </div>
     </div>
   </div>

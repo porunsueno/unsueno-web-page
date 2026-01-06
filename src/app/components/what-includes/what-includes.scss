@@ -134,3 +134,20 @@
     }
   }
 }
+
+.what-includes__icon {
+  background-color: #fff; /* 🎨 color que quieras */
+
+  mask: url("/what-includes-section/01-kit-solidario-de-patrocinadores.svg")
+    no-repeat center / contain;
+  -webkit-mask: url("/what-includes-section/01-kit-solidario-de-patrocinadores.svg")
+    no-repeat center / contain;
+}
+
+.what-includes__icon {
+  width: 15rem;
+  height: 15rem;
+
+  mask: var(--icon-url) no-repeat center / contain;
+  -webkit-mask: var(--icon-url) no-repeat center / contain;
+}

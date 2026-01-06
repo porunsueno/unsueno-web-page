@@ -12,46 +12,53 @@ export class WhatIncludesComponent {
 
   t = () => this.translationService.translations();
 
-  targetDate = new Date('2026-01-31T23:59:59');
-
-  days = 0;
-  hours = 0;
-  minutes = 0;
-  seconds = 0;
+  items = [
+    {
+      title: 'Kit solidario de patrocinadores',
+      icon: '/what-includes-section/01-kit-solidario-de-patrocinadores.svg',
+      detail: 'Obsequios de marcas aliadas.',
+    },
+    {
+      title: 'Camiseta exclusiva del evento',
+      icon: '/what-includes-section/02-camiseta.svg',
+      detail: 'Diseño oficial conmemorativo.',
+    },
+    {
+      title: 'Numeración',
+      icon: '/what-includes-section/03-numeracion.svg',
+      detail: 'Identificación para la carrera.',
+    },
+    {
+      title: 'Medalla de participación',
+      icon: '/what-includes-section/04-medalla.svg',
+      detail: 'Reconocimiento al finalizar.',
+    },
+    {
+      title: 'Hidratación',
+      icon: '/what-includes-section/05-hidratacion.svg',
+      detail: 'Puntos de agua en el recorrido.',
+    },
+    {
+      title: 'Póliza',
+      icon: '/what-includes-section/06-poliza.svg',
+      detail: 'Seguro durante el evento.',
+    },
+    {
+      title: 'Primeros auxilios',
+      icon: '/what-includes-section/07-Primeros-auxilios.svg',
+      detail: 'Asistencia médica disponible.',
+    },
+    {
+      title: 'Vías cerradas',
+      icon: '/what-includes-section/08-vias-cerradas.svg',
+      detail: 'Recorrido seguro y controlado.',
+    },
+    {
+      title: 'Un espacio para compartir',
+      icon: '/what-includes-section/09-El-mejor-lugar-para-compartir-y-construir-futuro.svg',
+      detail: 'Encuentro, comunidad y propósito.',
+    },
+  ];
 
   private intervalId?: ReturnType<typeof setInterval>;
-
-  ngOnInit(): void {
-    this.startCountdown();
-  }
-
-  ngOnDestroy(): void {
-    if (this.intervalId) clearInterval(this.intervalId);
-  }
-
-  private startCountdown(): void {
-    this.updateCountdown();
-
-    this.intervalId = setInterval(() => {
-      this.updateCountdown();
-    }, 1000);
-  }
-
-  private updateCountdown(): void {
-    const now = new Date().getTime();
-    const distance = this.targetDate.getTime() - now;
-
-    if (distance <= 0) {
-      this.days = this.hours = this.minutes = this.seconds = 0;
-      if (this.intervalId) clearInterval(this.intervalId);
-      return;
-    }
-
-    this.days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    this.hours = Math.floor(
-      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    this.minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    this.seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  }
 }

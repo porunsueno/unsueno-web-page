@@ -126,7 +126,6 @@ export interface Translations {
       download: string;
     };
   };
-
   // Testimonials
   testimonials: {
     title: {
@@ -197,6 +196,25 @@ export interface Translations {
       button: string;
     };
     copyright: string;
+  };
+  registrationSteps: {
+    title: string;
+    steps: {
+      primary: {
+        title: string;
+        subtitle: string;
+        price: string;
+        detail: string;
+      };
+      secondary: {
+        title: string;
+        subtitle: string;
+        price: string;
+        detail: string;
+      };
+    };
+    subtitle: string;
+    detail: string;
   };
 }
 
@@ -335,6 +353,26 @@ const translations: Record<Language, Translations> = {
         livePreview: 'Live Preview',
         download: 'Download',
       },
+    },
+    registrationSteps: {
+      title: 'Etapas de inscripción',
+      steps: {
+        primary: {
+          title: 'Primaria',
+          subtitle: 'Precio especial de lanzamiento',
+          price: '130.000',
+          detail: 'Tarifa vigente hasta el 31 de enero del 2026',
+        },
+        secondary: {
+          title: 'Secundaria',
+          subtitle: 'Precio full',
+          price: '150.000',
+          detail: 'Tarifa vigente desde el 01 de febrero del 2026 hasta el ...',
+        },
+      },
+      subtitle: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+      detail:
+        'Similique eligendi reiciendis dolorum deserunt dolores consequatur placeat inventore voluptates, perspiciatis quidem obcaecati, quaerat, saepe nobis culpa eius dolorem beatae animi. Possimus?',
     },
     testimonials: {
       title: {
@@ -477,6 +515,26 @@ const translations: Record<Language, Translations> = {
     },
     whatIncludes: {
       title: 'Qué incluye',
+    },
+    registrationSteps: {
+      title: 'Etapas de inscripción',
+      steps: {
+        primary: {
+          title: 'Primaria',
+          subtitle: 'Precio especial de lanzamiento',
+          price: '130.000',
+          detail: 'Tarifa vigente hasta el 31 de enero del 2026',
+        },
+        secondary: {
+          title: 'Secundaria',
+          subtitle: 'Precio full',
+          price: '150.000',
+          detail: 'Tarifa vigente desde el 01 de febrero del 2026 hasta el ...',
+        },
+      },
+      subtitle: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+      detail:
+        'Similique eligendi reiciendis dolorum deserunt dolores consequatur placeat inventore voluptates, perspiciatis quidem obcaecati, quaerat, saepe nobis culpa eius dolorem beatae animi. Possimus?',
     },
     categories: {
       title: {

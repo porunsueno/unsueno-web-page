@@ -1,0 +1,41 @@
+<section id="home" class="registrationSteps">
+  <!-- Background Elements -->
+  <div class="registrationSteps__background"></div>
+  <div class="registrationSteps__pattern"></div>
+
+  <div class="registrationSteps__container">
+    <div class="registrationSteps__content">
+      <h1 class="registrationSteps__title">
+        <span class="registrationSteps__title-accent">
+          {{ t().registrationSteps.title }}
+        </span>
+      </h1>
+
+      <div class="steps__grid">
+        @for (d of distances; track $index) {
+        <div class="steps__card">
+          <div
+            [ngClass]="'steps__card-header--' + d.type.toLowerCase()"
+            class="steps__card-header"
+          >
+            <span class="steps__card-title">{{ d.title }}</span>
+            <br />
+            <span class="steps__card-subtitle">{{ d.subtitle }}</span>
+          </div>
+
+          <div class="steps__content">
+            <p class="steps__card-description">{{ d.price }}</p>
+
+            <div class="steps__stats">
+              <span class="steps__stat">{{ d.detail }}</span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      <p class="registrationSteps__subtitle">
+        {{ t().registrationSteps.subtitle }}
+      </p>
+    </div>
+  </div>
+</section>
