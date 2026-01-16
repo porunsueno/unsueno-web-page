@@ -18,15 +18,12 @@
         <a href="#about" class="header__nav-link">{{
           t().header.navigation.about
         }}</a>
-        <a href="#services" class="header__nav-link">{{
-          t().header.navigation.services
-        }}</a>
-        <a href="#categories" class="header__nav-link">{{
-          t().header.navigation.categories
-        }}</a>
-        <a href="#testimonials" class="header__nav-link">{{
-          t().header.navigation.testimonials
-        }}</a>
+        <a href="#categories" class="header__nav-link"> Distancias </a>
+        <a href="#registration-steps" class="header__nav-link"
+          >Etapas de inscripción</a
+        >
+
+        <a href="#what-includes" class="header__nav-link">Kit</a>
         <a href="#contact" class="header__nav-link">{{
           t().header.navigation.contact
         }}</a>
@@ -83,22 +80,22 @@
           >{{ t().header.navigation.about }}</a
         >
         <a
-          href="#services"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >{{ t().header.navigation.services }}</a
-        >
-        <a
           href="#categories"
           (click)="closeMobileMenu()"
           class="header__mobile-link"
-          >{{ t().header.navigation.categories }}</a
+          >Distancias</a
         >
         <a
-          href="#testimonials"
+          href="#registration-steps"
           (click)="closeMobileMenu()"
           class="header__mobile-link"
-          >{{ t().header.navigation.testimonials }}</a
+          >Etapas de inscripción</a
+        >
+        <a
+          href="#what-includes"
+          (click)="closeMobileMenu()"
+          class="header__mobile-link"
+          >Kit</a
         >
         <a
           href="#contact"
