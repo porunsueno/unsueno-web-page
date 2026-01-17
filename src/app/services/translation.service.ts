@@ -459,7 +459,7 @@ const translations: Record<Language, Translations> = {
         home: 'Inicio',
         about: 'Acerca de',
         services: 'Servicios',
-        categories: 'Portafolio',
+        categories: 'Categorias',
         testimonials: 'Testimonios',
         contact: 'Contacto',
       },

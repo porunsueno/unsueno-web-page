@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutComponent } from './components/about/about.component';
-import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WhatIncludesComponent } from './components/what-includes/what-includes.component';
@@ -15,7 +14,6 @@ import { RegistrationStepsComponent } from './components/registration-steps/regi
     HeaderComponent,
     HeroComponent,
     AboutComponent,
-    TestimonialsComponent,
     ContactComponent,
     FooterComponent,
     WhatIncludesComponent,
