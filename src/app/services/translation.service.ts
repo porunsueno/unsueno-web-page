@@ -158,14 +158,22 @@ export interface Translations {
   // Contact
   contact: {
     title: {
-      main: string;
-      highlight: string;
+      main: string
     };
     description: string;
     form: {
       title: string;
-      name: string;
-      email: string;
+      nameHeader: string;
+      namePlaceholder: string;
+      surnameHeader: string;
+      surnamePlaceholder: string;
+      documentTypeHeader: string,
+      documentTypePlaceholder: string,
+      documentTypes: {id: number, label: string}[];
+      emailHeader: string;
+      emailPlaceholder: string;
+      phoneNumberHeader: string;
+      phoneNumberPlaceholder: string;
       subject: string;
       subjectPlaceholder: string;
       message: string;
@@ -404,15 +412,29 @@ const translations: Record<Language, Translations> = {
     },
     contact: {
       title: {
-        main: '[Contact Section Title]',
-        highlight: '[Highlight]',
+        main: 'Registrations',
       },
       description:
         '[Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you, and include any incentives like free consultations or estimates.]',
       form: {
-        title: 'Send us a message',
-        name: 'Full Name *',
-        email: 'Email Address *',
+        title: 'Sign up here',
+        nameHeader: 'Name',
+        namePlaceholder: 'Enter your name',
+        surnameHeader: 'Surname',
+        surnamePlaceholder: 'Enter your surname',
+        documentTypeHeader: 'Document Type',
+        documentTypePlaceholder: 'Choose a document type',
+        documentTypes: [
+          {id: 1, label: 'Government Identification'},
+          {id: 2, label: 'Foreigners Identity Card'},
+          {id: 3, label: 'Identity card'},
+          {id: 4, label: 'Civil Registry or NUIP'},
+          {id: 5, label: 'Passport'}
+        ],
+        emailHeader: 'Email Address',
+        emailPlaceholder: 'your.email@example.com',
+        phoneNumberHeader: 'Phone Number',
+        phoneNumberPlaceholder: 'Enter your phone number',
         subject: 'Subject',
         subjectPlaceholder: '[Subject placeholder]',
         message: 'Message *',
@@ -635,15 +657,29 @@ const translations: Record<Language, Translations> = {
     },
     contact: {
       title: {
-        main: '[Título Sección Contacto]',
-        highlight: '[Destacado]',
+        main: 'Inscripciones',
       },
       description:
         '[Descripción de la sección de contacto. Anima a los visitantes a contactarte, menciona qué pueden esperar cuando te contacten e incluye incentivos como consultas gratuitas o estimaciones.]',
       form: {
-        title: 'Envíanos un mensaje',
-        name: 'Nombre Completo *',
-        email: 'Dirección de Email *',
+        title: 'Inscríbete aquí',
+        nameHeader: 'Nombres',
+        namePlaceholder: 'Ingresa tu nombre',
+        surnameHeader: 'Apellidos',
+        surnamePlaceholder: 'Ingresa tus apellidos',
+        documentTypeHeader: 'Tipo de Documento',
+        documentTypePlaceholder: 'Selecciona un documento',
+        documentTypes: [
+          {id: 1, label: 'Cédula de Ciudadanía'},
+          {id: 2, label: 'Cédula de Extranjería'},
+          {id: 3, label: 'Tarjeta de Identidad'},
+          {id: 4, label: 'Registro Civil o NUIP'},
+          {id: 5, label: 'Pasaporte'}
+        ],
+        emailHeader: 'Dirección de Correo',
+        emailPlaceholder: 'tu.correo@ejemplo.com',
+        phoneNumberHeader: 'Número de Celular',
+        phoneNumberPlaceholder: 'Ingresa tu número de celular',
         subject: 'Asunto',
         subjectPlaceholder: '[Placeholder del asunto]',
         message: 'Mensaje *',

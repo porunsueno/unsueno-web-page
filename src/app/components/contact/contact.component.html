@@ -3,8 +3,7 @@
     <!-- Section Header -->
     <div class="contact__header">
       <h2 class="contact__title">
-        [Contact Section Title]
-        <span class="contact__title-accent">[Highlight]</span>
+        {{t().contact.title.main}}
       </h2>
       <p class="contact__description">
         [Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you,
@@ -16,13 +15,15 @@
       <!-- Contact Form -->
       <div class="contact__form-wrapper">
         <div class="contact__form-container">
-          <h3 class="contact__form-title">Send us a message</h3>
+          <h3 class="contact__form-title">
+            {{t().contact.form.title}}
+          </h3>
           
           <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact__form">
             <!-- Name Field -->
             <div class="contact__field">
               <label for="name" class="contact__label">
-                Full Name *
+                {{t().contact.form.nameHeader}}
               </label>
               <input
                 type="text"
@@ -31,14 +32,53 @@
                 [(ngModel)]="formData.name"
                 required
                 class="contact__input"
-                placeholder="Your full name"
+                [placeholder]="t().contact.form.namePlaceholder"
               >
+            </div>
+
+            <!-- Surname Field -->
+            <div class="contact__field">
+              <label for="surname" class="contact__label">
+                {{t().contact.form.surnameHeader}}
+              </label>
+              <input
+                type="text"
+                id="surname"
+                name="surname"
+                [(ngModel)]="formData.surname"
+                required
+                class="contact__input"
+                [placeholder]="t().contact.form.surnamePlaceholder"
+              >
+            </div>
+
+            <!-- Document Type Field -->
+            <div class="contact__field">
+              <label for="documentType" class="contact__label">
+                {{t().contact.form.documentTypeHeader}}
+              </label>
+              <select
+                id="documentType"
+                name="documentType"
+                [(ngModel)]="formData.documentType"
+                required
+                class="contact__input"
+              >
+                <option [ngValue]="null" disabled>
+                  {{t().contact.form.documentTypePlaceholder}}
+                </option>
+                @for (opt of t().contact.form.documentTypes; track opt.label) {
+                  <option [value]="opt.label">
+                    {{ opt.label }}
+                  </option>
+                }
+              </select>
             </div>
 
             <!-- Email Field -->
             <div class="contact__field">
               <label for="email" class="contact__label">
-                Email Address *
+                {{t().contact.form.emailHeader}}
               </label>
               <input
                 type="email"
@@ -47,7 +87,23 @@
                 [(ngModel)]="formData.email"
                 required
                 class="contact__input"
-                placeholder="your.email@example.com"
+                [placeholder]="t().contact.form.emailPlaceholder"
+              >
+            </div>
+
+            <!--Phone Number Field-->
+            <div class="contact__field">
+              <label for="phoneNumber" class="contact__label">
+                {{t().contact.form.phoneNumberHeader}}
+              </label>
+              <input
+                type="number"
+                id="phoneNumber"
+                name="phoneNumber"
+                [(ngModel)]="formData.phoneNumber"
+                required
+                class="contact__input"
+                [placeholder]="t().contact.form.phoneNumberPlaceholder"
               >
             </div>
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,15 +11,31 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+
+  t = () => this.translationService.translations();
+
   formData = {
     name: '',
+    surname: '',
+    documentType: '',
     email: '',
+    phoneNumber: '',
     subject: '',
     message: ''
   };
 
+  documentTypes = [
+    {id: 1, name: 'Cédula de Ciudadanía'},
+    {id: 2, name: 'Cédula de Extranjería'},
+    {id: 3, name: 'Tarjeta de Identidad'},
+    {id: 4, name: 'Registro Civil o NUIP'},
+    {id: 5, name: 'Pasaporte'},
+  ]
+
   isSubmitting = false;
   showSuccessMessage = false;
+
+  constructor(public translationService: TranslationService) {}
 
   onSubmit() {
     if (this.isSubmitting) return;
@@ -33,7 +50,10 @@ export class ContactComponent {
       // Reset form
       this.formData = {
         name: '',
+        surname: '',
+        documentType: '',
         email: '',
+        phoneNumber: '',
         subject: '',
         message: ''
       };
