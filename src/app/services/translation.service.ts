@@ -156,24 +156,45 @@ export interface Translations {
   };
 
   // Contact
-  contact: {
+  registrations: {
     title: {
       main: string
     };
     description: string;
     form: {
       title: string;
-      nameHeader: string;
+      nameLabel: string;
       namePlaceholder: string;
-      surnameHeader: string;
+      surnameLabel: string;
       surnamePlaceholder: string;
-      documentTypeHeader: string,
+      documentTypeLabel: string,
       documentTypePlaceholder: string,
       documentTypes: {id: number, label: string}[];
-      emailHeader: string;
+      emailLabel: string;
       emailPlaceholder: string;
-      phoneNumberHeader: string;
+      phoneNumberLabel: string;
       phoneNumberPlaceholder: string;
+      addressLabel: string;
+      addressPlaceholder: string;
+      birthdateLabel: string;
+      ageLabel: string;
+      agePlaceholder: string;
+      bloodTypeLabel: string;
+      bloodTypePlaceholder: string;
+      bloodTypes: {id: number, label:string}[];
+      epsLabel: string;
+      epsPlaceholder: string;
+      categoryLabel: string;
+      categoryPlaceholder: string;
+      categories: {id: number, label: string}[];
+      tShirtSizeLabel: string;
+      tShirtSizePlaceholder: string;
+      tShirtSizes: {id: number, label: string}[];
+      emergencyContactTitle: string;
+      emergencyNameLabel: string;
+      emergencyNamePlaceholder: string;
+      emergencyRelationshipLabel: string;
+      emergencyRelationshipPlaceholder: string;
       subject: string;
       subjectPlaceholder: string;
       message: string;
@@ -410,7 +431,7 @@ const translations: Record<Language, Translations> = {
         },
       },
     },
-    contact: {
+    registrations: {
       title: {
         main: 'Registrations',
       },
@@ -418,11 +439,11 @@ const translations: Record<Language, Translations> = {
         '[Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you, and include any incentives like free consultations or estimates.]',
       form: {
         title: 'Sign up here',
-        nameHeader: 'Name',
+        nameLabel: 'Name',
         namePlaceholder: 'Enter your name',
-        surnameHeader: 'Surname',
+        surnameLabel: 'Surname',
         surnamePlaceholder: 'Enter your surname',
-        documentTypeHeader: 'Document Type',
+        documentTypeLabel: 'Document Type',
         documentTypePlaceholder: 'Choose a document type',
         documentTypes: [
           {id: 1, label: 'Government Identification'},
@@ -431,10 +452,54 @@ const translations: Record<Language, Translations> = {
           {id: 4, label: 'Civil Registry or NUIP'},
           {id: 5, label: 'Passport'}
         ],
-        emailHeader: 'Email Address',
+        emailLabel: 'Email Address',
         emailPlaceholder: 'your.email@example.com',
-        phoneNumberHeader: 'Phone Number',
+        phoneNumberLabel: 'Phone Number',
         phoneNumberPlaceholder: 'Enter your phone number',
+        addressLabel: 'Address',
+        addressPlaceholder: 'Enter your address',
+        birthdateLabel: 'Birthdate',
+        ageLabel: 'Age',
+        agePlaceholder: 'Enter your age',
+        bloodTypeLabel: 'Blood Type',
+        bloodTypePlaceholder: 'Choosea blood type',
+        bloodTypes: [
+          {id: 1, label: 'A+'},
+          {id: 2, label: 'A-'},
+          {id: 3, label: 'B+'},
+          {id: 4, label: 'B-'},
+          {id: 5, label: 'O+'},
+          {id: 6, label: 'O-'},
+          {id: 7, label: 'AB+'},
+          {id: 8, label: 'AB-'}
+        ],
+        epsLabel: 'EPS',
+        epsPlaceholder: 'Enter your EPS name',
+        categoryLabel: 'Category',
+        categoryPlaceholder: 'Choose a category',
+        categories: [
+          {id: 1, label: '3 Km'},
+          {id: 2, label: '5 Km'},
+          {id: 3, label: '10 Km'}
+        ],
+        tShirtSizeLabel: 'T-shirt size',
+        tShirtSizePlaceholder: 'Choose one size',
+        tShirtSizes: [
+          {id: 1, label: 'Female XS'},
+          {id: 1, label: 'Male S'},
+          {id: 1, label: 'Female S'},
+          {id: 1, label: 'Male M'},
+          {id: 1, label: 'Female M'},
+          {id: 1, label: 'Male L'},
+          {id: 1, label: 'Female L'},
+          {id: 1, label: 'Male XL'},
+          {id: 1, label: 'Female XL'},
+        ],
+        emergencyContactTitle: 'Emergency Contact',
+        emergencyNameLabel: 'Full Name',
+        emergencyNamePlaceholder: 'Enter full name of your emergency contact',
+        emergencyRelationshipLabel: 'Relationship',
+        emergencyRelationshipPlaceholder: 'Enter the relationship',
         subject: 'Subject',
         subjectPlaceholder: '[Subject placeholder]',
         message: 'Message *',
@@ -655,7 +720,7 @@ const translations: Record<Language, Translations> = {
         },
       },
     },
-    contact: {
+    registrations: {
       title: {
         main: 'Inscripciones',
       },
@@ -663,11 +728,11 @@ const translations: Record<Language, Translations> = {
         '[Descripción de la sección de contacto. Anima a los visitantes a contactarte, menciona qué pueden esperar cuando te contacten e incluye incentivos como consultas gratuitas o estimaciones.]',
       form: {
         title: 'Inscríbete aquí',
-        nameHeader: 'Nombres',
+        nameLabel: 'Nombres',
         namePlaceholder: 'Ingresa tu nombre',
-        surnameHeader: 'Apellidos',
+        surnameLabel: 'Apellidos',
         surnamePlaceholder: 'Ingresa tus apellidos',
-        documentTypeHeader: 'Tipo de Documento',
+        documentTypeLabel: 'Tipo de Documento',
         documentTypePlaceholder: 'Selecciona un documento',
         documentTypes: [
           {id: 1, label: 'Cédula de Ciudadanía'},
@@ -676,10 +741,54 @@ const translations: Record<Language, Translations> = {
           {id: 4, label: 'Registro Civil o NUIP'},
           {id: 5, label: 'Pasaporte'}
         ],
-        emailHeader: 'Dirección de Correo',
+        emailLabel: 'Dirección de Correo',
         emailPlaceholder: 'tu.correo@ejemplo.com',
-        phoneNumberHeader: 'Número de Celular',
+        phoneNumberLabel: 'Número de Celular',
         phoneNumberPlaceholder: 'Ingresa tu número de celular',
+        addressLabel: 'Dirección',
+        addressPlaceholder: 'Ingresa tu dirección',
+        birthdateLabel: 'Fecha de Nacimiento',
+        ageLabel: 'Edad',
+        agePlaceholder: 'Ingresa tu edad',
+        bloodTypeLabel: 'Tipo de Sangre',
+        bloodTypePlaceholder: 'Selecciona un tipo de sangre',
+        bloodTypes: [
+          {id: 1, label: 'A+'},
+          {id: 2, label: 'A-'},
+          {id: 3, label: 'B+'},
+          {id: 4, label: 'B-'},
+          {id: 5, label: 'O+'},
+          {id: 6, label: 'O-'},
+          {id: 7, label: 'AB+'},
+          {id: 8, label: 'AB-'}
+        ],
+        epsLabel: 'EPS',
+        epsPlaceholder: 'Ingresa el nombre de tu EPS',
+        categoryLabel: 'Categoría',
+        categoryPlaceholder: 'Escoge una categoría',
+        categories: [
+          {id: 1, label: '3 Km'},
+          {id: 2, label: '5 Km'},
+          {id: 3, label: '10 Km'}
+        ],
+        tShirtSizeLabel: 'Talla de Camiseta',
+        tShirtSizePlaceholder: 'Escoge una talla',
+        tShirtSizes: [
+          {id: 1, label: 'Mujer XS'},
+          {id: 1, label: 'Hombre S'},
+          {id: 1, label: 'Mujer S'},
+          {id: 1, label: 'Hombre M'},
+          {id: 1, label: 'Mujer M'},
+          {id: 1, label: 'Hombre L'},
+          {id: 1, label: 'Mujer L'},
+          {id: 1, label: 'Hombre XL'},
+          {id: 1, label: 'Mujer XL'},
+        ],
+        emergencyContactTitle: 'Contacto de Emergencia',
+        emergencyNameLabel: 'Nombre Completo',
+        emergencyNamePlaceholder: 'Ingresa el nombre completo',
+        emergencyRelationshipLabel: 'Parentesco',
+        emergencyRelationshipPlaceholder: 'Ingresa el parentesco',
         subject: 'Asunto',
         subjectPlaceholder: '[Placeholder del asunto]',
         message: 'Mensaje *',

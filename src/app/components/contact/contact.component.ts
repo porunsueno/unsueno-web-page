@@ -14,28 +14,34 @@ export class ContactComponent {
 
   t = () => this.translationService.translations();
 
+  minDate: string;
+
   formData = {
     name: '',
     surname: '',
     documentType: '',
     email: '',
     phoneNumber: '',
+    address: '',
+    birthdate: '',
+    age: '',
+    bloodType: '',
+    eps: '',
+    category: '',
+    tShirtSize: '',
+    emergencyName: '',
+    emergencyRelationship: '',
+    emergencyPhoneNumber: '',
     subject: '',
     message: ''
   };
 
-  documentTypes = [
-    {id: 1, name: 'Cédula de Ciudadanía'},
-    {id: 2, name: 'Cédula de Extranjería'},
-    {id: 3, name: 'Tarjeta de Identidad'},
-    {id: 4, name: 'Registro Civil o NUIP'},
-    {id: 5, name: 'Pasaporte'},
-  ]
-
   isSubmitting = false;
   showSuccessMessage = false;
 
-  constructor(public translationService: TranslationService) {}
+  constructor(public translationService: TranslationService) {
+    this.minDate = new Date().toDateString().split('T')[0];
+  }
 
   onSubmit() {
     if (this.isSubmitting) return;
@@ -54,6 +60,16 @@ export class ContactComponent {
         documentType: '',
         email: '',
         phoneNumber: '',
+        address: '',
+        birthdate: '',
+        age: '',
+        bloodType: '',
+        eps: '',
+        category: '',
+        tShirtSize: '',
+        emergencyName: '',
+        emergencyRelationship: '',
+        emergencyPhoneNumber: '',
         subject: '',
         message: ''
       };

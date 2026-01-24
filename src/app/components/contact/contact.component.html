@@ -3,7 +3,7 @@
     <!-- Section Header -->
     <div class="contact__header">
       <h2 class="contact__title">
-        {{t().contact.title.main}}
+        {{t().registrations.title.main}}
       </h2>
       <p class="contact__description">
         [Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you,
@@ -16,14 +16,14 @@
       <div class="contact__form-wrapper">
         <div class="contact__form-container">
           <h3 class="contact__form-title">
-            {{t().contact.form.title}}
+            {{t().registrations.form.title}}
           </h3>
           
           <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact__form">
             <!-- Name Field -->
             <div class="contact__field">
               <label for="name" class="contact__label">
-                {{t().contact.form.nameHeader}}
+                {{t().registrations.form.nameLabel}}
               </label>
               <input
                 type="text"
@@ -32,14 +32,14 @@
                 [(ngModel)]="formData.name"
                 required
                 class="contact__input"
-                [placeholder]="t().contact.form.namePlaceholder"
+                [placeholder]="t().registrations.form.namePlaceholder"
               >
             </div>
 
             <!-- Surname Field -->
             <div class="contact__field">
               <label for="surname" class="contact__label">
-                {{t().contact.form.surnameHeader}}
+                {{t().registrations.form.surnameLabel}}
               </label>
               <input
                 type="text"
@@ -48,14 +48,14 @@
                 [(ngModel)]="formData.surname"
                 required
                 class="contact__input"
-                [placeholder]="t().contact.form.surnamePlaceholder"
+                [placeholder]="t().registrations.form.surnamePlaceholder"
               >
             </div>
 
             <!-- Document Type Field -->
             <div class="contact__field">
               <label for="documentType" class="contact__label">
-                {{t().contact.form.documentTypeHeader}}
+                {{t().registrations.form.documentTypeLabel}}
               </label>
               <select
                 id="documentType"
@@ -65,9 +65,9 @@
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
-                  {{t().contact.form.documentTypePlaceholder}}
+                  {{t().registrations.form.documentTypePlaceholder}}
                 </option>
-                @for (opt of t().contact.form.documentTypes; track opt.label) {
+                @for (opt of t().registrations.form.documentTypes; track opt.label) {
                   <option [value]="opt.label">
                     {{ opt.label }}
                   </option>
@@ -78,7 +78,7 @@
             <!-- Email Field -->
             <div class="contact__field">
               <label for="email" class="contact__label">
-                {{t().contact.form.emailHeader}}
+                {{t().registrations.form.emailLabel}}
               </label>
               <input
                 type="email"
@@ -87,14 +87,14 @@
                 [(ngModel)]="formData.email"
                 required
                 class="contact__input"
-                [placeholder]="t().contact.form.emailPlaceholder"
+                [placeholder]="t().registrations.form.emailPlaceholder"
               >
             </div>
 
             <!--Phone Number Field-->
             <div class="contact__field">
               <label for="phoneNumber" class="contact__label">
-                {{t().contact.form.phoneNumberHeader}}
+                {{t().registrations.form.phoneNumberLabel}}
               </label>
               <input
                 type="number"
@@ -103,39 +103,193 @@
                 [(ngModel)]="formData.phoneNumber"
                 required
                 class="contact__input"
-                [placeholder]="t().contact.form.phoneNumberPlaceholder"
+                [placeholder]="t().registrations.form.phoneNumberPlaceholder"
               >
             </div>
 
-            <!-- Subject Field -->
+            <!--Address Field-->
             <div class="contact__field">
-              <label for="subject" class="contact__label">
-                Subject
+              <label for="address" class="contact__label">
+                {{t().registrations.form.addressLabel}}
               </label>
               <input
                 type="text"
-                id="subject"
-                name="subject"
-                [(ngModel)]="formData.subject"
+                id="address"
+                name="address"
+                [(ngModel)]="formData.address"
+                required
                 class="contact__input"
-                placeholder="[Subject placeholder]"
+                [placeholder]="t().registrations.form.addressPlaceholder"
               >
             </div>
 
-            <!-- Message Field -->
+            <!-- Birthdate Field -->
             <div class="contact__field">
-              <label for="message" class="contact__label">
-                Message *
+              <label for="date" class="contact__label">
+                {{ t().registrations.form.birthdateLabel }}
               </label>
-              <textarea
-                id="message"
-                name="message"
-                [(ngModel)]="formData.message"
+              <input
+                type="date"
+                id="date"
+                name="date"
+                [(ngModel)]="formData.birthdate"
                 required
-                rows="5"
-                class="contact__textarea"
-                placeholder="[Your message placeholder text here...]"
-              ></textarea>
+                class="contact__input"
+                [min]="minDate" 
+              >
+            </div>
+
+            <!--Age Field-->
+            <div class="contact__field">
+              <label for="age" class="contact__label">
+                {{t().registrations.form.ageLabel}}
+              </label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                [(ngModel)]="formData.age"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.agePlaceholder"
+              >
+            </div>
+
+            <!-- Blood Type Field -->
+            <div class="contact__field">
+              <label for="documentType" class="contact__label">
+                {{t().registrations.form.bloodTypeLabel}}
+              </label>
+              <select
+                id="documentType"
+                name="documentType"
+                [(ngModel)]="formData.bloodType"
+                required
+                class="contact__input"
+              >
+                <option [ngValue]="null" disabled>
+                  {{t().registrations.form.bloodTypePlaceholder}}
+                </option>
+                @for (opt of t().registrations.form.bloodTypes; track opt.label) {
+                  <option [value]="opt.label">
+                    {{ opt.label }}
+                  </option>
+                }
+              </select>
+            </div>
+
+            <!--EPS Field-->
+            <div class="contact__field">
+              <label for="eps" class="contact__label">
+                {{t().registrations.form.epsLabel}}
+              </label>
+              <input
+                type="text"
+                id="eps"
+                name="eps"
+                [(ngModel)]="formData.eps"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.epsPlaceholder"
+              >
+            </div>
+
+            <!-- Category Field -->
+            <div class="contact__field">
+              <label for="category" class="contact__label">
+                {{t().registrations.form.categoryLabel}}
+              </label>
+              <select
+                id="category"
+                name="category"
+                [(ngModel)]="formData.bloodType"
+                required
+                class="contact__input"
+              >
+                <option [ngValue]="null" disabled>
+                  {{t().registrations.form.categoryPlaceholder}}
+                </option>
+                @for (opt of t().registrations.form.categories; track opt.label) {
+                  <option [value]="opt.label">
+                    {{ opt.label }}
+                  </option>
+                }
+              </select>
+            </div>
+
+            <!-- T-shirt Size Field -->
+            <div class="contact__field">
+              <label for="tShirtSize" class="contact__label">
+                {{t().registrations.form.tShirtSizeLabel}}
+              </label>
+              <select
+                id="tShirtSize"
+                name="tShirtSize"
+                [(ngModel)]="formData.tShirtSize"
+                required
+                class="contact__input"
+              >
+                <option [ngValue]="null" disabled>
+                  {{t().registrations.form.tShirtSizePlaceholder}}
+                </option>
+                @for (opt of t().registrations.form.tShirtSizes; track opt.label) {
+                  <option [value]="opt.label">
+                    {{ opt.label }}
+                  </option>
+                }
+              </select>
+            </div>
+
+            <h3 class="contact__form-title">
+              {{t().registrations.form.emergencyContactTitle}}
+            </h3>
+
+            <!-- Emergency Contact Name Field -->
+            <div class="contact__field">
+              <label for="emergencyName" class="contact__label">
+                {{t().registrations.form.emergencyNameLabel}}
+              </label>
+              <input
+                type="text"
+                id="emergencyName"
+                name="emergencyName"
+                [(ngModel)]="formData.emergencyName"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.emergencyNamePlaceholder"
+              >
+            </div>
+
+            <!-- Emergency Contact relationship Field -->
+            <div class="contact__field">
+              <label for="relationship" class="contact__label">
+                {{t().registrations.form.emergencyRelationshipLabel}}
+              </label>
+              <input
+                type="text"
+                id="relationship"
+                name="relationship"
+                [(ngModel)]="formData.emergencyRelationship"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.emergencyRelationshipPlaceholder"
+              >
+            </div>
+
+            <!-- Emergency Phone Number Field-->
+            <div class="contact__field">
+              <label for="emergencyPhoneNumber" class="contact__label">
+                {{t().registrations.form.phoneNumberLabel}}
+              </label>
+              <input
+                type="number"
+                id="emergencyPhoneNumber"
+                name="emergencyPhoneNumber"
+                [(ngModel)]="formData.emergencyPhoneNumber"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.phoneNumberPlaceholder"
+              >
             </div>
 
             <!-- Submit Button -->
