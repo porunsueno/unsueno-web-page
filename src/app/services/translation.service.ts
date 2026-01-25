@@ -195,6 +195,13 @@ export interface Translations {
       emergencyNamePlaceholder: string;
       emergencyRelationshipLabel: string;
       emergencyRelationshipPlaceholder: string;
+      privacyTitle: string;
+      privacyText: string;
+      privacyLink: string;
+      attachmentTitle: string;
+      attachmentLabel: string;
+      attachmentPlaceholder: string;
+      attachmentButton: string;
       subject: string;
       subjectPlaceholder: string;
       message: string;
@@ -500,6 +507,13 @@ const translations: Record<Language, Translations> = {
         emergencyNamePlaceholder: 'Enter full name of your emergency contact',
         emergencyRelationshipLabel: 'Relationship',
         emergencyRelationshipPlaceholder: 'Enter the relationship',
+        privacyTitle: 'Processing of personal data',
+        privacyText: 'I have read and agree to the ',
+        privacyLink: 'processing of my personal data, terms and conditions',
+        attachmentTitle: 'proof of payment',
+        attachmentLabel: 'Payment must be made before submitting this registration form and the receipt attached here in JPG or PNG format',
+        attachmentPlaceholder: 'No file selected',
+        attachmentButton: 'Choose file',
         subject: 'Subject',
         subjectPlaceholder: '[Subject placeholder]',
         message: 'Message *',
@@ -789,6 +803,13 @@ const translations: Record<Language, Translations> = {
         emergencyNamePlaceholder: 'Ingresa el nombre completo',
         emergencyRelationshipLabel: 'Parentesco',
         emergencyRelationshipPlaceholder: 'Ingresa el parentesco',
+        privacyTitle: 'Tratamiento de Datos',
+        privacyText: 'He leído y acepto el ',
+        privacyLink: 'tratamiento de mis datos personales, términos y condiciones',
+        attachmentTitle: 'Comprobante de Pago',
+        attachmentLabel: 'Recuerda realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante aquí en formato JPG o PNG',
+        attachmentPlaceholder: 'Ningún archivo seleccionado',
+        attachmentButton: 'Elegir archivo',
         subject: 'Asunto',
         subjectPlaceholder: '[Placeholder del asunto]',
         message: 'Mensaje *',

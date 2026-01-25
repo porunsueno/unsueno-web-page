@@ -32,6 +32,7 @@ export class ContactComponent {
     emergencyName: '',
     emergencyRelationship: '',
     emergencyPhoneNumber: '',
+    privacyAccepted: '',
     subject: '',
     message: ''
   };
@@ -39,8 +40,35 @@ export class ContactComponent {
   isSubmitting = false;
   showSuccessMessage = false;
 
+  selectedFileBase64: string | ArrayBuffer | null = null;
+  fileName: string | null = null;
+
   constructor(public translationService: TranslationService) {
     this.minDate = new Date().toDateString().split('T')[0];
+  }
+
+  onFileSelected(event: any) {
+    const file: File = event.target.files[0];
+
+    if (file) {
+      
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File is too large (Max 5MB)');
+        return;
+      }
+
+      this.fileName = file.name;
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.selectedFileBase64 = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      this.selectedFileBase64 = null;
+      this.fileName = null;
+    }
   }
 
   onSubmit() {
@@ -70,6 +98,7 @@ export class ContactComponent {
         emergencyName: '',
         emergencyRelationship: '',
         emergencyPhoneNumber: '',
+        privacyAccepted: '',
         subject: '',
         message: ''
       };

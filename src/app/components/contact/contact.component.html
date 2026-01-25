@@ -292,6 +292,51 @@
               >
             </div>
 
+            <h3 class="contact__form-title">
+              {{t().registrations.form.attachmentTitle}}
+            </h3>
+
+            <div class="contact__field">
+              <label class="contact__label">{{ t().registrations.form.attachmentLabel }}</label>
+
+              <div class="contact__file-wrapper">
+                <input 
+                  type="file" 
+                  id="attachment" 
+                  name="attachment" 
+                  accept="image/*"
+                  (change)="onFileSelected($event)"
+                  class="contact__file-input"
+                >
+
+                <label for="attachment" class="contact__file-custom">
+                  <span class="contact__file-button">{{ t().registrations.form.attachmentButton }}</span>
+                  <span class="contact__file-name">
+                    {{ fileName || t().registrations.form.attachmentPlaceholder }}
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Privacy Field-->
+            <div class="contact__checkbox-field">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                [(ngModel)]="formData.privacyAccepted"
+                required
+                #privacyCheck="ngModel"
+                class="contact__checkbox"
+              >
+              <label for="emergencyPhoneNumber" class="contact__checkbox-label">
+                {{t().registrations.form.privacyText}}
+                <a href="/files/TyC.pdf" target="_blank" rel="noopener noreferrer">
+                  {{t().registrations.form.privacyLink}}
+                </a> *
+              </label>
+            </div>
+
             <!-- Submit Button -->
             <button
               type="submit"
