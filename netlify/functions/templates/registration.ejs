@@ -84,31 +84,31 @@
     <div class="content">
       <div class="section-title">Información Personal</div>
       <table class="info-table">
-        <tr><th>Nombre Completo</th><td><%= form.name %> <%= form.surname %></td></tr>
-        <tr><th>Documento</th><td><%= form.documentType %>: <%= form.documentNumber %></td></tr>
-        <tr><th>Fecha de Nacimiento</th><td><%= form.birthdate %> (<%= form.age %> años)</td></tr>
-        <tr><th>Correo Electrónico</th><td class="highlight"><%= form.email %></td></tr>
-        <tr><th>Teléfono</th><td><%= form.phoneNumber %></td></tr>
-        <tr><th>Dirección</th><td><%= form.address %></td></tr>
+        <tr><th>Nombre Completo</th><td><%= name %> <%= surname %></td></tr>
+        <tr><th>Documento</th><td><%= documentType %>: <%= documentNumber %></td></tr>
+        <tr><th>Fecha de Nacimiento</th><td><%= birthdate %> (<%= age %> años)</td></tr>
+        <tr><th>Correo Electrónico</th><td class="highlight"><%= email %></td></tr>
+        <tr><th>Teléfono</th><td><%= phoneNumber %></td></tr>
+        <tr><th>Dirección</th><td><%= address %></td></tr>
       </table>
 
       <div class="section-title">Detalles Técnicos</div>
       <table class="info-table">
-        <tr><th>RH / Grupo Sanguíneo</th><td><%= form.bloodType %></td></tr>
-        <tr><th>EPS</th><td><%= form.eps %></td></tr>
-        <tr><th>Categoría</th><td class="highlight"><%= form.category %></td></tr>
-        <tr><th>Talla de Camiseta</th><td><%= form.tShirtSize %></td></tr>
+        <tr><th>RH / Grupo Sanguíneo</th><td><%= bloodType %></td></tr>
+        <tr><th>EPS</th><td><%= eps %></td></tr>
+        <tr><th>Categoría</th><td class="highlight"><%= category %></td></tr>
+        <tr><th>Talla de Camiseta</th><td><%= tShirtSize %></td></tr>
       </table>
 
       <div class="section-title">Contacto de Emergencia</div>
       <table class="info-table">
-        <tr><th>Nombre</th><td><%= form.emergencyName %></td></tr>
-        <tr><th>Parentesco</th><td><%= form.emergencyRelationship %></td></tr>
-        <tr><th>Teléfono Emergencia</th><td class="highlight"><%= form.emergencyPhoneNumber %></td></tr>
+        <tr><th>Nombre</th><td><%= emergencyName %></td></tr>
+        <tr><th>Parentesco</th><td><%= emergencyRelationship %></td></tr>
+        <tr><th>Teléfono Emergencia</th><td class="highlight"><%= emergencyPhoneNumber %></td></tr>
       </table>
 
       <div style="margin-top: 30px; font-size: 11px; color: #94a3b8;">
-        <p><strong>Privacidad:</strong> El usuario aceptó el tratamiento de datos personales: <%= form.privacyAccepted ? 'SÍ' : 'NO' %></p>
+        <p><strong>Privacidad:</strong> El usuario aceptó el tratamiento de datos personales: <%= privacyAccepted ? 'SÍ' : 'NO' %></p>
       </div>
     </div>
 
