@@ -19,7 +19,7 @@
             {{t().registrations.form.title}}
           </h3>
           
-          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact__form">
+          <form (ngSubmit)="onSubmit($event)" #contactForm="ngForm" class="contact__form">
             <!-- Name Field -->
             <div class="contact__field">
               <label for="name" class="contact__label">
@@ -29,7 +29,7 @@
                 type="text"
                 id="name"
                 name="name"
-                [(ngModel)]="formData.name"
+                [(ngModel)]="form.name"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.namePlaceholder"
@@ -45,7 +45,7 @@
                 type="text"
                 id="surname"
                 name="surname"
-                [(ngModel)]="formData.surname"
+                [(ngModel)]="form.surname"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.surnamePlaceholder"
@@ -60,7 +60,7 @@
               <select
                 id="documentType"
                 name="documentType"
-                [(ngModel)]="formData.documentType"
+                [(ngModel)]="form.documentType"
                 required
                 class="contact__input"
               >
@@ -75,6 +75,22 @@
               </select>
             </div>
 
+            <!--Document Number Field-->
+            <div class="contact__field">
+              <label for="documentNumber" class="contact__label">
+                {{t().registrations.form.documentNumberLabel}}
+              </label>
+              <input
+                type="text"
+                id="documentNumber"
+                name="documentNumber"
+                [(ngModel)]="form.address"
+                required
+                class="contact__input"
+                [placeholder]="t().registrations.form.documentNumberPlaceholder"
+              >
+            </div>
+
             <!-- Email Field -->
             <div class="contact__field">
               <label for="email" class="contact__label">
@@ -84,7 +100,7 @@
                 type="email"
                 id="email"
                 name="email"
-                [(ngModel)]="formData.email"
+                [(ngModel)]="form.email"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.emailPlaceholder"
@@ -100,7 +116,7 @@
                 type="number"
                 id="phoneNumber"
                 name="phoneNumber"
-                [(ngModel)]="formData.phoneNumber"
+                [(ngModel)]="form.phoneNumber"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.phoneNumberPlaceholder"
@@ -116,7 +132,7 @@
                 type="text"
                 id="address"
                 name="address"
-                [(ngModel)]="formData.address"
+                [(ngModel)]="form.address"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.addressPlaceholder"
@@ -132,7 +148,7 @@
                 type="date"
                 id="date"
                 name="date"
-                [(ngModel)]="formData.birthdate"
+                [(ngModel)]="form.birthdate"
                 required
                 class="contact__input"
                 [min]="minDate" 
@@ -148,7 +164,7 @@
                 type="number"
                 id="age"
                 name="age"
-                [(ngModel)]="formData.age"
+                [(ngModel)]="form.age"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.agePlaceholder"
@@ -163,7 +179,7 @@
               <select
                 id="documentType"
                 name="documentType"
-                [(ngModel)]="formData.bloodType"
+                [(ngModel)]="form.bloodType"
                 required
                 class="contact__input"
               >
@@ -187,7 +203,7 @@
                 type="text"
                 id="eps"
                 name="eps"
-                [(ngModel)]="formData.eps"
+                [(ngModel)]="form.eps"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.epsPlaceholder"
@@ -202,7 +218,7 @@
               <select
                 id="category"
                 name="category"
-                [(ngModel)]="formData.bloodType"
+                [(ngModel)]="form.bloodType"
                 required
                 class="contact__input"
               >
@@ -225,7 +241,7 @@
               <select
                 id="tShirtSize"
                 name="tShirtSize"
-                [(ngModel)]="formData.tShirtSize"
+                [(ngModel)]="form.tShirtSize"
                 required
                 class="contact__input"
               >
@@ -253,7 +269,7 @@
                 type="text"
                 id="emergencyName"
                 name="emergencyName"
-                [(ngModel)]="formData.emergencyName"
+                [(ngModel)]="form.emergencyName"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.emergencyNamePlaceholder"
@@ -269,7 +285,7 @@
                 type="text"
                 id="relationship"
                 name="relationship"
-                [(ngModel)]="formData.emergencyRelationship"
+                [(ngModel)]="form.emergencyRelationship"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.emergencyRelationshipPlaceholder"
@@ -285,7 +301,7 @@
                 type="number"
                 id="emergencyPhoneNumber"
                 name="emergencyPhoneNumber"
-                [(ngModel)]="formData.emergencyPhoneNumber"
+                [(ngModel)]="form.emergencyPhoneNumber"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.phoneNumberPlaceholder"
@@ -324,7 +340,7 @@
                 type="checkbox"
                 id="privacy"
                 name="privacy"
-                [(ngModel)]="formData.privacyAccepted"
+                [(ngModel)]="form.privacyAccepted"
                 required
                 #privacyCheck="ngModel"
                 class="contact__checkbox"

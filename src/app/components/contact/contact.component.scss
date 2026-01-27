@@ -42,10 +42,6 @@
     }
   }
 
-  &__form-wrapper {
-    // Container for form
-  }
-
   &__form-container {
     @include card;
     padding: $spacing-2xl;
@@ -62,10 +58,6 @@
     display: flex;
     flex-direction: column;
     gap: $spacing-lg;
-  }
-
-  &__field {
-    // Base field styles
   }
 
   &__label {
@@ -237,10 +229,6 @@
   &__success-text {
     color: #15803d;
     font-size: 0.875rem;
-  }
-
-  &__info {
-    // Info section
   }
 
   &__info-container {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -16,10 +17,11 @@ export class ContactComponent {
 
   minDate: string;
 
-  formData = {
+  form = {
     name: '',
     surname: '',
     documentType: '',
+    documentNumber: '',
     email: '',
     phoneNumber: '',
     address: '',
@@ -43,7 +45,9 @@ export class ContactComponent {
   selectedFileBase64: string | ArrayBuffer | null = null;
   fileName: string | null = null;
 
-  constructor(public translationService: TranslationService) {
+  netlifyFunctionUrl = '/.netlify/functions/send-email';
+
+  constructor(public translationService: TranslationService, private http: HttpClient) {
     this.minDate = new Date().toDateString().split('T')[0];
   }
 
@@ -71,42 +75,62 @@ export class ContactComponent {
     }
   }
 
-  onSubmit() {
+  onSubmit(event: SubmitEvent) {
+    event.preventDefault();
+
     if (this.isSubmitting) return;
     
     this.isSubmitting = true;
+
+    const formData = {
+      ...this.form,
+      attachment: this.selectedFileBase64,
+      fileName: this.fileName
+    }
+
+    this.http.post(this.netlifyFunctionUrl, formData)
+      .subscribe({
+        next: (response) => {
+          this.isSubmitting = false;
+          this.showSuccessMessage = true;
+
+          // Reset form
+          this.form = {
+            name: '',
+            surname: '',
+            documentType: '',
+            documentNumber: '',
+            email: '',
+            phoneNumber: '',
+            address: '',
+            birthdate: '',
+            age: '',
+            bloodType: '',
+            eps: '',
+            category: '',
+            tShirtSize: '',
+            emergencyName: '',
+            emergencyRelationship: '',
+            emergencyPhoneNumber: '',
+            privacyAccepted: '',
+            subject: '',
+            message: ''
+          };
+
+          this.selectedFileBase64 = null;
+          this.fileName = null;
+
+          alert('Email sent');
+          console.log('Email sent: ', response);
+        },
+        error: (error) => {
+          this.isSubmitting = false;
+          this.showSuccessMessage = true;
+          alert('Error sending email');
+          console.error('Error sending email: ', error);
+        }
+      }
+    );
     
-    // Simulate form submission
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.showSuccessMessage = true;
-      
-      // Reset form
-      this.formData = {
-        name: '',
-        surname: '',
-        documentType: '',
-        email: '',
-        phoneNumber: '',
-        address: '',
-        birthdate: '',
-        age: '',
-        bloodType: '',
-        eps: '',
-        category: '',
-        tShirtSize: '',
-        emergencyName: '',
-        emergencyRelationship: '',
-        emergencyPhoneNumber: '',
-        privacyAccepted: '',
-        subject: '',
-        message: ''
-      };
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        this.showSuccessMessage = false;
-      }, 5000);
-    }, 2000);
   }
 }

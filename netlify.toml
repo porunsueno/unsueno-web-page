@@ -1,0 +1,8 @@
+[build]
+  command = "npm install --prefix ./netlify/functions && ng build"
+  publish = "dist/browser" # Ajusta esto a donde Angular publica los archivos
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["./netlify/functions/templates/**"]

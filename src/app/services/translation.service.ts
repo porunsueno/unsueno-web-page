@@ -170,6 +170,8 @@ export interface Translations {
       documentTypeLabel: string,
       documentTypePlaceholder: string,
       documentTypes: {id: number, label: string}[];
+      documentNumberLabel: string;
+      documentNumberPlaceholder: string;
       emailLabel: string;
       emailPlaceholder: string;
       phoneNumberLabel: string;
@@ -459,6 +461,8 @@ const translations: Record<Language, Translations> = {
           {id: 4, label: 'Civil Registry or NUIP'},
           {id: 5, label: 'Passport'}
         ],
+        documentNumberLabel: 'ID Number',
+        documentNumberPlaceholder: 'Enter your ID number',
         emailLabel: 'Email Address',
         emailPlaceholder: 'your.email@example.com',
         phoneNumberLabel: 'Phone Number',
@@ -755,6 +759,8 @@ const translations: Record<Language, Translations> = {
           {id: 4, label: 'Registro Civil o NUIP'},
           {id: 5, label: 'Pasaporte'}
         ],
+        documentNumberLabel: 'Número de Documento',
+        documentNumberPlaceholder: 'Ingrese el número de documento',
         emailLabel: 'Dirección de Correo',
         emailPlaceholder: 'tu.correo@ejemplo.com',
         phoneNumberLabel: 'Número de Celular',
