@@ -67,9 +67,9 @@
                 <option [ngValue]="null" disabled>
                   {{t().registrations.form.documentTypePlaceholder}}
                 </option>
-                @for (opt of t().registrations.form.documentTypes; track opt.label) {
-                  <option [value]="opt.label">
-                    {{ opt.label }}
+                @for (optDT of t().registrations.form.documentTypes; track optDT.label) {
+                  <option [value]="optDT.label">
+                    {{ optDT.label }}
                   </option>
                 }
               </select>
@@ -84,7 +84,7 @@
                 type="text"
                 id="documentNumber"
                 name="documentNumber"
-                [(ngModel)]="form.address"
+                [(ngModel)]="form.documentNumber"
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.documentNumberPlaceholder"
@@ -186,9 +186,9 @@
                 <option [ngValue]="null" disabled>
                   {{t().registrations.form.bloodTypePlaceholder}}
                 </option>
-                @for (opt of t().registrations.form.bloodTypes; track opt.label) {
-                  <option [value]="opt.label">
-                    {{ opt.label }}
+                @for (optBT of t().registrations.form.bloodTypes; track optBT.label) {
+                  <option [value]="optBT.label">
+                    {{ optBT.label }}
                   </option>
                 }
               </select>
@@ -218,16 +218,16 @@
               <select
                 id="category"
                 name="category"
-                [(ngModel)]="form.bloodType"
+                [(ngModel)]="form.category"
                 required
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
                   {{t().registrations.form.categoryPlaceholder}}
                 </option>
-                @for (opt of t().registrations.form.categories; track opt.label) {
-                  <option [value]="opt.label">
-                    {{ opt.label }}
+                @for (optC of t().registrations.form.categories; track optC.label) {
+                  <option [value]="optC.label">
+                    {{ optC.label }}
                   </option>
                 }
               </select>
@@ -248,9 +248,9 @@
                 <option [ngValue]="null" disabled>
                   {{t().registrations.form.tShirtSizePlaceholder}}
                 </option>
-                @for (opt of t().registrations.form.tShirtSizes; track opt.label) {
-                  <option [value]="opt.label">
-                    {{ opt.label }}
+                @for (optTS of t().registrations.form.tShirtSizes; track optTS.label) {
+                  <option [value]="optTS.label">
+                    {{ optTS.label }}
                   </option>
                 }
               </select>
@@ -321,6 +321,7 @@
                   id="attachment" 
                   name="attachment" 
                   accept="image/*"
+                  required
                   (change)="onFileSelected($event)"
                   class="contact__file-input"
                 >

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        color: #334155;
+    }
+    .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+    .header {
+        background-color: #2563eb;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+    }
+    .header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    .content {
+        padding: 30px;
+    }
+    .section-title {
+        color: #1e293b;
+        font-size: 18px;
+        font-weight: 600;
+        border-bottom: 2px solid #2563eb;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+    .info-table {
+        width: 100%;
+        border-collapse: collapse; }
+    .info-table th {
+        text-align: left;
+        padding: 10px;
+        background-color: #f1f5f9;
+        color: #475569;
+        font-size: 12px;
+        text-transform: uppercase;
+        width: 40%;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .info-table td {
+        padding: 10px;
+        color: #1e293b;
+        font-size: 14px;
+        border-bottom: 1px solid #e2e8f0;
+    }
+    .footer {
+        background-color: #f8fafc;
+        padding: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #64748b;
+    }
+    .highlight {
+        color: #2563eb;
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Nueva Inscripción</h1>
+      <p>Se ha recibido un nuevo participante</p>
+    </div>
+
+    <div class="content">
+      <div class="section-title">Información Personal</div>
+      <table class="info-table">
+        <tr><th>Nombre Completo</th><td><%= form.name %> <%= form.surname %></td></tr>
+        <tr><th>Documento</th><td><%= form.documentType %>: <%= form.documentNumber %></td></tr>
+        <tr><th>Fecha de Nacimiento</th><td><%= form.birthdate %> (<%= form.age %> años)</td></tr>
+        <tr><th>Correo Electrónico</th><td class="highlight"><%= form.email %></td></tr>
+        <tr><th>Teléfono</th><td><%= form.phoneNumber %></td></tr>
+        <tr><th>Dirección</th><td><%= form.address %></td></tr>
+      </table>
+
+      <div class="section-title">Detalles Técnicos</div>
+      <table class="info-table">
+        <tr><th>RH / Grupo Sanguíneo</th><td><%= form.bloodType %></td></tr>
+        <tr><th>EPS</th><td><%= form.eps %></td></tr>
+        <tr><th>Categoría</th><td class="highlight"><%= form.category %></td></tr>
+        <tr><th>Talla de Camiseta</th><td><%= form.tShirtSize %></td></tr>
+      </table>
+
+      <div class="section-title">Contacto de Emergencia</div>
+      <table class="info-table">
+        <tr><th>Nombre</th><td><%= form.emergencyName %></td></tr>
+        <tr><th>Parentesco</th><td><%= form.emergencyRelationship %></td></tr>
+        <tr><th>Teléfono Emergencia</th><td class="highlight"><%= form.emergencyPhoneNumber %></td></tr>
+      </table>
+
+      <div style="margin-top: 30px; font-size: 11px; color: #94a3b8;">
+        <p><strong>Privacidad:</strong> El usuario aceptó el tratamiento de datos personales: <%= form.privacyAccepted ? 'SÍ' : 'NO' %></p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Este es un correo automático generado por el sistema de inscripciones.
+    </div>
+</body>
+</html>

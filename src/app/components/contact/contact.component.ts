@@ -34,9 +34,7 @@ export class ContactComponent {
     emergencyName: '',
     emergencyRelationship: '',
     emergencyPhoneNumber: '',
-    privacyAccepted: '',
-    subject: '',
-    message: ''
+    privacyAccepted: ''
   };
 
   isSubmitting = false;
@@ -112,9 +110,7 @@ export class ContactComponent {
             emergencyName: '',
             emergencyRelationship: '',
             emergencyPhoneNumber: '',
-            privacyAccepted: '',
-            subject: '',
-            message: ''
+            privacyAccepted: ''
           };
 
           this.selectedFileBase64 = null;

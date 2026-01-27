@@ -6,8 +6,9 @@ const path = require("path");
 const HOST = process.env.EMAIL_HOST;
 const EMAIL = process.env.EMAIL_USER;
 const PASS = process.env.EMAIL_PASSWORD;
+const EMAIL_REGISTRATION = process.env.EMAIL_REGISTRATION;
 
-if (!HOST || !EMAIL || !PASS) {
+if (!HOST || !EMAIL || !PASS || !EMAIL_REGISTRATION) {
     console.error("ERROR: Las variables de usuario o contraseña están vacías.");
     return { statusCode: 500, body: 'Missing configuration.' };
 }
@@ -40,7 +41,7 @@ function sendEmail(mail) {
 }
 
 async function generateMessageBody(params) {
-    const templatePath = path.join(__dirname, 'templates', 'participant.ejs'); 
+    const templatePath = path.join(__dirname, 'templates', 'registration.ejs'); 
     const template = await fs.readFile(templatePath, 'utf8');
 
     return ejs.render(template, params);
@@ -87,8 +88,8 @@ if (event.httpMethod !== "POST") {
 
         const result = await sendEmail({
             from: process.env.EMAIL_USER,
-            to: params.email,
-            subject: "Test Email Service: " + params.subject,
+            to: EMAIL_REGISTRATION,
+            subject: "Registro participante: " + params.documentNumber,
             html: await generateMessageBody(params),
             attachments: [
                 ...handleAttachment(params.attachment, params.fileName),
