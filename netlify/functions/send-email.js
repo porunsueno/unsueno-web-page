@@ -40,11 +40,11 @@ function sendEmail(mail) {
     })
 }
 
-async function generateMessageBody(params) {
+async function generateMessageBody(form) {
     const templatePath = path.join(__dirname, 'templates', 'registration.ejs'); 
     const template = await fs.readFile(templatePath, 'utf8');
 
-    return ejs.render(template, params);
+    return ejs.render(template, form);
 }
 
 function handleAttachment(file, name) {
@@ -83,16 +83,16 @@ if (event.httpMethod !== "POST") {
     }
 
     try {
-        const params = JSON.parse(event.body);
-        console.log("Request received", params);
+        const form = JSON.parse(event.body);
+        console.log("Request received", form);
 
         const result = await sendEmail({
             from: process.env.EMAIL_USER,
             to: EMAIL_REGISTRATION,
-            subject: "Registro participante: " + params.documentNumber,
-            html: await generateMessageBody(params),
+            subject: "Registro participante: " + form.documentNumber,
+            html: await generateMessageBody(form),
             attachments: [
-                ...handleAttachment(params.attachment, params.fileName),
+                ...handleAttachment(form.attachment, form.fileName),
                 handleInlineImages()
             ]
         });
