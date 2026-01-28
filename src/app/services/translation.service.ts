@@ -160,7 +160,11 @@ export interface Translations {
     title: {
       main: string
     };
-    description: string;
+    paymentInfo: {
+      instruction: string;
+      account: string;
+      nit: string;
+    }
     form: {
       title: string;
       nameLabel: string;
@@ -444,8 +448,11 @@ const translations: Record<Language, Translations> = {
       title: {
         main: 'Registrations',
       },
-      description:
-        '[Contact section description. Encourage visitors to reach out, mention what they can expect when they contact you, and include any incentives like free consultations or estimates.]',
+      paymentInfo: {
+        instruction: 'Payment must be made before submitting this registration form and the receipt must be attached.',
+        account: 'Bancolombia account # 557-940562-76 in the name of Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277-9 '
+      },
       form: {
         title: 'Sign up here',
         nameLabel: 'Name',
@@ -524,7 +531,7 @@ const translations: Record<Language, Translations> = {
         messagePlaceholder: '[Your message placeholder text here...]',
         submit: 'Send Message',
         sending: 'Sending...',
-        successMessage: 'Thank you! Your message has been sent successfully.',
+        successMessage: 'Thank you! Your registration has been sent successfully.',
       },
       info: {
         title: 'Contact Information',
@@ -742,8 +749,11 @@ const translations: Record<Language, Translations> = {
       title: {
         main: 'Inscripciones',
       },
-      description:
-        '[Descripción de la sección de contacto. Anima a los visitantes a contactarte, menciona qué pueden esperar cuando te contacten e incluye incentivos como consultas gratuitas o estimaciones.]',
+      paymentInfo: {
+        instruction: 'Se debe realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante.',
+        account: 'Cuenta de ahorros Bancolombia # 557-940562-76 a nombre de Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277-9 '
+      },
       form: {
         title: 'Inscríbete aquí',
         nameLabel: 'Nombres',
@@ -820,9 +830,9 @@ const translations: Record<Language, Translations> = {
         subjectPlaceholder: '[Placeholder del asunto]',
         message: 'Mensaje *',
         messagePlaceholder: '[Tu texto placeholder del mensaje aquí...]',
-        submit: 'Enviar Mensaje',
+        submit: 'Inscribirme',
         sending: 'Enviando...',
-        successMessage: '¡Gracias! Tu mensaje ha sido enviado exitosamente.',
+        successMessage: '¡Gracias! Tu inscripción ha sido enviada exitosamente.',
       },
       info: {
         title: 'Información de Contacto',
