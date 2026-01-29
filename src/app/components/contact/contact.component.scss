@@ -1,6 +1,31 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .contact {
   @include section-padding;
   background-color: $secondary-50;
@@ -37,14 +62,20 @@
     grid-template-columns: 1fr;
     gap: $spacing-3xl;
 
+    &--centered {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
     @include desktop {
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr;
     }
   }
 
   &__form-container {
     @include card;
     padding: $spacing-2xl;
+    animation: fadeInUp 0.6s ease-out forwards;
   }
 
   &__form-title {
@@ -55,9 +86,44 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: $spacing-lg;
+
+    @include desktop {
+      grid-template-columns: 1fr 1fr;
+      column-gap: $spacing-xl;
+    }
+  }
+
+  &__full-width {
+    @include desktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__form-title {
+    @extend .contact__full-width;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $secondary-900;
+    margin-top: $spacing-md;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__form-title,
+  &__full-width,
+  &__submit,
+  &__checkbox-field,
+  .contact__field:has(#attachment) {
+    @include desktop {
+      grid-column: span 2;
+    }
+  }
+
+  &__field {
+    position: relative;
+    margin-bottom: $spacing-lg;
   }
 
   &__label {
@@ -93,6 +159,7 @@
   }
 
   &__checkbox-field {
+    @extend .contact__full-width;
     display: flex;
     align-items: flex-start;
     gap: $spacing-md;
@@ -124,10 +191,11 @@
       }
     }
   }
-    &__file-wrapper {
-      position: relative;
-      width: 100%;
-    }
+
+  &__file-wrapper {
+    position: relative;
+    width: 100%;
+  }
 
   &__file-input {
     // Lo ocultamos visualmente pero sigue siendo funcional
@@ -177,6 +245,19 @@
   &__submit {
     width: 100%;
     position: relative;
+    transition: all $transition-normal;
+
+    &:hover:not(:disabled) {
+      background-color: #d6eae1;
+      border-color: #d6eae1;
+      color: black; 
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+    }
 
     &--loading {
       opacity: 0.7;
@@ -285,13 +366,18 @@
   &__info-value {
     color: $secondary-600;
   }
-}
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  &__category-info {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 0.75rem;
+    color: $primary-600;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 4px;
+    z-index: 10;
+    pointer-events: none;
+    animation: fadeIn 0.3s ease-in;
   }
 }

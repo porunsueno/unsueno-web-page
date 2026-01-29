@@ -92,27 +92,6 @@ export class ContactComponent {
           this.isSubmitting = false;
           this.showSuccessMessage = true;
 
-          // Reset form
-          this.form = {
-            name: '',
-            surname: '',
-            documentType: '',
-            documentNumber: '',
-            email: '',
-            phoneNumber: '',
-            address: '',
-            birthdate: '',
-            age: '',
-            bloodType: '',
-            eps: '',
-            category: '',
-            tShirtSize: '',
-            emergencyName: '',
-            emergencyRelationship: '',
-            emergencyPhoneNumber: '',
-            privacyAccepted: ''
-          };
-
           this.selectedFileBase64 = null;
           this.fileName = null;
 
@@ -121,7 +100,7 @@ export class ContactComponent {
         },
         error: (error) => {
           this.isSubmitting = false;
-          this.showSuccessMessage = true;
+          this.showSuccessMessage = false;
           alert('Error sending email');
           console.error('Error sending email: ', error);
         }
