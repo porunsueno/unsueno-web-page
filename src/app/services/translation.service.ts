@@ -24,7 +24,6 @@ export interface Translations {
       highlight: string;
       rest: string;
     };
-    subtitle: string;
     cta: {
       primary: string;
       secondary: string;
@@ -158,22 +157,22 @@ export interface Translations {
   // Contact
   registrations: {
     title: {
-      main: string
+      main: string;
     };
     paymentInfo: {
       instruction: string;
       account: string;
       nit: string;
-    }
+    };
     form: {
       title: string;
       nameLabel: string;
       namePlaceholder: string;
       surnameLabel: string;
       surnamePlaceholder: string;
-      documentTypeLabel: string,
-      documentTypePlaceholder: string,
-      documentTypes: {id: number, label: string}[];
+      documentTypeLabel: string;
+      documentTypePlaceholder: string;
+      documentTypes: { id: number; label: string }[];
       documentNumberLabel: string;
       documentNumberPlaceholder: string;
       emailLabel: string;
@@ -187,15 +186,15 @@ export interface Translations {
       agePlaceholder: string;
       bloodTypeLabel: string;
       bloodTypePlaceholder: string;
-      bloodTypes: {id: number, label:string}[];
+      bloodTypes: { id: number; label: string }[];
       epsLabel: string;
       epsPlaceholder: string;
       categoryLabel: string;
       categoryPlaceholder: string;
-      categories: {id: number, label: string}[];
+      categories: { id: number; label: string }[];
       tShirtSizeLabel: string;
       tShirtSizePlaceholder: string;
-      tShirtSizes: {id: number, label: string}[];
+      tShirtSizes: { id: number; label: string }[];
       emergencyContactTitle: string;
       emergencyNameLabel: string;
       emergencyNamePlaceholder: string;
@@ -280,8 +279,6 @@ const translations: Record<Language, Translations> = {
         highlight: '[Highlight Words]',
         rest: '[Rest of Headline]',
       },
-      subtitle:
-        '[Your company description goes here. Explain what you do, who you serve, and what makes you unique. This is your elevator pitch to visitors and should be compelling and clear.]',
       cta: {
         primary: '[Primary Action]',
         secondary: '[Secondary Action]',
@@ -449,9 +446,11 @@ const translations: Record<Language, Translations> = {
         main: 'Registrations',
       },
       paymentInfo: {
-        instruction: 'Payment must be made before submitting this registration form and the receipt must be attached.',
-        account: 'Bancolombia account # 557-940562-76 in the name of Fundación para el Bienestar del Niño',
-        nit: 'NIT: 890.985.277-9 '
+        instruction:
+          'Payment must be made before submitting this registration form and the receipt must be attached.',
+        account:
+          'Bancolombia account # 557-940562-76 in the name of Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277-9 ',
       },
       form: {
         title: 'Sign up here',
@@ -462,11 +461,11 @@ const translations: Record<Language, Translations> = {
         documentTypeLabel: 'Document Type',
         documentTypePlaceholder: 'Choose a document type',
         documentTypes: [
-          {id: 1, label: 'Government Identification'},
-          {id: 2, label: 'Foreigners Identity Card'},
-          {id: 3, label: 'Identity card'},
-          {id: 4, label: 'Civil Registry or NUIP'},
-          {id: 5, label: 'Passport'}
+          { id: 1, label: 'Government Identification' },
+          { id: 2, label: 'Foreigners Identity Card' },
+          { id: 3, label: 'Identity card' },
+          { id: 4, label: 'Civil Registry or NUIP' },
+          { id: 5, label: 'Passport' },
         ],
         documentNumberLabel: 'ID Number',
         documentNumberPlaceholder: 'Enter your ID number',
@@ -482,36 +481,36 @@ const translations: Record<Language, Translations> = {
         bloodTypeLabel: 'Blood Type',
         bloodTypePlaceholder: 'Choosea blood type',
         bloodTypes: [
-          {id: 1, label: 'A+'},
-          {id: 2, label: 'A-'},
-          {id: 3, label: 'B+'},
-          {id: 4, label: 'B-'},
-          {id: 5, label: 'O+'},
-          {id: 6, label: 'O-'},
-          {id: 7, label: 'AB+'},
-          {id: 8, label: 'AB-'}
+          { id: 1, label: 'A+' },
+          { id: 2, label: 'A-' },
+          { id: 3, label: 'B+' },
+          { id: 4, label: 'B-' },
+          { id: 5, label: 'O+' },
+          { id: 6, label: 'O-' },
+          { id: 7, label: 'AB+' },
+          { id: 8, label: 'AB-' },
         ],
         epsLabel: 'EPS',
         epsPlaceholder: 'Enter your EPS name',
         categoryLabel: 'Category',
         categoryPlaceholder: 'Choose a category',
         categories: [
-          {id: 1, label: '3 Km'},
-          {id: 2, label: '5 Km'},
-          {id: 3, label: '10 Km'}
+          { id: 1, label: '3 Km' },
+          { id: 2, label: '5 Km' },
+          { id: 3, label: '10 Km' },
         ],
         tShirtSizeLabel: 'T-shirt size',
         tShirtSizePlaceholder: 'Choose one size',
         tShirtSizes: [
-          {id: 1, label: 'Female XS'},
-          {id: 1, label: 'Male S'},
-          {id: 1, label: 'Female S'},
-          {id: 1, label: 'Male M'},
-          {id: 1, label: 'Female M'},
-          {id: 1, label: 'Male L'},
-          {id: 1, label: 'Female L'},
-          {id: 1, label: 'Male XL'},
-          {id: 1, label: 'Female XL'},
+          { id: 1, label: 'Female XS' },
+          { id: 1, label: 'Male S' },
+          { id: 1, label: 'Female S' },
+          { id: 1, label: 'Male M' },
+          { id: 1, label: 'Female M' },
+          { id: 1, label: 'Male L' },
+          { id: 1, label: 'Female L' },
+          { id: 1, label: 'Male XL' },
+          { id: 1, label: 'Female XL' },
         ],
         emergencyContactTitle: 'Emergency Contact',
         emergencyNameLabel: 'Full Name',
@@ -522,7 +521,8 @@ const translations: Record<Language, Translations> = {
         privacyText: 'I have read and agree to the ',
         privacyLink: 'processing of my personal data, terms and conditions',
         attachmentTitle: 'proof of payment',
-        attachmentLabel: 'Payment must be made before submitting this registration form and the receipt attached here in JPG or PNG format',
+        attachmentLabel:
+          'Payment must be made before submitting this registration form and the receipt attached here in JPG or PNG format',
         attachmentPlaceholder: 'No file selected',
         attachmentButton: 'Choose file',
         subject: 'Subject',
@@ -531,7 +531,8 @@ const translations: Record<Language, Translations> = {
         messagePlaceholder: '[Your message placeholder text here...]',
         submit: 'Send Message',
         sending: 'Sending...',
-        successMessage: 'Thank you! Your registration has been sent successfully.',
+        successMessage:
+          'Thank you! Your registration has been sent successfully.',
       },
       info: {
         title: 'Contact Information',
@@ -580,10 +581,9 @@ const translations: Record<Language, Translations> = {
     hero: {
       title: {
         main: '',
-        highlight: '01-feb-2026',
-        rest: 'La Unión ANT.',
+        highlight: '26 de abril de 2026',
+        rest: 'LA UNIÓN ANT.',
       },
-      subtitle: '',
       cta: {
         primary: '¡Quiero inscribirme!',
         secondary: '[Acción Secundaria]',
@@ -622,7 +622,7 @@ const translations: Record<Language, Translations> = {
         },
       },
       cta: 'Inscríbete solo por $140.000',
-      badge: { number: '[Número]', text: '[Métrica]' },
+      badge: { number: '', text: '' },
       imageAlt: '[Descripción de imagen de tu empresa]',
     },
     whatIncludes: {
@@ -750,9 +750,11 @@ const translations: Record<Language, Translations> = {
         main: 'Inscripciones',
       },
       paymentInfo: {
-        instruction: 'Se debe realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante.',
-        account: 'Cuenta de ahorros Bancolombia # 557-940562-76 a nombre de Fundación para el Bienestar del Niño',
-        nit: 'NIT: 890.985.277-9 '
+        instruction:
+          'Se debe realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante.',
+        account:
+          'Cuenta de ahorros Bancolombia # 557-940562-76 a nombre de Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277-9 ',
       },
       form: {
         title: 'Inscríbete aquí',
@@ -763,11 +765,11 @@ const translations: Record<Language, Translations> = {
         documentTypeLabel: 'Tipo de Documento',
         documentTypePlaceholder: 'Selecciona un documento',
         documentTypes: [
-          {id: 1, label: 'Cédula de Ciudadanía'},
-          {id: 2, label: 'Cédula de Extranjería'},
-          {id: 3, label: 'Tarjeta de Identidad'},
-          {id: 4, label: 'Registro Civil o NUIP'},
-          {id: 5, label: 'Pasaporte'}
+          { id: 1, label: 'Cédula de Ciudadanía' },
+          { id: 2, label: 'Cédula de Extranjería' },
+          { id: 3, label: 'Tarjeta de Identidad' },
+          { id: 4, label: 'Registro Civil o NUIP' },
+          { id: 5, label: 'Pasaporte' },
         ],
         documentNumberLabel: 'Número de Documento',
         documentNumberPlaceholder: 'Ingrese el número de documento',
@@ -783,36 +785,36 @@ const translations: Record<Language, Translations> = {
         bloodTypeLabel: 'Tipo de Sangre',
         bloodTypePlaceholder: 'Selecciona un tipo de sangre',
         bloodTypes: [
-          {id: 1, label: 'A+'},
-          {id: 2, label: 'A-'},
-          {id: 3, label: 'B+'},
-          {id: 4, label: 'B-'},
-          {id: 5, label: 'O+'},
-          {id: 6, label: 'O-'},
-          {id: 7, label: 'AB+'},
-          {id: 8, label: 'AB-'}
+          { id: 1, label: 'A+' },
+          { id: 2, label: 'A-' },
+          { id: 3, label: 'B+' },
+          { id: 4, label: 'B-' },
+          { id: 5, label: 'O+' },
+          { id: 6, label: 'O-' },
+          { id: 7, label: 'AB+' },
+          { id: 8, label: 'AB-' },
         ],
         epsLabel: 'EPS',
         epsPlaceholder: 'Ingresa el nombre de tu EPS',
         categoryLabel: 'Categoría',
         categoryPlaceholder: 'Escoge una categoría',
         categories: [
-          {id: 1, label: '3 Km'},
-          {id: 2, label: '5 Km'},
-          {id: 3, label: '10 Km'}
+          { id: 1, label: '3 Km' },
+          { id: 2, label: '5 Km' },
+          { id: 3, label: '10 Km' },
         ],
         tShirtSizeLabel: 'Talla de Camiseta',
         tShirtSizePlaceholder: 'Escoge una talla',
         tShirtSizes: [
-          {id: 1, label: 'Mujer XS'},
-          {id: 1, label: 'Hombre S'},
-          {id: 1, label: 'Mujer S'},
-          {id: 1, label: 'Hombre M'},
-          {id: 1, label: 'Mujer M'},
-          {id: 1, label: 'Hombre L'},
-          {id: 1, label: 'Mujer L'},
-          {id: 1, label: 'Hombre XL'},
-          {id: 1, label: 'Mujer XL'},
+          { id: 1, label: 'Mujer XS' },
+          { id: 1, label: 'Hombre S' },
+          { id: 1, label: 'Mujer S' },
+          { id: 1, label: 'Hombre M' },
+          { id: 1, label: 'Mujer M' },
+          { id: 1, label: 'Hombre L' },
+          { id: 1, label: 'Mujer L' },
+          { id: 1, label: 'Hombre XL' },
+          { id: 1, label: 'Mujer XL' },
         ],
         emergencyContactTitle: 'Contacto de Emergencia',
         emergencyNameLabel: 'Nombre Completo',
@@ -821,9 +823,11 @@ const translations: Record<Language, Translations> = {
         emergencyRelationshipPlaceholder: 'Ingresa el parentesco',
         privacyTitle: 'Tratamiento de Datos',
         privacyText: 'He leído y acepto el ',
-        privacyLink: 'tratamiento de mis datos personales, términos y condiciones',
+        privacyLink:
+          'tratamiento de mis datos personales, términos y condiciones',
         attachmentTitle: 'Comprobante de Pago',
-        attachmentLabel: 'Recuerda realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante aquí en formato JPG o PNG',
+        attachmentLabel:
+          'Recuerda realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante aquí en formato JPG o PNG',
         attachmentPlaceholder: 'Ningún archivo seleccionado',
         attachmentButton: 'Elegir archivo',
         subject: 'Asunto',
@@ -832,7 +836,8 @@ const translations: Record<Language, Translations> = {
         messagePlaceholder: '[Tu texto placeholder del mensaje aquí...]',
         submit: 'Inscribirme',
         sending: 'Enviando...',
-        successMessage: '¡Gracias! Tu inscripción ha sido enviada exitosamente.',
+        successMessage:
+          '¡Gracias! Tu inscripción ha sido enviada exitosamente.',
       },
       info: {
         title: 'Información de Contacto',

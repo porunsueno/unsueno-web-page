@@ -53,10 +53,12 @@
   }
 
   &__title {
+    display: flex;
+    flex-direction: column;
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: $spacing-md;
-    color: white;
+    color: $secondary-300;
     line-height: 1.2;
   }
 
@@ -67,20 +69,12 @@
     -webkit-text-fill-color: transparent;
   }
 
-  &__subtitle {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.9);
-    margin: 0 auto $spacing-xl;
-    max-width: 90%;
-  }
-
   /* --- COUNTDOWN --- */
   &__countdown {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: $spacing-md;
+    gap: $spacing-sm;
     flex-wrap: nowrap;
     margin-top: $spacing-xl;
 
@@ -98,7 +92,7 @@
 
   &__countdown-item {
     background: rgba(255, 255, 255, 0.15);
-    background-color: $primary-500;
+    background-color: $secondary-300;
     border-radius: 0.75rem;
     padding: $spacing-sm;
     backdrop-filter: blur(8px);
@@ -120,13 +114,13 @@
   &__countdown-number {
     font-size: 1.4rem;
     font-weight: 700;
-    color: white;
+    color: black;
     line-height: 1;
   }
 
   &__countdown-label {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: black;
     margin-top: 0.25rem;
   }
 
@@ -146,7 +140,7 @@
   }
 
   &__cta-primary {
-    @include btn-primary;
+    @include btn-tertiary;
   }
 
   &__cta-secondary {
@@ -208,11 +202,6 @@
       font-size: 2.5rem;
     }
 
-    &__subtitle {
-      font-size: 1.2rem;
-      max-width: 36rem;
-    }
-
     &__countdown-item {
       width: 80px;
       height: 80px;
@@ -230,10 +219,6 @@
   @include desktop {
     &__title {
       font-size: 3rem;
-    }
-
-    &__subtitle {
-      font-size: 1.5rem;
     }
 
     &__countdown {
@@ -280,12 +265,12 @@
     animation: fade-in 1.2s ease both;
 
     &:hover .hero__discover-text {
-      color: $accent-500;
+      color: $secondary-200;
       transform: translateY(-3px);
     }
 
     &:hover .hero__discover-icon {
-      color: $accent-500;
+      color: $secondary-200;
       transform: translateY(3px);
     }
   }

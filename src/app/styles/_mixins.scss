@@ -60,6 +60,59 @@
   }
 }
 
+@mixin btn-tertiary {
+  @include btn-base;
+  background-color: $danger-500;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: white;
+    transform: translateY(-1px);
+    color: $danger-500;
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-tertiary-inverted {
+  @include btn-base;
+  background-color: white;
+  color: $danger-500;
+  border: 3px solid $danger-500;
+
+  &:hover:not(:disabled) {
+    background-color: $danger-500;
+    transform: translateY(-1px);
+    color: white;
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-card {
+  @include btn-base;
+  background-color: white;
+  color: black;
+  border: 3px solid $danger-500;
+
+  &:hover:not(:disabled) {
+    background-color: white;
+    transform: translateY(-1px);
+    color: $danger-500;
+    box-shadow: $shadow-lg;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
 @mixin btn-secondary {
   @include btn-base;
   background-color: $primary-500;

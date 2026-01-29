@@ -6,17 +6,13 @@
   <div class="hero__container">
     <div class="hero__content">
       <h1 class="hero__title">
-        {{ t().hero.title.main }}
+        <span class="hero__title-main">
+          {{ t().hero.title.rest }}
+        </span>
         <span class="hero__title-accent">
           {{ t().hero.title.highlight }}
         </span>
-        {{ t().hero.title.rest }}
       </h1>
-
-      <p class="hero__subtitle">
-        {{ t().hero.subtitle }}
-      </p>
-
       <div class="hero__countdown">
         <div class="hero__countdown-item">
           <span class="hero__countdown-number">{{ days }}</span>
@@ -37,7 +33,7 @@
       </div>
 
       <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary hero__cta-primary">
+        <a href="#contact" class="btn btn--tertiary hero__cta-primary">
           {{ t().hero.cta.primary }}
         </a>
       </div>

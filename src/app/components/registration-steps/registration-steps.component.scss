@@ -65,7 +65,7 @@
   }
 
   &__title-accent {
-    background: $accent-500;
+    background: $primary-100;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -76,7 +76,7 @@
     font-weight: bolder;
     margin: 0 auto $spacing-xl;
     line-height: 1.5;
-    color: $accent-500;
+    color: white;
     font-size: clamp(1rem, 2vw, 1.5rem);
   }
 
@@ -96,10 +96,6 @@
       font-size: 1.1rem;
       line-height: 1.7;
       color: rgba(255, 255, 255, 0.95);
-
-      strong {
-        color: $accent-500;
-      }
     }
   }
 }
@@ -124,7 +120,7 @@
   }
 
   &__title-accent {
-    color: $primary-600;
+    color: $primary-100;
   }
 
   &__description {
@@ -232,17 +228,17 @@
     margin-right: -2rem;
     font-size: 2px;
     &--primary {
-      background-color: $accent-500;
+      background-color: $warning-500;
     }
     &--secondary {
-      background-color: $warning-500;
+      background-color: $danger-500;
     }
   }
 
   &__card-title {
     font-size: 2rem;
     font-weight: 600;
-    color: $primary-500;
+    color: white;
     margin-bottom: $spacing-md;
     transition: color $transition-normal;
     margin-left: auto;
@@ -251,7 +247,7 @@
   &__card-subtitle {
     font-size: 1rem;
     font-weight: 600;
-    color: $primary-500;
+    color: white;
     margin-bottom: $spacing-md;
     transition: color $transition-normal;
     margin-left: auto;
@@ -319,7 +315,8 @@
   display: flex;
   gap: 0.75rem;
   background: $secondary-50;
-  border-radius: $radius-2xl;
+  padding: $spacing-sm $spacing-sm;
+  border-radius: 9999px;
 
   a {
     width: 4rem;
@@ -327,14 +324,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
+    border-radius: 9999px;
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(4px);
     transition: 0.25s ease;
     position: relative;
 
     &:hover {
-      background: $danger-500;
+      background: $primary-500;
     }
 
     /* Ocultar el <img> */
@@ -354,7 +351,7 @@
       mask-position: center;
       -webkit-mask-position: center;
 
-      background-color: $danger-500; // 🔥 Color exacto
+      background-color: $primary-500; // 🔥 Color exacto
       display: block;
     }
 
@@ -367,4 +364,8 @@
       -webkit-mask-image: url("/icons/whatsapp-line.svg");
     }
   }
+}
+
+.btn--tertiary-inverted {
+  @include btn-tertiary-inverted;
 }

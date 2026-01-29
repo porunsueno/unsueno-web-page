@@ -16,11 +16,14 @@
       >
         <div class="categories__content">
           <h3 class="categories__card-title">{{ d.title }}</h3>
-          <p class="categories__card-description">{{ d.description }}</p>
-
           <div class="categories__stats">
             <span class="categories__stat">{{ d.category }}</span>
           </div>
+          <br />
+          <p class="categories__card-description">{{ d.description }}</p>
+          <a href="#contact" class="btn btn--tertiary">
+            {{ t().hero.cta.primary }}
+          </a>
         </div>
       </div>
       }
