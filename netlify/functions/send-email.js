@@ -65,7 +65,7 @@ function handleAttachment(file, name) {
 
 function handleInlineImages() {
   const cidName = 'flyer_carrera';
-  const imagePath = path.resolve(__dirname, 'templates', 'registered.jpg');
+  const imagePath = path.resolve(__dirname, 'templates', 'registered.jpeg');
 
   return {
     filename: 'registered.jpg',

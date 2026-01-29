@@ -193,6 +193,7 @@ export interface Translations {
       categoryLabel: string;
       categoryPlaceholder: string;
       categories: {id: number, label: string}[];
+      petRegistrationInfo: string;
       tShirtSizeLabel: string;
       tShirtSizePlaceholder: string;
       tShirtSizes: {id: number, label: string}[];
@@ -500,6 +501,7 @@ const translations: Record<Language, Translations> = {
           {id: 2, label: '5 Km'},
           {id: 3, label: '10 Km'}
         ],
+        petRegistrationInfo: 'If you wish to register with a pet for the 3km category, please contact WhatsApp to complete their registration.',
         tShirtSizeLabel: 'T-shirt size',
         tShirtSizePlaceholder: 'Choose one size',
         tShirtSizes: [
@@ -801,6 +803,7 @@ const translations: Record<Language, Translations> = {
           {id: 2, label: '5 Km'},
           {id: 3, label: '10 Km'}
         ],
+        petRegistrationInfo: 'Si deseas inscribirte con mascota para la categoría de 3km, por favor contáctate por WhatsApp para completar su inscripción.',
         tShirtSizeLabel: 'Talla de Camiseta',
         tShirtSizePlaceholder: 'Escoge una talla',
         tShirtSizes: [
