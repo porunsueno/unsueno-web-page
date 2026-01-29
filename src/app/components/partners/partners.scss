@@ -1,0 +1,174 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+/* ===============================
+   PARTNERS SECTION
+================================ */
+.partners {
+  position: relative;
+  background-color: #0f2a1f; // verde oscuro elegante
+  padding: $spacing-3xl 0;
+  overflow: hidden;
+
+  /* ===============================
+     CONTAINER
+  ================================ */
+  &__container {
+    @include container;
+    text-align: center;
+  }
+
+  /* ===============================
+     TITLES
+  ================================ */
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $primary-50;
+    margin-bottom: $spacing-2xl;
+
+    &--spaced {
+      margin-top: $spacing-3xl;
+    }
+  }
+
+  /* ===============================
+     CONVOCAN
+  ================================ */
+  &__convocan {
+    background: white;
+    border-radius: 9999px;
+    padding: $spacing-xl $spacing-2xl;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-3xl;
+    flex-wrap: wrap;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+    img {
+      height: 3.5rem;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+      }
+    }
+  }
+
+  /* ===============================
+     FULL WIDTH CAROUSEL
+  ================================ */
+  &__carousel-full {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: $spacing-3xl;
+    position: relative;
+  }
+
+  &__carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ===============================
+     FADE EDGES (PRO)
+  ================================ */
+  &__carousel::before,
+  &__carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 7rem;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &__carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #0f2a1f, transparent);
+  }
+
+  &__carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #0f2a1f, transparent);
+  }
+
+  /* ===============================
+     TRACK
+  ================================ */
+  &__track {
+    display: flex;
+    align-items: center;
+    gap: $spacing-3xl;
+    width: max-content;
+    animation: partners-scroll 30s linear infinite;
+    padding: $spacing-xl 0;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    img {
+      height: 3.5rem;
+      opacity: 0.85;
+      filter: grayscale(100%);
+      transition: all 0.35s ease;
+
+      &:hover {
+        opacity: 1;
+        filter: grayscale(0%);
+        transform: scale(1.08);
+      }
+    }
+  }
+
+  /* ===============================
+     RESPONSIVE
+  ================================ */
+  @include tablet {
+    &__convocan {
+      gap: $spacing-2xl;
+
+      img {
+        height: 3rem;
+      }
+    }
+
+    &__track img {
+      height: 3rem;
+    }
+  }
+
+  @include mobile {
+    &__convocan {
+      padding: $spacing-lg;
+      border-radius: 1.5rem;
+    }
+
+    &__carousel::before,
+    &__carousel::after {
+      width: 4rem;
+    }
+  }
+}
+
+/* ===============================
+   ANIMATION
+================================ */
+@keyframes partners-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

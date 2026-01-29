@@ -7,6 +7,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { WhatIncludesComponent } from './components/what-includes/what-includes.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RegistrationStepsComponent } from './components/registration-steps/registration-steps.component';
+import { Partners } from './components/partners/partners';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ import { RegistrationStepsComponent } from './components/registration-steps/regi
     WhatIncludesComponent,
     CategoriesComponent,
     RegistrationStepsComponent,
+    Partners,
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],

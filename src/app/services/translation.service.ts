@@ -621,7 +621,7 @@ const translations: Record<Language, Translations> = {
           text: 'La carrera se vive en medio de escenarios naturales increíbles, donde mente, cuerpo y corazón avanzan juntos por un sueño.',
         },
       },
-      cta: 'Inscríbete solo por $140.000',
+      cta: 'Inscríbete solo por $130.000',
       badge: { number: '', text: '' },
       imageAlt: '[Descripción de imagen de tu empresa]',
     },
