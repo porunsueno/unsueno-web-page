@@ -20,14 +20,14 @@ export class RegistrationStepsComponent {
       title: 'PRIMARIA',
       subtitle: 'Precio especial de lanzamiento ',
       price: '$130.000',
-      detail: 'Tarifa vigente hasta el 31 de enero de 2026',
+      detail: 'Tarifa vigente hasta el 28 de febrero de 2026',
     },
     {
       type: 'secondary',
       title: 'SECUNDARIA',
       subtitle: 'Precio full',
       price: '$150.000',
-      detail: 'Tarifa vigente despues de el 01 de febrero de 2026',
+      detail: 'Tarifa vigente del 29 al 01 de marzo de 2026',
     },
   ];
 }

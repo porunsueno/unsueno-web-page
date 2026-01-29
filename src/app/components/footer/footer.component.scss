@@ -1,228 +1,31 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 .footer {
-  background-color: $secondary-900;
-  color: white;
-
-  &__main {
-    padding: $spacing-3xl 0;
-  }
-
-  &__container {
-    @include container;
-  }
-
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: $spacing-2xl;
-
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include desktop {
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-    }
-  }
-
-  &__section {
-    &--company {
-      @include desktop {
-        // Specific styles for company section if needed
-      }
-    }
-  }
-
-  &__logo {
-    margin-bottom: $spacing-lg;
-  }
-
-  &__logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    font-family: $font-display;
-    margin-bottom: $spacing-md;
-  }
-
-  &__logo-gradient {
-    background: linear-gradient(135deg, $primary-400, $accent-400);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  &__description {
-    color: $secondary-300;
-    line-height: 1.6;
-    max-width: 20rem;
-  }
-
-  &__contact {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-  }
-
-  &__contact-item {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    color: $secondary-300;
-    font-size: 0.875rem;
-  }
-
-  &__contact-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: $primary-400;
-    flex-shrink: 0;
-  }
-
-  &__section-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: $spacing-md;
-    color: white;
-  }
-
-  &__links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-sm;
-  }
-
-  &__link {
-    color: $secondary-300;
-    text-decoration: none;
-    transition: color $transition-normal;
-    font-size: 0.875rem;
-
-    &:hover {
-      color: $primary-400;
-    }
-
-    &--inactive {
-      cursor: default;
-      
-      &:hover {
-        color: $secondary-300;
-      }
-    }
-  }
-
-  &__newsletter-text {
-    color: $secondary-300;
-    margin-bottom: $spacing-md;
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-
-  &__newsletter {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-md;
-
-    @include mobile {
-      flex-direction: row;
-    }
-  }
-
-  &__newsletter-input {
-    flex: 1;
-    padding: 0.75rem 1rem;
-    background-color: $secondary-800;
-    border: 1px solid $secondary-600;
-    border-radius: $radius-lg;
-    color: white;
-    font-family: $font-sans;
-    transition: all $transition-normal;
-
-    &:focus {
-      outline: none;
-      border-color: $primary-500;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    }
-
-    &::placeholder {
-      color: $secondary-400;
-    }
-  }
-
-  &__newsletter-btn {
-    white-space: nowrap;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.875rem;
-
-    @include mobile {
-      flex-shrink: 0;
-    }
-  }
+  background: linear-gradient(135deg, $primary-700, $primary-800);
+  padding: $spacing-lg;
 
   &__bottom {
-    border-top: 1px solid $secondary-700;
-    padding: $spacing-lg 0;
-  }
-
-  &__bottom-content {
+    @include container;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: $spacing-md;
+    gap: $spacing-xs;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
 
     @include tablet {
       flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
     }
   }
 
-  &__copyright {
-    color: $secondary-400;
-    font-size: 0.875rem;
-    order: 2;
-
-    @include tablet {
-      order: 1;
-    }
-  }
-
-  &__social {
-    display: flex;
-    align-items: center;
-    gap: $spacing-md;
-    order: 1;
-
-    @include tablet {
-      order: 2;
-    }
-  }
-
-  &__social-link {
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: $secondary-700;
-    border-radius: $radius-lg;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all $transition-normal;
-    text-decoration: none;
-
-    &:hover {
-      background-color: $primary-600;
-      transform: translateY(-2px);
-    }
-  }
-
-  &__social-icon {
-    width: 1.25rem;
-    height: 1.25rem;
-    color: $secondary-300;
-
-    .footer__social-link:hover & {
-      color: white;
+  &__credit {
+    strong {
+      color: $accent-500;
+      font-weight: 600;
     }
   }
 }

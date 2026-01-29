@@ -17,20 +17,23 @@ export class CategoriesComponent {
   distances = [
     {
       title: '3K',
-      description: 'Ideal para quienes comienzan o quieren algo suave.',
-      category: 'Principiante',
+      category: 'Familiar, recreativo y pet friendly',
+      description:
+        'Un recorrido pensado para familias, niños, caminantes y mascotas, ideal para disfrutar, compartir y ser parte de una causa solidaria en un ambiente seguro y tranquilo.',
       price: 35000,
     },
     {
       title: '5K',
-      description: 'Un reto controlado para avanzar y mejorar.',
+      description:
+        'Recomendado para runners junior, deportistas y personas con buen estado físico que buscan un desafío moderado y disfrutar de la altura y el entorno natural de La Unión.',
       category: 'Intermedio',
       price: 45000,
     },
     {
       title: '10K',
-      description: 'Para corredores experimentados que buscan superarse.',
-      category: 'Avanzado',
+      description:
+        'Diseñado para atletas experimentados y deportistas de alto rendimiento que disfrutan de los grandes retos deportivos y quieren llevar su esfuerzo al máximo.',
+      category: 'Avanzado / competitivo',
       price: 55000,
     },
   ];

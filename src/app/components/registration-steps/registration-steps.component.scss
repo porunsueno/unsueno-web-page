@@ -76,7 +76,7 @@
     font-weight: bolder;
     margin: 0 auto $spacing-xl;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.9);
+    color: $accent-500;
     font-size: clamp(1rem, 2vw, 1.5rem);
   }
 
@@ -90,6 +90,16 @@
 
     @include tablet {
       flex-direction: row;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.95);
+
+      strong {
+        color: $accent-500;
+      }
     }
   }
 }
