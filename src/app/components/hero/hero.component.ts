@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { TranslationService } from '../../services/translation.service';
 
 @Component({
@@ -9,6 +9,59 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class HeroComponent {
   constructor(public translationService: TranslationService) {}
+  @ViewChild('heroVideo') heroVideo!: ElementRef<HTMLVideoElement>;
+  private visibilityListener?: () => void;
+
+  ngAfterViewInit() {
+    const video = this.heroVideo.nativeElement;
+
+    // Configuración inicial
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+
+    // Intentar reproducir
+    this.playVideo();
+
+    // Manejar cuando la pestaña vuelve a ser visible
+    this.visibilityListener = () => {
+      if (!document.hidden && video.paused) {
+        this.playVideo();
+      }
+    };
+    document.addEventListener('visibilitychange', this.visibilityListener);
+
+    // Manejar cuando el video termina (por si loop falla)
+    video.addEventListener('ended', () => {
+      video.currentTime = 0;
+      this.playVideo();
+    });
+
+    // Forzar reproducción después de un momento (para algunos navegadores)
+    setTimeout(() => {
+      if (video.paused) {
+        this.playVideo();
+      }
+    }, 100);
+  }
+
+  private playVideo() {
+    const video = this.heroVideo?.nativeElement;
+    if (!video) return;
+
+    video.currentTime = 0;
+    video.play().catch((error) => {
+      console.log('Error al reproducir video:', error);
+      // Reintentar después de interacción del usuario
+      document.addEventListener(
+        'click',
+        () => {
+          video.play().catch(() => {});
+        },
+        { once: true }
+      );
+    });
+  }
 
   t = () => this.translationService.translations();
 
@@ -27,6 +80,10 @@ export class HeroComponent {
 
   ngOnDestroy(): void {
     if (this.intervalId) clearInterval(this.intervalId);
+
+    if (this.visibilityListener) {
+      document.removeEventListener('visibilitychange', this.visibilityListener);
+    }
   }
 
   private startCountdown(): void {
