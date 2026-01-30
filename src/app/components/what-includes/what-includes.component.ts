@@ -58,6 +58,17 @@ export class WhatIncludesComponent {
       icon: '/what-includes-section/09-El-mejor-lugar-para-compartir-y-construir-futuro.svg',
       detail: 'Encuentro, comunidad y propósito.',
     },
+    {
+      title: 'Registro fotográfico oficial',
+      icon: '/what-includes-section/Fotos.png',
+      detail:
+        'Cobertura profesional de los momentos más importantes de la carrera.',
+    },
+    {
+      title: 'Activaciones y sorpresas',
+      icon: '/what-includes-section/sorpresas.png',
+      detail: 'Dinámicas y obsequios para los participantes del evento.',
+    },
   ];
 
   private intervalId?: ReturnType<typeof setInterval>;
