@@ -359,7 +359,7 @@
       background-color: white; // o el color que quieras en hover
     }
 
-    &[href*="whatsapp"]::before {
+    &[href*="wa.me"]::before {
       mask-image: url("/icons/whatsapp-line.svg");
       -webkit-mask-image: url("/icons/whatsapp-line.svg");
     }

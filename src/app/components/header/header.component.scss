@@ -85,7 +85,26 @@
 
   &__logo-link {
     text-decoration: none;
+    display: flex;
+    align-items: center;
     color: $accent-500;
+  }
+
+  &__logo-img {
+    height: 40px; 
+    width: auto;   // Mantiene la proporción
+    display: block;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05); // Un pequeño efecto al pasar el mouse
+    }
+  }
+
+  &--scrolled {
+    .header__logo-img {
+      height: 35px; // Puedes hacerlo un poco más pequeño al hacer scroll
+    }
   }
 
   &__logo-text {
@@ -242,10 +261,12 @@
 
   &__socials {
     display: none;
-    gap: 0.75rem;
+    gap: 1.2rem;
     align-items: center;
     background: $secondary-50;
     border-radius: $radius-2xl;
+    padding: 0.2rem 1rem;
+    margin-left: 1rem;
 
     @include tablet {
       display: flex;
@@ -294,7 +315,7 @@
       }
 
       /* Aplicar la máscara según enlace */
-      &[href*="whatsapp"]::before {
+      &[href*="wa.me"]::before {
         mask-image: url("/icons/whatsapp-line.svg");
         -webkit-mask-image: url("/icons/whatsapp-line.svg");
       }

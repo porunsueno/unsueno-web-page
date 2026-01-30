@@ -12,7 +12,7 @@ export class HeroComponent {
 
   t = () => this.translationService.translations();
 
-  targetDate = new Date('2026-01-31T23:59:59');
+  targetDate = new Date('2026-04-25T23:59:59');
 
   days = 0;
   hours = 0;
