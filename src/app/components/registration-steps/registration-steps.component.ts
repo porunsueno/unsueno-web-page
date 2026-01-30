@@ -27,7 +27,7 @@ export class RegistrationStepsComponent {
       title: 'SECUNDARIA',
       subtitle: 'Precio full',
       price: '$150.000',
-      detail: 'Tarifa vigente del 29 al 01 de marzo de 2026',
+      detail: 'Tarifa vigente del 01 al 29 de marzo de 2026',
     },
   ];
 }
