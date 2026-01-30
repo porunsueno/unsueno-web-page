@@ -3,11 +3,12 @@
     <!-- Section Header -->
     <div class="contact__header">
       <h2 class="contact__title">
-        {{t().registrations.title.main}}
+        {{ t().registrations.title.main }}
       </h2>
       <p class="contact__description">
-        {{ t().registrations.paymentInfo.instruction }}<br>
-        <strong>{{ t().registrations.paymentInfo.account }}</strong><br>
+        {{ t().registrations.paymentInfo.instruction }}<br />
+        <strong>{{ t().registrations.paymentInfo.account }}</strong
+        ><br />
         <strong>{{ t().registrations.paymentInfo.nit }}</strong>
       </p>
     </div>
@@ -17,14 +18,18 @@
       <div class="contact__form-wrapper">
         <div class="contact__form-container">
           <h3 class="contact__form-title">
-            {{t().registrations.form.title}}
+            {{ t().registrations.form.title }}
           </h3>
-          
-          <form (ngSubmit)="onSubmit($event)" #contactForm="ngForm" class="contact__form">
+
+          <form
+            (ngSubmit)="onSubmit($event)"
+            #contactForm="ngForm"
+            class="contact__form"
+          >
             <!-- Name Field -->
             <div class="contact__field">
               <label for="name" class="contact__label">
-                {{t().registrations.form.nameLabel}}
+                {{ t().registrations.form.nameLabel }}
               </label>
               <input
                 type="text"
@@ -34,13 +39,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.namePlaceholder"
-              >
+              />
             </div>
 
             <!-- Surname Field -->
             <div class="contact__field">
               <label for="surname" class="contact__label">
-                {{t().registrations.form.surnameLabel}}
+                {{ t().registrations.form.surnameLabel }}
               </label>
               <input
                 type="text"
@@ -50,13 +55,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.surnamePlaceholder"
-              >
+              />
             </div>
 
             <!-- Document Type Field -->
             <div class="contact__field">
               <label for="documentType" class="contact__label">
-                {{t().registrations.form.documentTypeLabel}}
+                {{ t().registrations.form.documentTypeLabel }}
               </label>
               <select
                 id="documentType"
@@ -66,12 +71,13 @@
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
-                  {{t().registrations.form.documentTypePlaceholder}}
+                  {{ t().registrations.form.documentTypePlaceholder }}
                 </option>
-                @for (optDT of t().registrations.form.documentTypes; track optDT.label) {
-                  <option [value]="optDT.label">
-                    {{ optDT.label }}
-                  </option>
+                @for (optDT of t().registrations.form.documentTypes; track
+                optDT.label) {
+                <option [value]="optDT.label">
+                  {{ optDT.label }}
+                </option>
                 }
               </select>
             </div>
@@ -79,7 +85,7 @@
             <!--Document Number Field-->
             <div class="contact__field">
               <label for="documentNumber" class="contact__label">
-                {{t().registrations.form.documentNumberLabel}}
+                {{ t().registrations.form.documentNumberLabel }}
               </label>
               <input
                 type="text"
@@ -89,13 +95,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.documentNumberPlaceholder"
-              >
+              />
             </div>
 
             <!-- Email Field -->
             <div class="contact__field">
               <label for="email" class="contact__label">
-                {{t().registrations.form.emailLabel}}
+                {{ t().registrations.form.emailLabel }}
               </label>
               <input
                 type="email"
@@ -105,13 +111,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.emailPlaceholder"
-              >
+              />
             </div>
 
             <!--Phone Number Field-->
             <div class="contact__field">
               <label for="phoneNumber" class="contact__label">
-                {{t().registrations.form.phoneNumberLabel}}
+                {{ t().registrations.form.phoneNumberLabel }}
               </label>
               <input
                 type="number"
@@ -121,13 +127,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.phoneNumberPlaceholder"
-              >
+              />
             </div>
 
             <!--Address Field-->
             <div class="contact__field">
               <label for="address" class="contact__label">
-                {{t().registrations.form.addressLabel}}
+                {{ t().registrations.form.addressLabel }}
               </label>
               <input
                 type="text"
@@ -137,7 +143,7 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.addressPlaceholder"
-              >
+              />
             </div>
 
             <!-- Birthdate Field -->
@@ -152,14 +158,14 @@
                 [(ngModel)]="form.birthdate"
                 required
                 class="contact__input"
-                [min]="minDate" 
-              >
+                [min]="minDate"
+              />
             </div>
 
             <!--Age Field-->
             <div class="contact__field">
               <label for="age" class="contact__label">
-                {{t().registrations.form.ageLabel}}
+                {{ t().registrations.form.ageLabel }}
               </label>
               <input
                 type="number"
@@ -169,13 +175,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.agePlaceholder"
-              >
+              />
             </div>
 
             <!-- Blood Type Field -->
             <div class="contact__field">
               <label for="documentType" class="contact__label">
-                {{t().registrations.form.bloodTypeLabel}}
+                {{ t().registrations.form.bloodTypeLabel }}
               </label>
               <select
                 id="documentType"
@@ -185,12 +191,13 @@
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
-                  {{t().registrations.form.bloodTypePlaceholder}}
+                  {{ t().registrations.form.bloodTypePlaceholder }}
                 </option>
-                @for (optBT of t().registrations.form.bloodTypes; track optBT.label) {
-                  <option [value]="optBT.label">
-                    {{ optBT.label }}
-                  </option>
+                @for (optBT of t().registrations.form.bloodTypes; track
+                optBT.label) {
+                <option [value]="optBT.label">
+                  {{ optBT.label }}
+                </option>
                 }
               </select>
             </div>
@@ -198,7 +205,7 @@
             <!--EPS Field-->
             <div class="contact__field">
               <label for="eps" class="contact__label">
-                {{t().registrations.form.epsLabel}}
+                {{ t().registrations.form.epsLabel }}
               </label>
               <input
                 type="text"
@@ -208,13 +215,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.epsPlaceholder"
-              >
+              />
             </div>
 
             <!-- Category Field -->
             <div class="contact__field">
               <label for="category" class="contact__label">
-                {{t().registrations.form.categoryLabel}}
+                {{ t().registrations.form.categoryLabel }}
               </label>
               <select
                 id="category"
@@ -224,26 +231,27 @@
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
-                  {{t().registrations.form.categoryPlaceholder}}
+                  {{ t().registrations.form.categoryPlaceholder }}
                 </option>
-                @for (optC of t().registrations.form.categories; track optC.label) {
-                  <option [value]="optC.label">
-                    {{ optC.label }}
-                  </option>
+                @for (optC of t().registrations.form.categories; track
+                optC.label) {
+                <option [value]="optC.label">
+                  {{ optC.label }}
+                </option>
                 }
               </select>
-              
+
               @if (form.category === '3 Km') {
-                <p class="contact__category-info">
-                  {{ t().registrations.form.petRegistrationInfo }}
-                </p>
+              <p class="contact__category-info">
+                {{ t().registrations.form.petRegistrationInfo }}
+              </p>
               }
             </div>
 
             <!-- T-shirt Size Field -->
             <div class="contact__field">
               <label for="tShirtSize" class="contact__label">
-                {{t().registrations.form.tShirtSizeLabel}}
+                {{ t().registrations.form.tShirtSizeLabel }}
               </label>
               <select
                 id="tShirtSize"
@@ -253,24 +261,25 @@
                 class="contact__input"
               >
                 <option [ngValue]="null" disabled>
-                  {{t().registrations.form.tShirtSizePlaceholder}}
+                  {{ t().registrations.form.tShirtSizePlaceholder }}
                 </option>
-                @for (optTS of t().registrations.form.tShirtSizes; track optTS.label) {
-                  <option [value]="optTS.label">
-                    {{ optTS.label }}
-                  </option>
+                @for (optTS of t().registrations.form.tShirtSizes; track
+                optTS.label) {
+                <option [value]="optTS.label">
+                  {{ optTS.label }}
+                </option>
                 }
               </select>
             </div>
 
             <h3 class="contact__form-title">
-              {{t().registrations.form.emergencyContactTitle}}
+              {{ t().registrations.form.emergencyContactTitle }}
             </h3>
 
             <!-- Emergency Contact Name Field -->
             <div class="contact__field">
               <label for="emergencyName" class="contact__label">
-                {{t().registrations.form.emergencyNameLabel}}
+                {{ t().registrations.form.emergencyNameLabel }}
               </label>
               <input
                 type="text"
@@ -280,13 +289,13 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.emergencyNamePlaceholder"
-              >
+              />
             </div>
 
             <!-- Emergency Contact relationship Field -->
             <div class="contact__field">
               <label for="relationship" class="contact__label">
-                {{t().registrations.form.emergencyRelationshipLabel}}
+                {{ t().registrations.form.emergencyRelationshipLabel }}
               </label>
               <input
                 type="text"
@@ -295,14 +304,16 @@
                 [(ngModel)]="form.emergencyRelationship"
                 required
                 class="contact__input"
-                [placeholder]="t().registrations.form.emergencyRelationshipPlaceholder"
-              >
+                [placeholder]="
+                  t().registrations.form.emergencyRelationshipPlaceholder
+                "
+              />
             </div>
 
             <!-- Emergency Phone Number Field-->
             <div class="contact__field">
               <label for="emergencyPhoneNumber" class="contact__label">
-                {{t().registrations.form.phoneNumberLabel}}
+                {{ t().registrations.form.phoneNumberLabel }}
               </label>
               <input
                 type="number"
@@ -312,36 +323,42 @@
                 required
                 class="contact__input"
                 [placeholder]="t().registrations.form.phoneNumberPlaceholder"
-              >
+              />
             </div>
 
             <h3 class="contact__form-title">
-              {{t().registrations.form.attachmentTitle}}
+              {{ t().registrations.form.attachmentTitle }}
             </h3>
 
             <div class="contact__field contact__full-width">
-              <label class="contact__label">{{ t().registrations.form.attachmentLabel }}</label>
+              <label class="contact__label">{{
+                t().registrations.form.attachmentLabel
+              }}</label>
 
               <div class="contact__file-wrapper">
-                <input 
-                  type="file" 
-                  id="attachment" 
-                  name="attachment" 
+                <input
+                  type="file"
+                  id="attachment"
+                  name="attachment"
                   accept="image/*"
                   required
                   (change)="onFileSelected($event)"
                   class="contact__file-input"
-                >
-                <input 
-                  type="hidden" 
-                  name="filePresence" 
-                  [(ngModel)]="fileName" 
+                />
+                <input
+                  type="hidden"
+                  name="filePresence"
+                  [(ngModel)]="fileName"
                   required
-                >
+                />
                 <label for="attachment" class="contact__file-custom">
-                  <span class="contact__file-button">{{ t().registrations.form.attachmentButton }}</span>
+                  <span class="contact__file-button">{{
+                    t().registrations.form.attachmentButton
+                  }}</span>
                   <span class="contact__file-name">
-                    {{ fileName || t().registrations.form.attachmentPlaceholder }}
+                    {{
+                      fileName || t().registrations.form.attachmentPlaceholder
+                    }}
                   </span>
                 </label>
               </div>
@@ -357,12 +374,17 @@
                 required
                 #privacyCheck="ngModel"
                 class="contact__checkbox"
-              >
+              />
               <label for="emergencyPhoneNumber" class="contact__checkbox-label">
-                {{t().registrations.form.privacyText}}
-                <a href="/files/TyC.pdf" target="_blank" rel="noopener noreferrer">
-                  {{t().registrations.form.privacyLink}}
-                </a> *
+                {{ t().registrations.form.privacyText }}
+                <a
+                  href="/files/TyC.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ t().registrations.form.privacyLink }}
+                </a>
+                *
               </label>
             </div>
 
@@ -374,29 +396,50 @@
               [class.contact__submit--loading]="isSubmitting"
             >
               @if (!isSubmitting) {
-                <span>{{ t().registrations.form.submit }}</span>
+              <span>{{ t().registrations.form.submit }}</span>
               } @else {
-                <span class="contact__loading">
-                  <svg class="contact__spinner" fill="none" viewBox="0 0 24 24">
-                    <circle class="contact__spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="contact__spinner-path" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  {{ t().registrations.form.sending }}
-                </span>
+              <span class="contact__loading">
+                <svg class="contact__spinner" fill="none" viewBox="0 0 24 24">
+                  <circle
+                    class="contact__spinner-track"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"
+                  ></circle>
+                  <path
+                    class="contact__spinner-path"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+                {{ t().registrations.form.sending }}
+              </span>
               }
             </button>
           </form>
 
           <!-- Success Message -->
           @if (showSuccessMessage) {
-            <div class="contact__success">
-              <div class="contact__success-content">
-                <svg class="contact__success-icon" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                </svg>
-                <p class="contact__success-text">{{ t().registrations.form.successMessage }}</p>
-              </div>
+          <div class="contact__success">
+            <div class="contact__success-content">
+              <svg
+                class="contact__success-icon"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <p class="contact__success-text">
+                {{ t().registrations.form.successMessage }}
+              </p>
             </div>
+          </div>
           }
         </div>
       </div>

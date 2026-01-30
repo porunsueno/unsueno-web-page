@@ -1,5 +1,5 @@
-@import '../../styles/variables';
-@import '../../styles/mixins';
+@import "../../styles/variables";
+@import "../../styles/mixins";
 
 @keyframes fadeInUp {
   from {
@@ -22,8 +22,14 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contact {
@@ -59,7 +65,6 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr;
     gap: $spacing-3xl;
 
     &--centered {
@@ -73,9 +78,18 @@
   }
 
   &__form-container {
-    @include card;
-    padding: $spacing-2xl;
-    animation: fadeInUp 0.6s ease-out forwards;
+    width: 100%;
+    max-width: 850px;
+    padding: $spacing-xl;
+
+    @include tablet {
+      padding: $spacing-2xl;
+    }
+
+    @include desktop {
+      @include card;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
   }
 
   &__form-title {
@@ -134,7 +148,8 @@
     margin-bottom: $spacing-sm;
   }
 
-  &__input, &__textarea {
+  &__input,
+  &__textarea {
     width: 100%;
     padding: 0.75rem 1rem;
     border: 1px solid $secondary-300;
@@ -172,7 +187,7 @@
     accent-color: $primary-600;
     cursor: pointer;
     border-radius: $radius-sm;
-    margin-top: 0.125rem; 
+    margin-top: 0.125rem;
   }
 
   &__checkbox-label {
@@ -185,7 +200,7 @@
       color: $primary-600;
       text-decoration: none;
       font-weight: 500;
-      
+
       &:hover {
         text-decoration: underline;
       }
@@ -241,7 +256,6 @@
     text-overflow: ellipsis;
   }
 
-
   &__submit {
     width: 100%;
     position: relative;
@@ -250,7 +264,7 @@
     &:hover:not(:disabled) {
       background-color: #d6eae1;
       border-color: #d6eae1;
-      color: black; 
+      color: black;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
     }
@@ -379,5 +393,14 @@
     z-index: 10;
     pointer-events: none;
     animation: fadeIn 0.3s ease-in;
+  }
+}
+
+.contact__form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @include desktop {
+    background-color: white;
   }
 }
