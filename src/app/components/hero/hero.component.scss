@@ -10,13 +10,25 @@
   justify-content: center;
   overflow: hidden;
   padding: $spacing-2xl $spacing-lg;
+  &__video {
+    animation: fadeIn 1.2s ease forwards;
+
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: grayscale(100%);
+    transform: scale(1.05);
+  }
 
   &__background {
     position: absolute;
     inset: 0;
     z-index: -2;
 
-    background-image: url("/hero-background.jpg");
+    //background-image: url("/hero-background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
