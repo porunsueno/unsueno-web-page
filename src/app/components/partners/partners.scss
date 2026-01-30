@@ -98,3 +98,63 @@
     max-height: 6.5rem;
   }
 }
+
+/* ===============================
+   CAROUSEL APOYAN (INFINITO REAL)
+================================ */
+.partners__carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.partners__track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: max-content;
+  animation: partners-scroll 30s linear infinite;
+}
+
+/* PAUSA AL PASAR EL MOUSE */
+.partners__carousel:hover .partners__track {
+  animation-play-state: paused;
+}
+
+.partners__track img {
+  flex: 0 0 auto;
+  max-height: 8rem;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.partners__track img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ANIMACIÓN INFINITA */
+@keyframes partners-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .partners__track {
+    gap: 3rem;
+    animation-duration: 40s;
+  }
+
+  .partners__track img {
+    max-height: 6rem;
+  }
+}
