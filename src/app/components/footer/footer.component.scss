@@ -23,13 +23,29 @@
   }
 
   &__credit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     strong {
       color: $accent-500;
       font-weight: 600;
     }
   }
+
+  &__copyright {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 
 .footer__logo-img {
-  width: 5rem;
+  margin-left: 2rem;
+  width: 6rem;
+}
+
+.footer__logo-carrera-img {
+  margin-left: 2rem;
+  width: 6rem;
+  max-width: 2rem;
 }
