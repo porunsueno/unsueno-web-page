@@ -109,9 +109,21 @@
                 name="email"
                 [(ngModel)]="form.email"
                 required
+                email
+                #emailModel="ngModel"
                 class="contact__input"
                 [placeholder]="t().registrations.form.emailPlaceholder"
               />
+
+              @if (emailModel.invalid && emailModel.touched) {
+                <div class="contact__category-info">
+                  @if (emailModel.errors?.['required']) {
+                    <span>El correo es obligatorio.</span>
+                  } @else if (emailModel.errors?.['email']) {
+                    <span>Ingresa un formato de correo válido.</span>
+                  }
+                </div>
+              }
             </div>
 
             <!--Phone Number Field-->

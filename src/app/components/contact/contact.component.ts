@@ -82,6 +82,11 @@ export class ContactComponent {
   onSubmit(event: SubmitEvent) {
     event.preventDefault();
 
+    if (!this.validateEmail(this.form.email)) {
+      alert('Por favor, ingresa un correo electrónico válido.');
+      return;
+    }
+
     if (this.isSubmitting) return;
     
     this.isSubmitting = true;
@@ -119,7 +124,12 @@ export class ContactComponent {
   }
 
   resetForm() {
-  this.selectedFileBase64 = null;
-  this.fileName = null;
-}
+    this.selectedFileBase64 = null;
+    this.fileName = null;
+  }
+
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
 }
