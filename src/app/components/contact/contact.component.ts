@@ -4,6 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
 import { HttpClient } from '@angular/common/http';
 
+interface NetlifyResponse {
+  message: string;
+  details?: string;
+  to?: string;
+}
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -86,26 +92,34 @@ export class ContactComponent {
       fileName: this.fileName
     }
 
-    this.http.post(this.netlifyFunctionUrl, formData)
+    this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
         next: (response) => {
-          this.isSubmitting = false;
-          this.showSuccessMessage = true;
+        this.isSubmitting = false;
 
-          this.selectedFileBase64 = null;
-          this.fileName = null;
+        if (response.details) {
+          alert(`¡Casi listo! ${response.message}. Nota: ${response.details}`);
+        } else {
+          alert('¡Inscripción exitosa! Revisa tu correo.');
+        }
 
-          alert('Email sent');
-          console.log('Email sent: ', response);
+        this.showSuccessMessage = true;
+        this.resetForm();
+        console.log('Respuesta del servidor:', response);
         },
         error: (error) => {
           this.isSubmitting = false;
           this.showSuccessMessage = false;
-          alert('Error sending email');
+          const serverError: NetlifyResponse = error.error;
+          alert(`Error: ${serverError?.message || 'Error en el servidor'}`);
           console.error('Error sending email: ', error);
         }
       }
-    );
-    
+    ); 
   }
+
+  resetForm() {
+  this.selectedFileBase64 = null;
+  this.fileName = null;
+}
 }

@@ -105,22 +105,49 @@ exports.handler = async (event, context) => {
         attachments: [handleInlineImages()]
     };
 
-    await Promise.all([
+const results = await Promise.allSettled([
       sendEmail(mailToOrganizer),
       sendEmail(mailToUser)
-    ])
-        
+    ]);
+
+    // Revisamos si hubo algún error
+    const errors = results.filter(r => r.status === 'rejected');
+
+    if (errors.length > 0) {
+      console.error("Algunos correos fallaron:", errors);
+      
+      // Si ambos fallaron, lanzamos error total
+      if (errors.length === 2) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ message: "Error total al enviar correos" })
+        };
+      }
+
+      // Si solo uno falló, podrías decidir si avisar al usuario o no
+      return {
+        statusCode: 207, // Multi-Status
+        body: JSON.stringify({ 
+          message: "Inscripción procesada con advertencias", 
+          details: "Verifica tu correo. Si no recibes confirmación, comunícate con nosotros." 
+        })
+      };
+    }
+
     return {
       statusCode: 200,
       body: JSON.stringify({ message: "Inscripción procesada y correos enviados" })
-    }; 
+    };
 
   } catch (error) {
     console.error("Nodemailer Error:", error); 
-        
+
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: "Error al procesar la inscripción", details: error.message }),
+      body: JSON.stringify({ 
+        message: "Error al procesar la inscripción. Comunícate con nosotros si no recibes confirmación.", 
+        details: error.message }
+      )
     };
   }
 }
