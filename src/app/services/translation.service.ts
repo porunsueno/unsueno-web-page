@@ -450,8 +450,8 @@ const translations: Record<Language, Translations> = {
         instruction:
           'Payment must be made before submitting this registration form and the receipt must be attached.',
         account:
-          'Bancolombia account # 557-940562-76 in the name of Fundación para el Bienestar del Niño',
-        nit: 'NIT: 890.985.277-9 ',
+          'Bancolombia account # 557-031824-10 in the name of Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277',
       },
       form: {
         title: 'Sign up here',
@@ -755,8 +755,8 @@ const translations: Record<Language, Translations> = {
         instruction:
           'Se debe realizar el pago antes de enviar este formulario de inscripción y adjuntar el comprobante.',
         account:
-          'Cuenta de ahorros Bancolombia # 557-940562-76 a nombre de Fundación para el Bienestar del Niño',
-        nit: 'NIT: 890.985.277-9 ',
+          'Cuenta de ahorros Bancolombia # 557-031824-10 a nombre de Fundación para el Bienestar del Niño',
+        nit: 'NIT: 890.985.277',
       },
       form: {
         title: 'Inscríbete aquí',
