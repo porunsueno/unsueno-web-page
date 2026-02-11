@@ -78,13 +78,18 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: $spacing-xl;
+    justify-content: center;
+    justify-items: center;
 
     @include tablet {
       grid-template-columns: repeat(2, 1fr);
     }
 
     @include desktop {
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;         /* Cambiamos Grid por Flex */
+      flex-wrap: wrap;       /* Permitimos que bajen a la siguiente fila */
+      justify-content: center; /* CENTRA LAS CARDS HUÉRFANAS */
+      gap: $spacing-xl;
     }
   }
 
@@ -94,13 +99,22 @@
     padding: $spacing-lg;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
     transition: transform 0.25s ease, background 0.25s ease;
+    width: 100%;
 
     &:hover {
       transform: translateY(-6px);
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    @include desktop {
+      flex: 0 1 calc(25% - #{$spacing-xl}); /* Ocupa el 25% menos el gap */
+      min-width: 250px; /* Evita que se compriman demasiado */
     }
   }
 
@@ -136,7 +150,7 @@
 }
 
 .what-includes__icon {
-  background-color: #fff; /* 🎨 color que quieras */
+  background-color: #fff;
 
   mask: url("/what-includes-section/01-kit-solidario-de-patrocinadores.svg")
     no-repeat center / contain;

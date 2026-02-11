@@ -60,8 +60,8 @@ export class ContactComponent {
 
     if (file) {
       
-      if (file.size > 5 * 1024 * 1024) {
-        alert('File is too large (Max 5MB)');
+      if (file.size > 4 * 1024 * 1024) {
+        alert('El archivo debe ser menor a 4MB');
         return;
       }
 
