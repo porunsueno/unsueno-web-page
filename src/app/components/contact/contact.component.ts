@@ -62,8 +62,15 @@ export class ContactComponent {
     let file: File = event.target.files[0];
 
     if (file) {
-      
-      if (file.size > 5 * 1024 * 1024) {
+      const sizeInMB = file.size / (1024 * 1024);
+
+      if (sizeInMB > 20) {
+        alert('La imagen es demasiado grande (máximo 20MB). Por favor, intenta con otra foto.');
+        event.target.value = ''; 
+        return;
+      }
+
+      if (sizeInMB > 5) {
         const options = {
           maxSizeMB: 4,
           maxWidthOrHeight: 1920,
