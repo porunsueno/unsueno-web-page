@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
 import { HttpClient } from '@angular/common/http';
 
+import imageCompression from 'browser-image-compression';
+
 interface NetlifyResponse {
   message: string;
   details?: string;
@@ -46,8 +48,9 @@ export class ContactComponent {
   isSubmitting = false;
   showSuccessMessage = false;
 
-  selectedFileBase64: string | ArrayBuffer | null = null;
+  selectedFile: File | null = null;
   fileName: string | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
 
   netlifyFunctionUrl = '/.netlify/functions/send-email';
 
@@ -55,27 +58,39 @@ export class ContactComponent {
     this.minDate = new Date().toDateString().split('T')[0];
   }
 
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
+  async onFileSelected(event: any) {
+    let file: File = event.target.files[0];
 
     if (file) {
       
-      if (file.size > 4 * 1024 * 1024) {
-        alert('El archivo debe ser menor a 4MB');
-        return;
+      if (file.size > 5 * 1024 * 1024) {
+        const options = {
+          maxSizeMB: 4,
+          maxWidthOrHeight: 1920,
+          useWebWorker: true
+        };
+
+        try {
+        const compressedFile = await imageCompression(file, options);
+        file = new File([compressedFile], file.name, { type: file.type });
+        } catch (error) {
+          console.error("Error comprimiendo:", error);
+        }
       }
 
+      this.selectedFile = file;
       this.fileName = file.name;
-      const reader = new FileReader();
 
+      const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.selectedFileBase64 = e.target.result;
+        this.imagePreview = e.target.result;
       };
 
       reader.readAsDataURL(file);
     } else {
-      this.selectedFileBase64 = null;
+      this.selectedFile = null;
       this.fileName = null;
+      this.imagePreview = null;
     }
   }
 
@@ -99,14 +114,9 @@ export class ContactComponent {
       formData.append(key, value !== null && value !== undefined ? value : '');
     });
 
-    // Agregar archivo al FormData si existe
-    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
-
-    if (fileInput && fileInput.files && fileInput.files.length > 0) {
-    const file = fileInput.files[0];
-    // 'attachment' es el nombre que esperará el backend
-    formData.append('attachment', file, file.name);
-  }
+    if (this.selectedFile) {
+      formData.append('attachment', this.selectedFile, this.fileName || 'archivo');
+    }
 
     this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
@@ -135,8 +145,16 @@ export class ContactComponent {
   }
 
   resetForm() {
-    this.selectedFileBase64 = null;
+    this.form = {
+        name: '', surname: '', documentType: '', documentNumber: '',
+        email: '', phoneNumber: '', address: '', birthdate: '',
+        age: '', bloodType: '', eps: '', category: '',
+        tShirtSize: '', emergencyName: '', emergencyRelationship: '',
+        emergencyPhoneNumber: '', privacyAccepted: ''
+    };
+    this.selectedFile = null;
     this.fileName = null;
+    this.imagePreview = null;
   }
 
   validateEmail(email: string): boolean {
