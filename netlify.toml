@@ -6,7 +6,3 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
   included_files = ["./netlify/functions/templates/**"]
-  timeout = 20
-
-[functions."send-email"]
-  timeout = 20
