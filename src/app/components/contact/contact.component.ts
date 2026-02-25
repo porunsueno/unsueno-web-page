@@ -91,11 +91,22 @@ export class ContactComponent {
     
     this.isSubmitting = true;
 
-    const formData = {
-      ...this.form,
-      attachment: this.selectedFileBase64,
-      fileName: this.fileName
-    }
+    const formData = new FormData();
+
+    // Agregar campos del formulario al FormData
+    Object.keys(this.form).forEach(key => {
+      const value = (this.form as any)[key];
+      formData.append(key, value !== null && value !== undefined ? value : '');
+    });
+
+    // Agregar archivo al FormData si existe
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+
+    if (fileInput && fileInput.files && fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    // 'attachment' es el nombre que esperará el backend
+    formData.append('attachment', file, file.name);
+  }
 
     this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
@@ -115,7 +126,7 @@ export class ContactComponent {
         error: (error) => {
           this.isSubmitting = false;
           this.showSuccessMessage = false;
-          const serverError: NetlifyResponse = error.error;
+          const serverError = error.error;
           alert(`Error: ${serverError?.message || 'Error en el servidor'}`);
           console.error('Error sending email: ', error);
         }

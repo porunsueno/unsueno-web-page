@@ -2,6 +2,7 @@ const nodemailer = require("nodemailer");
 const ejs = require("ejs");
 const fs = require("fs").promises;
 const path = require("path");
+const parser = require("lambda-multipart-parser");
 
 const HOST = process.env.EMAIL_HOST;
 const EMAIL = process.env.EMAIL_USER;
@@ -47,20 +48,15 @@ async function generateMessageBody(form, fileName) {
   return ejs.render(template, form);
 }
 
-function handleAttachment(file, name) {
-  const attachments = [];
-
-  if(file && name) {
-    const base64Data = file.split(';base64,').pop();
-      
-    attachments.push({
-      content: base64Data, 
-      filename: name,
-      encoding: 'base64'
-    });
-  }
-
-  return attachments;
+function handleAttachment(files) {
+  if (!files || files.length === 0) return [];
+  
+  const file = files[0];
+  return [{
+    filename: file.filename,
+    content: file.content,
+    contentType: file.contentType
+  }];
 }
 
 function handleInlineImages() {
@@ -84,39 +80,39 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const form = JSON.parse(event.body);
-    console.log("Request received", form);
+    const result = await parser.parse(event);
+    console.log("Request received for document:", result.documentNumber);
 
     const mailToOrganizer = {
       from: process.env.EMAIL_USER,
       to: EMAIL_REGISTRATION,
-      subject: "Registro participante: " + form.documentNumber,
-      html: await generateMessageBody(form, 'registration.ejs'),
+      subject: "Registro participante: " + result.documentNumber,
+      html: await generateMessageBody(result, 'registration.ejs'),
       attachments: [
-        ...handleAttachment(form.attachment, form.fileName)
+        ...handleAttachment(result.files)
       ]
     };
 
     const mailToUser = {
         from: process.env.EMAIL_USER,
-        to: form.email,
+        to: result.email,
         subject: '¡Preinscripción Exitosa! - Corramos por un Sueño',
-        html: await generateMessageBody(form, 'user-confirmation.ejs'),
+        html: await generateMessageBody(result, 'user-confirmation.ejs'),
         attachments: [handleInlineImages()]
     };
 
-const results = await Promise.allSettled([
+    const results = await Promise.allSettled([
       sendEmail(mailToOrganizer),
       sendEmail(mailToUser)
     ]);
 
-    // Revisamos si hubo algún error
+    // Si hubo algún error
     const errors = results.filter(r => r.status === 'rejected');
 
     if (errors.length > 0) {
       console.error("Algunos correos fallaron:", errors);
       
-      // Si ambos fallaron, lanzamos error total
+      // Si ambos fallaron, se lanza error total
       if (errors.length === 2) {
         return {
           statusCode: 500,
@@ -124,7 +120,7 @@ const results = await Promise.allSettled([
         };
       }
 
-      // Si solo uno falló, podrías decidir si avisar al usuario o no
+      // Si solo uno falló, se devuelve advertencia pero se considera procesado
       return {
         statusCode: 207, // Multi-Status
         body: JSON.stringify({ 
