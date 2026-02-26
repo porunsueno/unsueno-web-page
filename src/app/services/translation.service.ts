@@ -191,7 +191,7 @@ export interface Translations {
       epsPlaceholder: string;
       categoryLabel: string;
       categoryPlaceholder: string;
-      categories: {id: number, label: string}[];
+      categories: { id: number, label: string }[];
       petRegistrationInfo: string;
       tShirtSizeLabel: string;
       tShirtSizePlaceholder: string;
@@ -201,6 +201,27 @@ export interface Translations {
       emergencyNamePlaceholder: string;
       emergencyRelationshipLabel: string;
       emergencyRelationshipPlaceholder: string;
+      childRegistrationLabel: string;
+      childModalTitle: string;
+      childModalInfo: string;
+      childModalConfirm: string;
+      childModalCancel: string;
+      childCategoryWarning: string;
+      petRegistrationLabel: string;
+      petModalTitle: string;
+      petModalInfo: string;
+      petNameLabel: string;
+      petNamePlaceholder: string;
+      petBreedLabel: string;
+      petBreedPlaceholder: string;
+      petAgeLabel: string;
+      petAgePlaceholder: string;
+      petCategoryWarning: string;
+      clubTitle: string;
+      clubQuestion: string;
+      clubInfo: string;
+      clubCodeLabel: string;
+      clubCodePlaceholder: string;
       privacyTitle: string;
       privacyText: string;
       privacyLink: string;
@@ -519,6 +540,27 @@ const translations: Record<Language, Translations> = {
         emergencyNamePlaceholder: 'Enter full name of your emergency contact',
         emergencyRelationshipLabel: 'Relationship',
         emergencyRelationshipPlaceholder: 'Enter the relationship',
+        childRegistrationLabel: 'Register a child under 9 years old',
+        childModalTitle: "Child's Information",
+        childModalInfo: 'Please provide the details of the child you are registering.',
+        childModalConfirm: 'Confirm Data',
+        childModalCancel: 'Cancel',
+        childCategoryWarning: 'When registering a child, your category must be 3 Km. It has been automatically selected.',
+        petRegistrationLabel: 'Register a pet',
+        petModalTitle: "Pet's Information",
+        petModalInfo: 'The responsible adult must be registered for the race via this form.',
+        petNameLabel: 'Pet Name',
+        petNamePlaceholder: 'Enter your pet\'s name',
+        petBreedLabel: 'Breed',
+        petBreedPlaceholder: 'Enter the breed',
+        petAgeLabel: 'Approximate Age',
+        petAgePlaceholder: 'Enter approximate age',
+        petCategoryWarning: 'When registering a pet, your category must be 3 Km. It has been automatically selected.',
+        clubTitle: 'Clubs',
+        clubQuestion: 'Do you belong to a running club?',
+        clubInfo: 'If you select Yes, enter the official code of your club.',
+        clubCodeLabel: 'Club Code',
+        clubCodePlaceholder: 'Enter the code provided to your club to apply the discount',
         privacyTitle: 'Processing of personal data',
         privacyText: 'I have read and agree to the ',
         privacyLink: 'processing of my personal data, terms and conditions',
@@ -824,6 +866,27 @@ const translations: Record<Language, Translations> = {
         emergencyNamePlaceholder: 'Ingresa el nombre completo',
         emergencyRelationshipLabel: 'Parentesco',
         emergencyRelationshipPlaceholder: 'Ingresa el parentesco',
+        childRegistrationLabel: 'Inscribir a un niño menor de 9 años',
+        childModalTitle: 'Datos del Menor',
+        childModalInfo: 'El adulto responsable debe estar inscrito en la carrera por medio del actual formulario. La inscripción será validada.',
+        childModalConfirm: 'Confirmar',
+        childModalCancel: 'Cancelar',
+        childCategoryWarning: 'Al inscribir a un menor, tu categoría de participación debe ser obligatoriamente 3 Km. Se ha seleccionado automáticamente.',
+        petRegistrationLabel: 'Inscribir a una mascota',
+        petModalTitle: 'Datos de la Mascota',
+        petModalInfo: 'El adulto responsable debe estar inscrito en la carrera por medio del actual formulario. La inscripción será validada.',
+        petNameLabel: 'Nombre de la Mascota',
+        petNamePlaceholder: 'Ingresa el nombre de la mascota',
+        petBreedLabel: 'Raza',
+        petBreedPlaceholder: 'Ingresa la raza',
+        petAgeLabel: 'Edad Aproximada',
+        petAgePlaceholder: 'Ingresa la edad aproximada',
+        petCategoryWarning: 'Al inscribir a una mascota, tu categoría de participación debe ser obligatoriamente 3 Km. Se ha seleccionado automáticamente.',
+        clubTitle: 'Clubes',
+        clubQuestion: '¿Perteneces a un club?',
+        clubInfo: 'Si perteneces a un club, ingresa el código oficial de tu club.',
+        clubCodeLabel: 'Código del club',
+        clubCodePlaceholder: 'Ingresa el código suministrado a tu club',
         privacyTitle: 'Tratamiento de Datos',
         privacyText: 'He leído y acepto el ',
         privacyLink:

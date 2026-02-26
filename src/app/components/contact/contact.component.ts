@@ -42,11 +42,37 @@ export class ContactComponent {
     emergencyName: '',
     emergencyRelationship: '',
     emergencyPhoneNumber: '',
+    belongsToClub: false,
+    clubCode: '',
     privacyAccepted: ''
   };
 
   isSubmitting = false;
   showSuccessMessage = false;
+
+  registerChild = false;
+  showChildModal = false;
+
+  registerPet = false;
+  showPetModal = false;
+
+  childForm = {
+    name: '',
+    surname: '',
+    documentType: '',
+    documentNumber: '',
+    birthdate: '',
+    age: '',
+    bloodType: '',
+    eps: '',
+    tShirtSize: ''
+  };
+
+  petForm = {
+    name: '',
+    breed: '',
+    age: ''
+  };
 
   selectedFile: File | null = null;
   fileName: string | null = null;
@@ -66,7 +92,7 @@ export class ContactComponent {
 
       if (sizeInMB > 20) {
         alert('La imagen es demasiado grande (máximo 20MB). Por favor, intenta con otra foto.');
-        event.target.value = ''; 
+        event.target.value = '';
         return;
       }
 
@@ -78,8 +104,8 @@ export class ContactComponent {
         };
 
         try {
-        const compressedFile = await imageCompression(file, options);
-        file = new File([compressedFile], file.name, { type: file.type });
+          const compressedFile = await imageCompression(file, options);
+          file = new File([compressedFile], file.name, { type: file.type });
         } catch (error) {
           console.error("Error comprimiendo:", error);
         }
@@ -110,7 +136,7 @@ export class ContactComponent {
     }
 
     if (this.isSubmitting) return;
-    
+
     this.isSubmitting = true;
 
     const formData = new FormData();
@@ -121,6 +147,20 @@ export class ContactComponent {
       formData.append(key, value !== null && value !== undefined ? value : '');
     });
 
+    if (this.registerChild) {
+      Object.keys(this.childForm).forEach(key => {
+        const value = (this.childForm as any)[key];
+        formData.append(`child_${key}`, value !== null && value !== undefined ? value : '');
+      });
+    }
+
+    if (this.registerPet) {
+      Object.keys(this.petForm).forEach(key => {
+        const value = (this.petForm as any)[key];
+        formData.append(`pet_${key}`, value !== null && value !== undefined ? value : '');
+      });
+    }
+
     if (this.selectedFile) {
       formData.append('attachment', this.selectedFile, this.fileName || 'archivo');
     }
@@ -128,17 +168,17 @@ export class ContactComponent {
     this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
         next: (response) => {
-        this.isSubmitting = false;
+          this.isSubmitting = false;
 
-        if (response.details) {
-          alert(`¡Casi listo! ${response.message}. Nota: ${response.details}`);
-        } else {
-          alert('¡Inscripción exitosa! Revisa tu correo.');
-        }
+          if (response.details) {
+            alert(`¡Casi listo! ${response.message}. Nota: ${response.details}`);
+          } else {
+            alert('¡Inscripción exitosa! Revisa tu correo.');
+          }
 
-        this.showSuccessMessage = true;
-        this.resetForm();
-        console.log('Respuesta del servidor:', response);
+          this.showSuccessMessage = true;
+          this.resetForm();
+          console.log('Respuesta del servidor:', response);
         },
         error: (error) => {
           this.isSubmitting = false;
@@ -148,17 +188,86 @@ export class ContactComponent {
           console.error('Error sending email: ', error);
         }
       }
-    ); 
+      );
+  }
+
+  onRegisterChildChange() {
+    if (this.registerChild) {
+      if (this.form.category !== '3 Km') {
+        this.form.category = '3 Km';
+        alert(this.translationService.translations().registrations.form.childCategoryWarning);
+      }
+      this.showChildModal = true;
+    } else {
+      this.showChildModal = false;
+      this.resetChildForm();
+    }
+  }
+
+  closeChildModal() {
+    this.showChildModal = false;
+    // Uncheck if they haven't filled main child data
+    if (!this.childForm.name || !this.childForm.surname) {
+      this.registerChild = false;
+    }
+  }
+
+  confirmChildData() {
+    this.showChildModal = false;
+  }
+
+  resetChildForm() {
+    this.childForm = {
+      name: '', surname: '', documentType: '', documentNumber: '',
+      birthdate: '', age: '', bloodType: '', eps: '',
+      tShirtSize: ''
+    };
+  }
+
+  onRegisterPetChange() {
+    if (this.registerPet) {
+      if (this.form.category !== '3 Km') {
+        this.form.category = '3 Km';
+        alert(this.translationService.translations().registrations.form.petCategoryWarning);
+      }
+      this.showPetModal = true;
+    } else {
+      this.showPetModal = false;
+      this.resetPetForm();
+    }
+  }
+
+  closePetModal() {
+    this.showPetModal = false;
+    // Uncheck if they haven't filled main pet data
+    if (!this.petForm.name) {
+      this.registerPet = false;
+    }
+  }
+
+  confirmPetData() {
+    this.showPetModal = false;
+  }
+
+  resetPetForm() {
+    this.petForm = {
+      name: '', breed: '', age: ''
+    };
   }
 
   resetForm() {
     this.form = {
-        name: '', surname: '', documentType: '', documentNumber: '',
-        email: '', phoneNumber: '', address: '', birthdate: '',
-        age: '', bloodType: '', eps: '', category: '',
-        tShirtSize: '', emergencyName: '', emergencyRelationship: '',
-        emergencyPhoneNumber: '', privacyAccepted: ''
+      name: '', surname: '', documentType: '', documentNumber: '',
+      email: '', phoneNumber: '', address: '', birthdate: '',
+      age: '', bloodType: '', eps: '', category: '',
+      tShirtSize: '', emergencyName: '', emergencyRelationship: '',
+      emergencyPhoneNumber: '', belongsToClub: false, clubCode: '',
+      privacyAccepted: ''
     };
+    this.resetChildForm();
+    this.registerChild = false;
+    this.resetPetForm();
+    this.registerPet = false;
     this.selectedFile = null;
     this.fileName = null;
     this.imagePreview = null;

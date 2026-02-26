@@ -7,8 +7,7 @@
       </h2>
       <p class="contact__description">
         {{ t().registrations.paymentInfo.instruction }}<br />
-        <strong>{{ t().registrations.paymentInfo.account }}</strong
-        ><br />
+        <strong>{{ t().registrations.paymentInfo.account }}</strong><br />
         <strong>{{ t().registrations.paymentInfo.nit }}</strong>
       </p>
     </div>
@@ -21,25 +20,14 @@
             {{ t().registrations.form.title }}
           </h3>
 
-          <form
-            (ngSubmit)="onSubmit($event)"
-            #contactForm="ngForm"
-            class="contact__form"
-          >
+          <form (ngSubmit)="onSubmit($event)" #contactForm="ngForm" class="contact__form">
             <!-- Name Field -->
             <div class="contact__field">
               <label for="name" class="contact__label">
                 {{ t().registrations.form.nameLabel }}
               </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                [(ngModel)]="form.name"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.namePlaceholder"
-              />
+              <input type="text" id="name" name="name" [(ngModel)]="form.name" required class="contact__input"
+                [placeholder]="t().registrations.form.namePlaceholder" />
             </div>
 
             <!-- Surname Field -->
@@ -47,15 +35,8 @@
               <label for="surname" class="contact__label">
                 {{ t().registrations.form.surnameLabel }}
               </label>
-              <input
-                type="text"
-                id="surname"
-                name="surname"
-                [(ngModel)]="form.surname"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.surnamePlaceholder"
-              />
+              <input type="text" id="surname" name="surname" [(ngModel)]="form.surname" required class="contact__input"
+                [placeholder]="t().registrations.form.surnamePlaceholder" />
             </div>
 
             <!-- Document Type Field -->
@@ -63,13 +44,8 @@
               <label for="documentType" class="contact__label">
                 {{ t().registrations.form.documentTypeLabel }}
               </label>
-              <select
-                id="documentType"
-                name="documentType"
-                [(ngModel)]="form.documentType"
-                required
-                class="contact__input"
-              >
+              <select id="documentType" name="documentType" [(ngModel)]="form.documentType" required
+                class="contact__input">
                 <option [ngValue]="null" disabled>
                   {{ t().registrations.form.documentTypePlaceholder }}
                 </option>
@@ -87,15 +63,8 @@
               <label for="documentNumber" class="contact__label">
                 {{ t().registrations.form.documentNumberLabel }}
               </label>
-              <input
-                type="text"
-                id="documentNumber"
-                name="documentNumber"
-                [(ngModel)]="form.documentNumber"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.documentNumberPlaceholder"
-              />
+              <input type="text" id="documentNumber" name="documentNumber" [(ngModel)]="form.documentNumber" required
+                class="contact__input" [placeholder]="t().registrations.form.documentNumberPlaceholder" />
             </div>
 
             <!-- Email Field -->
@@ -103,26 +72,17 @@
               <label for="email" class="contact__label">
                 {{ t().registrations.form.emailLabel }}
               </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                [(ngModel)]="form.email"
-                required
-                email
-                #emailModel="ngModel"
-                class="contact__input"
-                [placeholder]="t().registrations.form.emailPlaceholder"
-              />
+              <input type="email" id="email" name="email" [(ngModel)]="form.email" required email #emailModel="ngModel"
+                class="contact__input" [placeholder]="t().registrations.form.emailPlaceholder" />
 
               @if (emailModel.invalid && emailModel.touched) {
-                <div class="contact__category-info">
-                  @if (emailModel.errors?.['required']) {
-                    <span>El correo es obligatorio.</span>
-                  } @else if (emailModel.errors?.['email']) {
-                    <span>Ingresa un formato de correo válido.</span>
-                  }
-                </div>
+              <div class="contact__category-info">
+                @if (emailModel.errors?.['required']) {
+                <span>El correo es obligatorio.</span>
+                } @else if (emailModel.errors?.['email']) {
+                <span>Ingresa un formato de correo válido.</span>
+                }
+              </div>
               }
             </div>
 
@@ -131,15 +91,8 @@
               <label for="phoneNumber" class="contact__label">
                 {{ t().registrations.form.phoneNumberLabel }}
               </label>
-              <input
-                type="number"
-                id="phoneNumber"
-                name="phoneNumber"
-                [(ngModel)]="form.phoneNumber"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.phoneNumberPlaceholder"
-              />
+              <input type="number" id="phoneNumber" name="phoneNumber" [(ngModel)]="form.phoneNumber" required
+                class="contact__input" [placeholder]="t().registrations.form.phoneNumberPlaceholder" />
             </div>
 
             <!--Address Field-->
@@ -147,15 +100,8 @@
               <label for="address" class="contact__label">
                 {{ t().registrations.form.addressLabel }}
               </label>
-              <input
-                type="text"
-                id="address"
-                name="address"
-                [(ngModel)]="form.address"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.addressPlaceholder"
-              />
+              <input type="text" id="address" name="address" [(ngModel)]="form.address" required class="contact__input"
+                [placeholder]="t().registrations.form.addressPlaceholder" />
             </div>
 
             <!-- Birthdate Field -->
@@ -163,15 +109,8 @@
               <label for="date" class="contact__label">
                 {{ t().registrations.form.birthdateLabel }}
               </label>
-              <input
-                type="date"
-                id="date"
-                name="date"
-                [(ngModel)]="form.birthdate"
-                required
-                class="contact__input"
-                [min]="minDate"
-              />
+              <input type="date" id="date" name="date" [(ngModel)]="form.birthdate" required class="contact__input"
+                [min]="minDate" />
             </div>
 
             <!--Age Field-->
@@ -179,15 +118,8 @@
               <label for="age" class="contact__label">
                 {{ t().registrations.form.ageLabel }}
               </label>
-              <input
-                type="number"
-                id="age"
-                name="age"
-                [(ngModel)]="form.age"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.agePlaceholder"
-              />
+              <input type="number" id="age" name="age" [(ngModel)]="form.age" required class="contact__input"
+                [placeholder]="t().registrations.form.agePlaceholder" />
             </div>
 
             <!-- Blood Type Field -->
@@ -195,13 +127,8 @@
               <label for="documentType" class="contact__label">
                 {{ t().registrations.form.bloodTypeLabel }}
               </label>
-              <select
-                id="documentType"
-                name="documentType"
-                [(ngModel)]="form.bloodType"
-                required
-                class="contact__input"
-              >
+              <select id="documentType" name="documentType" [(ngModel)]="form.bloodType" required
+                class="contact__input">
                 <option [ngValue]="null" disabled>
                   {{ t().registrations.form.bloodTypePlaceholder }}
                 </option>
@@ -219,15 +146,8 @@
               <label for="eps" class="contact__label">
                 {{ t().registrations.form.epsLabel }}
               </label>
-              <input
-                type="text"
-                id="eps"
-                name="eps"
-                [(ngModel)]="form.eps"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.epsPlaceholder"
-              />
+              <input type="text" id="eps" name="eps" [(ngModel)]="form.eps" required class="contact__input"
+                [placeholder]="t().registrations.form.epsPlaceholder" />
             </div>
 
             <!-- Category Field -->
@@ -235,13 +155,8 @@
               <label for="category" class="contact__label">
                 {{ t().registrations.form.categoryLabel }}
               </label>
-              <select
-                id="category"
-                name="category"
-                [(ngModel)]="form.category"
-                required
-                class="contact__input"
-              >
+              <select id="category" name="category" [(ngModel)]="form.category" required class="contact__input"
+                [disabled]="registerChild">
                 <option [ngValue]="null" disabled>
                   {{ t().registrations.form.categoryPlaceholder }}
                 </option>
@@ -252,12 +167,6 @@
                 </option>
                 }
               </select>
-
-              @if (form.category === '3 Km') {
-              <p class="contact__category-info">
-                {{ t().registrations.form.petRegistrationInfo }}
-              </p>
-              }
             </div>
 
             <!-- T-shirt Size Field -->
@@ -265,13 +174,7 @@
               <label for="tShirtSize" class="contact__label">
                 {{ t().registrations.form.tShirtSizeLabel }}
               </label>
-              <select
-                id="tShirtSize"
-                name="tShirtSize"
-                [(ngModel)]="form.tShirtSize"
-                required
-                class="contact__input"
-              >
+              <select id="tShirtSize" name="tShirtSize" [(ngModel)]="form.tShirtSize" required class="contact__input">
                 <option [ngValue]="null" disabled>
                   {{ t().registrations.form.tShirtSizePlaceholder }}
                 </option>
@@ -293,15 +196,8 @@
               <label for="emergencyName" class="contact__label">
                 {{ t().registrations.form.emergencyNameLabel }}
               </label>
-              <input
-                type="text"
-                id="emergencyName"
-                name="emergencyName"
-                [(ngModel)]="form.emergencyName"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.emergencyNamePlaceholder"
-              />
+              <input type="text" id="emergencyName" name="emergencyName" [(ngModel)]="form.emergencyName" required
+                class="contact__input" [placeholder]="t().registrations.form.emergencyNamePlaceholder" />
             </div>
 
             <!-- Emergency Contact relationship Field -->
@@ -309,17 +205,10 @@
               <label for="relationship" class="contact__label">
                 {{ t().registrations.form.emergencyRelationshipLabel }}
               </label>
-              <input
-                type="text"
-                id="relationship"
-                name="relationship"
-                [(ngModel)]="form.emergencyRelationship"
-                required
-                class="contact__input"
-                [placeholder]="
+              <input type="text" id="relationship" name="relationship" [(ngModel)]="form.emergencyRelationship" required
+                class="contact__input" [placeholder]="
                   t().registrations.form.emergencyRelationshipPlaceholder
-                "
-              />
+                " />
             </div>
 
             <!-- Emergency Phone Number Field-->
@@ -327,15 +216,9 @@
               <label for="emergencyPhoneNumber" class="contact__label">
                 {{ t().registrations.form.phoneNumberLabel }}
               </label>
-              <input
-                type="number"
-                id="emergencyPhoneNumber"
-                name="emergencyPhoneNumber"
-                [(ngModel)]="form.emergencyPhoneNumber"
-                required
-                class="contact__input"
-                [placeholder]="t().registrations.form.phoneNumberPlaceholder"
-              />
+              <input type="number" id="emergencyPhoneNumber" name="emergencyPhoneNumber"
+                [(ngModel)]="form.emergencyPhoneNumber" required class="contact__input"
+                [placeholder]="t().registrations.form.phoneNumberPlaceholder" />
             </div>
 
             <h3 class="contact__form-title">
@@ -345,55 +228,69 @@
             <div class="contact__field contact__full-width">
               <label class="contact__label">{{
                 t().registrations.form.attachmentLabel
-              }}</label>
+                }}</label>
 
               <div class="contact__file-wrapper">
-                <input
-                  type="file"
-                  id="attachment"
-                  name="attachment"
-                  accept="image/*"
-                  required
-                  (change)="onFileSelected($event)"
-                  class="contact__file-input"
-                />
-                <input
-                  type="hidden"
-                  name="filePresence"
-                  [(ngModel)]="fileName"
-                  required
-                />
+                <input type="file" id="attachment" name="attachment" accept="image/*" required
+                  (change)="onFileSelected($event)" class="contact__file-input" />
+                <input type="hidden" name="filePresence" [(ngModel)]="fileName" required />
                 <label for="attachment" class="contact__file-custom">
                   <span class="contact__file-button">{{
                     t().registrations.form.attachmentButton
-                  }}</span>
+                    }}</span>
                   <span class="contact__file-name">
                     {{
-                      fileName || t().registrations.form.attachmentPlaceholder
+                    fileName || t().registrations.form.attachmentPlaceholder
                     }}
                   </span>
                 </label>
               </div>
             </div>
 
+            <!-- Child Registration Field -->
+            <div class="contact__checkbox-field">
+              <input type="checkbox" id="registerChild" name="registerChild" [(ngModel)]="registerChild"
+                (change)="onRegisterChildChange()" class="contact__checkbox" />
+              <label for="registerChild" class="contact__checkbox-label">
+                {{ t().registrations.form.childRegistrationLabel }}
+              </label>
+            </div>
+
+            <!-- Pet Registration Field -->
+            <div class="contact__checkbox-field">
+              <input type="checkbox" id="registerPet" name="registerPet" [(ngModel)]="registerPet"
+                (change)="onRegisterPetChange()" class="contact__checkbox" />
+              <label for="registerPet" class="contact__checkbox-label">
+                {{ t().registrations.form.petRegistrationLabel }}
+              </label>
+            </div>
+
+            <h3 class="contact__form-title">{{ t().registrations.form.clubTitle }}</h3>
+
+            <div class="contact__checkbox-field" style="margin-bottom: 1rem;">
+              <input type="checkbox" id="belongsToClub" name="belongsToClub" [(ngModel)]="form.belongsToClub"
+                class="contact__checkbox" />
+              <label for="belongsToClub" class="contact__checkbox-label">
+                {{ t().registrations.form.clubQuestion }}<br>
+                <span style="color: #64748b; font-size: 0.8rem;">{{ t().registrations.form.clubInfo }}</span>
+              </label>
+            </div>
+
+            @if (form.belongsToClub) {
+            <div class="contact__field contact__full-width" style="margin-top: 0.5rem;">
+              <label for="clubCode" class="contact__label">{{ t().registrations.form.clubCodeLabel }}</label>
+              <input type="text" id="clubCode" name="clubCode" [(ngModel)]="form.clubCode" class="contact__input"
+                [placeholder]="t().registrations.form.clubCodePlaceholder" required />
+            </div>
+            }
+
             <!-- Privacy Field-->
             <div class="contact__checkbox-field">
-              <input
-                type="checkbox"
-                id="privacy"
-                name="privacy"
-                [(ngModel)]="form.privacyAccepted"
-                required
-                #privacyCheck="ngModel"
-                class="contact__checkbox"
-              />
+              <input type="checkbox" id="privacy" name="privacy" [(ngModel)]="form.privacyAccepted" required
+                #privacyCheck="ngModel" class="contact__checkbox" />
               <label for="emergencyPhoneNumber" class="contact__checkbox-label">
                 {{ t().registrations.form.privacyText }}
-                <a
-                  href="/files/TyC.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="/files/TyC.pdf" target="_blank" rel="noopener noreferrer">
                   {{ t().registrations.form.privacyLink }}
                 </a>
                 *
@@ -401,30 +298,18 @@
             </div>
 
             <!-- Submit Button -->
-            <button
-              type="submit"
-              [disabled]="!contactForm.valid || isSubmitting"
-              class="btn btn--primary contact__submit"
-              [class.contact__submit--loading]="isSubmitting"
-            >
+            <button type="submit" [disabled]="!contactForm.valid || isSubmitting"
+              class="btn btn--primary contact__submit" [class.contact__submit--loading]="isSubmitting">
               @if (!isSubmitting) {
               <span>{{ t().registrations.form.submit }}</span>
               } @else {
               <span class="contact__loading">
                 <svg class="contact__spinner" fill="none" viewBox="0 0 24 24">
-                  <circle
-                    class="contact__spinner-track"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    stroke-width="4"
-                  ></circle>
-                  <path
-                    class="contact__spinner-path"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
+                  <circle class="contact__spinner-track" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4">
+                  </circle>
+                  <path class="contact__spinner-path" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                  </path>
                 </svg>
                 {{ t().registrations.form.sending }}
               </span>
@@ -436,16 +321,10 @@
           @if (showSuccessMessage) {
           <div class="contact__success">
             <div class="contact__success-content">
-              <svg
-                class="contact__success-icon"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg class="contact__success-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"
-                ></path>
+                  clip-rule="evenodd"></path>
               </svg>
               <p class="contact__success-text">
                 {{ t().registrations.form.successMessage }}
@@ -458,3 +337,149 @@
     </div>
   </div>
 </section>
+
+<!-- Child Registration Modal -->
+@if (showChildModal) {
+<div class="contact__modal-overlay">
+  <div class="contact__modal">
+    <div class="contact__modal-header">
+      <h3 class="contact__modal-title">{{ t().registrations.form.childModalTitle }}</h3>
+      <button type="button" class="contact__modal-close" (click)="closeChildModal()">&times;</button>
+    </div>
+    <div class="contact__modal-body">
+      <p class="contact__modal-info">{{ t().registrations.form.childModalInfo }}</p>
+
+      <form #childModalForm="ngForm" class="contact__form">
+        <!-- Name Field -->
+        <div class="contact__field">
+          <label for="childName" class="contact__label">{{ t().registrations.form.nameLabel }}</label>
+          <input type="text" id="childName" name="childName" [(ngModel)]="childForm.name" class="contact__input"
+            [placeholder]="t().registrations.form.namePlaceholder" required />
+        </div>
+
+        <!-- Surname Field -->
+        <div class="contact__field">
+          <label for="childSurname" class="contact__label">{{ t().registrations.form.surnameLabel }}</label>
+          <input type="text" id="childSurname" name="childSurname" [(ngModel)]="childForm.surname"
+            class="contact__input" [placeholder]="t().registrations.form.surnamePlaceholder" required />
+        </div>
+
+        <!-- Document Type Field -->
+        <div class="contact__field">
+          <label for="childDocumentType" class="contact__label">{{ t().registrations.form.documentTypeLabel }}</label>
+          <select id="childDocumentType" name="childDocumentType" [(ngModel)]="childForm.documentType"
+            class="contact__input" required>
+            <option [ngValue]="null" disabled>{{ t().registrations.form.documentTypePlaceholder }}</option>
+            @for (optDT of t().registrations.form.documentTypes; track optDT.label) {
+            <option [value]="optDT.label">{{ optDT.label }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Document Number Field -->
+        <div class="contact__field">
+          <label for="childDocumentNumber" class="contact__label">{{ t().registrations.form.documentNumberLabel
+            }}</label>
+          <input type="text" id="childDocumentNumber" name="childDocumentNumber" [(ngModel)]="childForm.documentNumber"
+            class="contact__input" [placeholder]="t().registrations.form.documentNumberPlaceholder" required />
+        </div>
+
+        <!-- Birthdate Field -->
+        <div class="contact__field">
+          <label for="childDate" class="contact__label">{{ t().registrations.form.birthdateLabel }}</label>
+          <input type="date" id="childDate" name="childDate" [(ngModel)]="childForm.birthdate" class="contact__input"
+            required />
+        </div>
+
+        <!-- Age Field -->
+        <div class="contact__field">
+          <label for="childAge" class="contact__label">{{ t().registrations.form.ageLabel }}</label>
+          <input type="number" id="childAge" name="childAge" [(ngModel)]="childForm.age" class="contact__input"
+            [placeholder]="t().registrations.form.agePlaceholder" required />
+        </div>
+
+        <!-- Blood Type Field -->
+        <div class="contact__field">
+          <label for="childBloodType" class="contact__label">{{ t().registrations.form.bloodTypeLabel }}</label>
+          <select id="childBloodType" name="childBloodType" [(ngModel)]="childForm.bloodType" class="contact__input"
+            required>
+            <option [ngValue]="null" disabled>{{ t().registrations.form.bloodTypePlaceholder }}</option>
+            @for (optBT of t().registrations.form.bloodTypes; track optBT.label) {
+            <option [value]="optBT.label">{{ optBT.label }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- EPS Field -->
+        <div class="contact__field">
+          <label for="childEps" class="contact__label">{{ t().registrations.form.epsLabel }}</label>
+          <input type="text" id="childEps" name="childEps" [(ngModel)]="childForm.eps" class="contact__input"
+            [placeholder]="t().registrations.form.epsPlaceholder" required />
+        </div>
+
+        <!-- T-shirt Size Field -->
+        <div class="contact__field">
+          <label for="childTShirtSize" class="contact__label">{{ t().registrations.form.tShirtSizeLabel }}</label>
+          <select id="childTShirtSize" name="childTShirtSize" [(ngModel)]="childForm.tShirtSize" class="contact__input"
+            required>
+            <option [ngValue]="null" disabled>{{ t().registrations.form.tShirtSizePlaceholder }}</option>
+            @for (optTS of t().registrations.form.tShirtSizes; track optTS.label) {
+            <option [value]="optTS.label">{{ optTS.label }}</option>
+            }
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="contact__modal-footer">
+      <button type="button" class="btn btn--secondary" (click)="closeChildModal()">{{
+        t().registrations.form.childModalCancel }}</button>
+      <button type="button" class="btn btn--primary" (click)="confirmChildData()" [disabled]="!childModalForm.valid">{{
+        t().registrations.form.childModalConfirm }}</button>
+    </div>
+  </div>
+</div>
+}
+
+<!-- Pet Registration Modal -->
+@if (showPetModal) {
+<div class="contact__modal-overlay">
+  <div class="contact__modal">
+    <div class="contact__modal-header">
+      <h3 class="contact__modal-title">{{ t().registrations.form.petModalTitle }}</h3>
+      <button type="button" class="contact__modal-close" (click)="closePetModal()">&times;</button>
+    </div>
+    <div class="contact__modal-body">
+      <p class="contact__modal-info">{{ t().registrations.form.petModalInfo }}</p>
+
+      <form #petModalForm="ngForm" class="contact__form">
+        <!-- Name Field -->
+        <div class="contact__field">
+          <label for="petName" class="contact__label">{{ t().registrations.form.petNameLabel }}</label>
+          <input type="text" id="petName" name="petName" [(ngModel)]="petForm.name" class="contact__input"
+            [placeholder]="t().registrations.form.petNamePlaceholder" required />
+        </div>
+
+        <!-- Breed Field -->
+        <div class="contact__field">
+          <label for="petBreed" class="contact__label">{{ t().registrations.form.petBreedLabel }}</label>
+          <input type="text" id="petBreed" name="petBreed" [(ngModel)]="petForm.breed" class="contact__input"
+            [placeholder]="t().registrations.form.petBreedPlaceholder" required />
+        </div>
+
+        <!-- Age Field -->
+        <div class="contact__field">
+          <label for="petAge" class="contact__label">{{ t().registrations.form.petAgeLabel }}</label>
+          <input type="text" id="petAge" name="petAge" [(ngModel)]="petForm.age" class="contact__input"
+            [placeholder]="t().registrations.form.petAgePlaceholder" required />
+        </div>
+      </form>
+    </div>
+    <div class="contact__modal-footer">
+      <button type="button" class="btn btn--secondary" (click)="closePetModal()">{{
+        t().registrations.form.childModalCancel }}</button>
+      <button type="button" class="btn btn--primary" (click)="confirmPetData()" [disabled]="!petModalForm.valid">{{
+        t().registrations.form.childModalConfirm }}</button>
+    </div>
+  </div>
+</div>
+}
