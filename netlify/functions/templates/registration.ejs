@@ -1,52 +1,107 @@
 <!-- eslint-disable -->
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <style>
     /* Uso del color de fondo suave #d6eae1 */
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #d6eae1; color: #0a211d; }
-    
-    .container { width: 100%; max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #1e3c28; }
-    
-    /* Header con Verde Oscuro #1e3c28 y texto en Amarillo #eedf00 */
-    .header { background-color: #1e3c28; color: #eedf00; padding: 30px; text-align: center; border-bottom: 4px solid #c89200; }
-    .header h1 { margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
-    .header p { margin: 5px 0 0; opacity: 0.9; color: #ffffff; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #d6eae1;
+      color: #0a211d;
+    }
 
-    .content { padding: 30px; }
-    
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #1e3c28;
+    }
+
+    /* Header con Verde Oscuro #1e3c28 y texto en Amarillo #eedf00 */
+    .header {
+      background-color: #1e3c28;
+      color: #eedf00;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 4px solid #c89200;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      opacity: 0.9;
+      color: #ffffff;
+    }
+
+    .content {
+      padding: 30px;
+    }
+
     /* Títulos con acento en Rojo #f70e3c */
-    .section-title { 
-      color: #1e3c28; 
-      font-size: 16px; 
-      font-weight: bold; 
-      border-left: 4px solid #f70e3c; 
-      padding-left: 12px; 
+    .section-title {
+      color: #1e3c28;
+      font-size: 16px;
+      font-weight: bold;
+      border-left: 4px solid #f70e3c;
+      padding-left: 12px;
       margin: 25px 0 15px 0;
       background-color: #f8fafc;
       padding-top: 5px;
       padding-bottom: 5px;
     }
 
-    .info-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
-    .info-table th { 
-      text-align: left; 
-      padding: 10px; 
-      background-color: #f1f5f9; 
-      color: #1e3c28; 
-      font-size: 12px; 
-      width: 40%; 
-      border-bottom: 1px solid #d6eae1; 
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
     }
-    .info-table td { padding: 10px; font-size: 14px; border-bottom: 1px solid #d6eae1; color: #0a211d; }
-    
-    /* Resaltado con Naranja #c89200 */
-    .highlight { color: #c89200; font-weight: bold; }
 
-    .footer { background-color: #1e3c28; color: #d6eae1; padding: 20px; text-align: center; font-size: 11px; }
+    .info-table th {
+      text-align: left;
+      padding: 10px;
+      background-color: #f1f5f9;
+      color: #1e3c28;
+      font-size: 12px;
+      width: 40%;
+      border-bottom: 1px solid #d6eae1;
+    }
+
+    .info-table td {
+      padding: 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #d6eae1;
+      color: #0a211d;
+    }
+
+    /* Resaltado con Naranja #c89200 */
+    .highlight {
+      color: #c89200;
+      font-weight: bold;
+    }
+
+    .footer {
+      background-color: #1e3c28;
+      color: #d6eae1;
+      padding: 20px;
+      text-align: center;
+      font-size: 11px;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="header">
@@ -57,36 +112,183 @@
     <div class="content">
       <div class="section-title">Información Personal</div>
       <table class="info-table">
-        <tr><th>Nombre Completo</th><td><%= name %> <%= surname %></td></tr>
-        <tr><th>Documento</th><td><%= documentType %>: <%= documentNumber %></td></tr>
-        <tr><th>Fecha de Nacimiento</th><td><%= birthdate %> (<%= age %> años)</td></tr>
-        <tr><th>Correo Electrónico</th><td class="highlight text-break"><%= email %></td></tr>
-        <tr><th>Teléfono</th><td><%= phoneNumber %></td></tr>
-        <tr><th>Dirección</th><td><%= address %></td></tr>
+        <tr>
+          <th>Nombre Completo</th>
+          <td>
+            <%= name %>
+              <%= surname %>
+          </td>
+        </tr>
+        <tr>
+          <th>Documento</th>
+          <td>
+            <%= documentType %>: <%= documentNumber %>
+          </td>
+        </tr>
+        <tr>
+          <th>Fecha de Nacimiento</th>
+          <td>
+            <%= birthdate %> (<%= age %> años)
+          </td>
+        </tr>
+        <tr>
+          <th>Correo Electrónico</th>
+          <td class="highlight text-break">
+            <%= email %>
+          </td>
+        </tr>
+        <tr>
+          <th>Teléfono</th>
+          <td>
+            <%= phoneNumber %>
+          </td>
+        </tr>
+        <tr>
+          <th>Dirección</th>
+          <td>
+            <%= address %>
+          </td>
+        </tr>
       </table>
 
       <div class="section-title">Detalles Técnicos</div>
       <table class="info-table">
-        <tr><th>RH / Grupo Sanguíneo</th><td><%= bloodType %></td></tr>
-        <tr><th>EPS</th><td><%= eps %></td></tr>
-        <tr><th>Categoría</th><td class="highlight"><%= category %></td></tr>
-        <tr><th>Talla de Camiseta</th><td><%= tShirtSize %></td></tr>
+        <tr>
+          <th>RH / Grupo Sanguíneo</th>
+          <td>
+            <%= bloodType %>
+          </td>
+        </tr>
+        <tr>
+          <th>EPS</th>
+          <td>
+            <%= eps %>
+          </td>
+        </tr>
+        <tr>
+          <th>Categoría</th>
+          <td class="highlight">
+            <%= category %>
+          </td>
+        </tr>
+        <tr>
+          <th>Talla de Camiseta</th>
+          <td>
+            <%= tShirtSize %>
+          </td>
+        </tr>
       </table>
 
       <div class="section-title">Contacto de Emergencia</div>
       <table class="info-table">
-        <tr><th>Nombre</th><td><%= emergencyName %></td></tr>
-        <tr><th>Parentesco</th><td><%= emergencyRelationship %></td></tr>
-        <tr><th>Teléfono Emergencia</th><td class="highlight"><%= emergencyPhoneNumber %></td></tr>
+        <tr>
+          <th>Nombre</th>
+          <td>
+            <%= emergencyName %>
+          </td>
+        </tr>
+        <tr>
+          <th>Parentesco</th>
+          <td>
+            <%= emergencyRelationship %>
+          </td>
+        </tr>
+        <tr>
+          <th>Teléfono Emergencia</th>
+          <td class="highlight">
+            <%= emergencyPhoneNumber %>
+          </td>
+        </tr>
       </table>
 
-      <div style="margin-top: 30px; font-size: 11px; color: #64748b; border-top: 1px dashed #d6eae1; padding-top: 15px;">
-        <p><strong>Privacidad:</strong> El participante aceptó formalmente el tratamiento de datos personales: 
-           <span style="color: '<%= !!privacyAccepted ? '#1e3c28' : '#f70e3c' %>'; font-weight: bold;">
-             <%= privacyAccepted ? 'SÍ' : 'NO' %>
-           </span>
-        </p>
-      </div>
+      <% if (locals.child_name) { %>
+        <div class="section-title">Inscripción Menor de Edad</div>
+        <table class="info-table">
+          <tr>
+            <th>Nombre Completo</th>
+            <td>
+              <%= child_name %>
+                <%= child_surname %>
+            </td>
+          </tr>
+          <tr>
+            <th>Documento</th>
+            <td>
+              <%= child_documentType %>: <%= child_documentNumber %>
+            </td>
+          </tr>
+          <tr>
+            <th>Fecha de Nacimiento</th>
+            <td>
+              <%= child_birthdate %> (<%= child_age %> años)
+            </td>
+          </tr>
+          <tr>
+            <th>RH / Grupo Sanguíneo</th>
+            <td>
+              <%= child_bloodType %>
+            </td>
+          </tr>
+          <tr>
+            <th>EPS</th>
+            <td>
+              <%= child_eps %>
+            </td>
+          </tr>
+          <tr>
+            <th>Talla de Camiseta</th>
+            <td>
+              <%= child_tShirtSize %>
+            </td>
+          </tr>
+        </table>
+        <% } %>
+
+          <% if (locals.pet_name) { %>
+            <div class="section-title">Inscripción Mascota</div>
+            <table class="info-table">
+              <tr>
+                <th>Nombre</th>
+                <td>
+                  <%= pet_name %>
+                </td>
+              </tr>
+              <tr>
+                <th>Raza</th>
+                <td>
+                  <%= pet_breed %>
+                </td>
+              </tr>
+              <tr>
+                <th>Edad Aproximada</th>
+                <td>
+                  <%= pet_age %>
+                </td>
+              </tr>
+            </table>
+            <% } %>
+
+              <% if (locals.belongsToClub==='true' || locals.belongsToClub===true) { %>
+                <div class="section-title">Información de Club</div>
+                <table class="info-table">
+                  <tr>
+                    <th>Código del Club</th>
+                    <td class="highlight">
+                      <%= clubCode %>
+                    </td>
+                  </tr>
+                </table>
+                <% } %>
+
+                  <div
+                    style="margin-top: 30px; font-size: 11px; color: #64748b; border-top: 1px dashed #d6eae1; padding-top: 15px;">
+                    <p><strong>Privacidad:</strong> El participante aceptó formalmente el tratamiento de datos
+                      personales:
+                      <span style="color: '<%= !!privacyAccepted ? '#1e3c28' : '#f70e3c' %>'; font-weight: bold;">
+                        <%= privacyAccepted ? 'SÍ' : 'NO' %>
+                      </span>
+                    </p>
+                  </div>
     </div>
 
     <div class="footer">
@@ -94,4 +296,5 @@
     </div>
   </div>
 </body>
+
 </html>

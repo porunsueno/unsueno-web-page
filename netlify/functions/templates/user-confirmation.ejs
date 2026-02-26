@@ -1,77 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: #d6eae1; color: #0a211d; }
-    .container { width: 100%; max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-    
-    .banner-img { width: 100%; display: block; border-bottom: 5px solid #f70e3c; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #d6eae1;
+      color: #0a211d;
+    }
 
-    .content { padding: 30px; text-align: center; }
-    
-    .welcome-title { color: #1e3c28; font-size: 24px; font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
-    
+    .container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #ffffff;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .banner-img {
+      width: 100%;
+      display: block;
+      border-bottom: 5px solid #f70e3c;
+    }
+
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .welcome-title {
+      color: #1e3c28;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
     /* Cambiamos el color a Naranja para indicar "En Proceso" */
-    .status-badge { 
-      background-color: #c89200; 
-      color: #ffffff; 
-      padding: 8px 20px; 
-      border-radius: 50px; 
-      display: inline-block; 
-      font-weight: bold; 
+    .status-badge {
+      background-color: #c89200;
+      color: #ffffff;
+      padding: 8px 20px;
+      border-radius: 50px;
+      display: inline-block;
+      font-weight: bold;
       font-size: 14px;
       margin-bottom: 20px;
     }
 
-    .message { line-height: 1.6; color: #0a211d; font-size: 16px; margin-bottom: 25px; }
-    .validation-text { background-color: #f1f5f9; padding: 15px; border-radius: 8px; border-left: 4px solid #f70e3c; margin-bottom: 20px; text-align: left; font-size: 14px; }
+    .message {
+      line-height: 1.6;
+      color: #0a211d;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
 
-    .summary-box { 
-      background-color: #ffffff; 
-      border: 1px solid #d6eae1; 
-      border-radius: 10px; 
-      padding: 20px; 
+    .validation-text {
+      background-color: #f1f5f9;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #f70e3c;
+      margin-bottom: 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .summary-box {
+      background-color: #ffffff;
+      border: 1px solid #d6eae1;
+      border-radius: 10px;
+      padding: 20px;
       margin-bottom: 25px;
       text-align: left;
     }
-    .summary-box h3 { margin-top: 0; color: #1e3c28; font-size: 16px; border-bottom: 1px solid #d6eae1; padding-bottom: 8px; }
-    .item { margin: 8px 0; font-size: 14px; }
-    .item strong { color: #1e3c28; }
 
-    .footer { background-color: #1e3c28; color: #ffffff; padding: 25px; font-size: 12px; }
+    .summary-box h3 {
+      margin-top: 0;
+      color: #1e3c28;
+      font-size: 16px;
+      border-bottom: 1px solid #d6eae1;
+      padding-bottom: 8px;
+    }
+
+    .item {
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .item strong {
+      color: #1e3c28;
+    }
+
+    .footer {
+      background-color: #1e3c28;
+      color: #ffffff;
+      padding: 25px;
+      font-size: 12px;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <img src="cid:flyer_carrera" alt="Corramos por un Sueño" class="banner-img">
 
     <div class="content">
-    <div class="welcome-title">¡Hola, <%= name %>!</div>
+      <div class="welcome-title">¡Hola, <%= name %>!</div>
 
       <div class="status-badge">INSCRIPCIÓN RECIBIDA</div>
 
       <div class="validation-text">
         <strong>Estado del proceso:</strong><br>
-          Como indica la imagen superior, estamos validando tu pago. 
-          Pronto recibirás la confirmación final en este mismo correo.
+        Como indica la imagen superior, estamos validando tu pago.
+        Pronto recibirás la confirmación final en este mismo correo.
       </div>
-    
+
       <div class="summary-box">
         <h3>Detalles de tu inscripción:</h3>
-        <div class="item"><strong>Participante:</strong> <%= name %> <%= surname %></div>
-        <div class="item"><strong>Categoría:</strong> <%= category %></div>
-        <div class="item"><strong>Talla de Camiseta:</strong> <%= tShirtSize %></div>
+        <div class="item"><strong>Participante:</strong>
+          <%= name %>
+            <%= surname %>
+        </div>
+        <div class="item"><strong>Categoría:</strong>
+          <%= category %>
+        </div>
+        <div class="item"><strong>Talla de Camiseta:</strong>
+          <%= tShirtSize %>
+        </div>
       </div>
-    
-      <p style="font-style: italic; color: #64748b; font-size: 13px;">
-        ¡Prepárate para el 26 de abril en La Unión!
-      </p>
+
+      <% if (locals.child_name) { %>
+        <div class="summary-box">
+          <h3>Detalles inscripción Menor de Edad:</h3>
+          <div class="item"><strong>Menor:</strong>
+            <%= child_name %>
+              <%= child_surname %>
+          </div>
+          <div class="item"><strong>Categoría:</strong> 3 Km</div>
+          <div class="item"><strong>Talla de Camiseta:</strong>
+            <%= child_tShirtSize %>
+          </div>
+        </div>
+        <% } %>
+
+          <% if (locals.pet_name) { %>
+            <div class="summary-box">
+              <h3>Detalles inscripción Mascota:</h3>
+              <div class="item"><strong>Mascota:</strong>
+                <%= pet_name %>
+              </div>
+              <div class="item"><strong>Categoría:</strong> 3 Km</div>
+            </div>
+            <% } %>
+
+              <p style="font-style: italic; color: #64748b; font-size: 13px;">
+                ¡Prepárate para el 26 de abril en La Unión!
+              </p>
     </div>
 
     <div class="footer">
-      Este es un correo automático generado por el sistema de inscripciones. Si tienes dudas sobre tu inscripción, por favor comunícate por los canales oficiales.
+      Este es un correo automático generado por el sistema de inscripciones. Si tienes dudas sobre tu inscripción, por
+      favor comunícate por los canales oficiales.
     </div>
   </div>
 </body>
+
 </html>
