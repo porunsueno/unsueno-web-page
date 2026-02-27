@@ -14,10 +14,7 @@
       <div class="steps__grid">
         @for (d of distances; track $index) {
         <div class="steps__card">
-          <div
-            [ngClass]="'steps__card-header--' + d.type.toLowerCase()"
-            class="steps__card-header"
-          >
+          <div [ngClass]="'steps__card-header--' + d.type.toLowerCase()" class="steps__card-header">
             <span class="steps__card-title">{{ d.title }}</span>
             <br />
             <span class="steps__card-subtitle">{{ d.subtitle }}</span>
@@ -40,22 +37,45 @@
       <br />
       <br />
       <p class="registration-steps__subtitle">
-        <strong>Descuento para clubes de running</strong>
+        <strong>Descuentos y categorías especiales</strong>
       </p>
     </div>
-    <div class="registration-steps__detail">
-      <p>
-        Los clubes que inscriban mínimo <strong>10 atletas</strong> reciben un
-        <strong>10% de descuento</strong> en la inscripción a
-        <strong>Corramos por un Sueño 2026</strong>. <br /><br />
-        Para acceder al beneficio, comunícate directamente al
-        <strong>WhatsApp oficial de la carrera</strong>.
-      </p>
-
-      <div class="socials">
-        <a href="https://wa.me/+573228674191" target="_blank">
-          <img src="/icons/whatsapp-line.svg" alt="Whatsapp" />
+    <div class="registration-steps__special-info">
+      <div class="special-info__column">
+        <h3>Descuento para clubes de running</h3>
+        <p>
+          Los clubes que inscriban mínimo 10 atletas reciben un
+          10% de descuento en la inscripción a Corramos
+          por un Sueño 2026.
+        </p>
+        <p>
+          Para acceder al beneficio, comunícate directamente
+          al WhatsApp oficial de la carrera.
+        </p>
+        <a href="https://wa.me/+573228674191" target="_blank" class="btn-whatsapp">
+          <img src="/icons/boton-wpp.png" alt="Whatsapp" />
         </a>
+      </div>
+
+      <div class="special-info__column">
+        <div class="special-category">
+          <h3>Categorías especiales de inscripción</h3>
+          <p>Este año nadie se queda sin correr por este sueño.</p>
+        </div>
+        <hr class="special-divider" />
+        <div class="special-category">
+          <h3>Niños menores de 9 años</h3>
+          <p><strong>Valor especial de inscripción: $80.000.</strong></p>
+          <p>Es obligatorio que el menor participe acompañado por su padre, madre o un adulto responsable. El adulto
+            acompañante debe estar debidamente inscrito en la carrera con la tarifa regular vigente.</p>
+        </div>
+        <hr class="special-divider" />
+        <div class="special-category">
+          <h3>Mascotas – 3K</h3>
+          <p>Inscripción abierta para mascotas en el recorrido de 3 kilómetros.</p>
+          <p><strong>Valor: $30.000.</strong></p>
+          <p>Incluye: Pañoleta oficial · Hidratación canina · Acompañamiento veterinario</p>
+        </div>
       </div>
     </div>
   </div>
