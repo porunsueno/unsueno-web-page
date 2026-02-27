@@ -90,7 +90,7 @@
     padding-top: $spacing-xl;
 
     @include tablet {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 2fr;
       gap: $spacing-3xl;
     }
 
@@ -115,6 +115,13 @@
 
       strong {
         color: white;
+      }
+
+      &:nth-child(1) {
+        @include tablet {
+          border-right: 1px solid rgba(255, 255, 255, 0.3);
+          padding-right: $spacing-3xl;
+        }
       }
     }
 
