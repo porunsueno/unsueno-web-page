@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class RegistrationStepsComponent {
-  constructor(public translationService: TranslationService) {}
+  constructor(public translationService: TranslationService) { }
 
   t = () => this.translationService.translations();
 
@@ -20,14 +20,14 @@ export class RegistrationStepsComponent {
       title: 'PRIMARIA',
       subtitle: 'Precio especial de lanzamiento ',
       price: '$130.000',
-      detail: 'Tarifa vigente hasta el 28 de febrero de 2026',
+      detail: 'Tarifa vigente hasta el 07 de marzo de 2026',
     },
     {
       type: 'secondary',
       title: 'SECUNDARIA',
       subtitle: 'Precio full',
       price: '$150.000',
-      detail: 'Tarifa vigente del 01 al 29 de marzo de 2026',
+      detail: 'Tarifa vigente del 08 al 29 de marzo de 2026',
     },
   ];
 }
