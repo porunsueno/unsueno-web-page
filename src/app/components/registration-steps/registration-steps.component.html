@@ -27,8 +27,10 @@
               <span class="steps__stat">{{ d.detail }}</span>
             </div>
             <br />
-            <a href="#contact" class="btn btn--tertiary-inverted">
-              {{ t().hero.cta.primary }}
+            <a [attr.href]="d.type === 'primary' ? null : '#contact'" class="btn btn--tertiary-inverted"
+              [style.pointer-events]="d.type === 'primary' ? 'none' : 'auto'"
+              [style.opacity]="d.type === 'primary' ? '0.5' : '1'">
+              {{ d.type === 'primary' ? 'No disponible' : t().hero.cta.primary }}
             </a>
           </div>
         </div>
