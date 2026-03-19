@@ -167,6 +167,8 @@ export class ContactComponent {
       formData.append('attachment', this.selectedFile, this.fileName || 'archivo');
     }
 
+    console.log('Prueba');
+
     this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
         next: (response) => {
@@ -183,7 +185,7 @@ export class ContactComponent {
           console.log('Respuesta del servidor:', response);
 
           if (typeof fbq === 'function') {
-            fbq('track', 'CompleteRegistration');
+            fbq('track', 'ViewContent');
           }
         },
         error: (error) => {
@@ -192,6 +194,9 @@ export class ContactComponent {
           const serverError = error.error;
           alert(`Error: ${serverError?.message || 'Error en el servidor'}`);
           console.error('Error sending email: ', error);
+          if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent');
+          }
         }
       }
       );
