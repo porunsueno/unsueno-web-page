@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 
 import imageCompression from 'browser-image-compression';
 
+declare let fbq: Function;
+
 interface NetlifyResponse {
   message: string;
   details?: string;
@@ -179,6 +181,10 @@ export class ContactComponent {
           this.showSuccessMessage = true;
           this.resetForm();
           console.log('Respuesta del servidor:', response);
+
+          if (typeof fbq === 'function') {
+            fbq('track', 'CompleteRegistration');
+          }
         },
         error: (error) => {
           this.isSubmitting = false;
