@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import imageCompression from 'browser-image-compression';
 
 declare let fbq: Function;
+import { fieldsOrder } from './fields-order';
+import { insertInGoogleSheet } from './google-sheet.service';
 
 interface NetlifyResponse {
   message: string;
@@ -19,10 +21,9 @@ interface NetlifyResponse {
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
-
   t = () => this.translationService.translations();
 
   minDate: string;
@@ -46,7 +47,7 @@ export class ContactComponent {
     emergencyPhoneNumber: '',
     belongsToClub: false,
     clubCode: '',
-    privacyAccepted: ''
+    privacyAccepted: '',
   };
 
   isSubmitting = false;
@@ -67,13 +68,13 @@ export class ContactComponent {
     age: '',
     bloodType: '',
     eps: '',
-    tShirtSize: ''
+    tShirtSize: '',
   };
 
   petForm = {
     name: '',
     breed: '',
-    age: ''
+    age: '',
   };
 
   selectedFile: File | null = null;
@@ -82,7 +83,10 @@ export class ContactComponent {
 
   netlifyFunctionUrl = '/.netlify/functions/send-email';
 
-  constructor(public translationService: TranslationService, private http: HttpClient) {
+  constructor(
+    public translationService: TranslationService,
+    private http: HttpClient
+  ) {
     this.minDate = new Date().toDateString().split('T')[0];
   }
 
@@ -93,7 +97,9 @@ export class ContactComponent {
       const sizeInMB = file.size / (1024 * 1024);
 
       if (sizeInMB > 20) {
-        alert('La imagen es demasiado grande (máximo 20MB). Por favor, intenta con otra foto.');
+        alert(
+          'La imagen es demasiado grande (máximo 20MB). Por favor, intenta con otra foto.'
+        );
         event.target.value = '';
         return;
       }
@@ -102,14 +108,14 @@ export class ContactComponent {
         const options = {
           maxSizeMB: 4,
           maxWidthOrHeight: 1920,
-          useWebWorker: true
+          useWebWorker: true,
         };
 
         try {
           const compressedFile = await imageCompression(file, options);
           file = new File([compressedFile], file.name, { type: file.type });
         } catch (error) {
-          console.error("Error comprimiendo:", error);
+          console.error('Error comprimiendo:', error);
         }
       }
 
@@ -144,38 +150,70 @@ export class ContactComponent {
     const formData = new FormData();
 
     // Agregar campos del formulario al FormData
-    Object.keys(this.form).forEach(key => {
+    Object.keys(this.form).forEach((key) => {
       const value = (this.form as any)[key];
       formData.append(key, value !== null && value !== undefined ? value : '');
     });
 
     if (this.registerChild) {
-      Object.keys(this.childForm).forEach(key => {
+      Object.keys(this.childForm).forEach((key) => {
         const value = (this.childForm as any)[key];
-        formData.append(`child_${key}`, value !== null && value !== undefined ? value : '');
+        formData.append(
+          `child_${key}`,
+          value !== null && value !== undefined ? value : ''
+        );
       });
     }
 
     if (this.registerPet) {
-      Object.keys(this.petForm).forEach(key => {
+      Object.keys(this.petForm).forEach((key) => {
         const value = (this.petForm as any)[key];
-        formData.append(`pet_${key}`, value !== null && value !== undefined ? value : '');
+        formData.append(
+          `pet_${key}`,
+          value !== null && value !== undefined ? value : ''
+        );
       });
     }
 
     if (this.selectedFile) {
-      formData.append('attachment', this.selectedFile, this.fileName || 'archivo');
+      formData.append(
+        'attachment',
+        this.selectedFile,
+        this.fileName || 'archivo'
+      );
     }
+    const OMIT_FIELDS = ['attachment'];
+    const row = fieldsOrder
+      .filter((field) => !OMIT_FIELDS.includes(field)) // omite el campo
+      .map((field) => {
+        let value = formData.get(field);
 
-    console.log('Prueba');
+        if (value === null || value === '' || value === undefined) {
+          return 'N/A';
+        }
+        if (field.includes('birthdate') && value) {
+          return new Date(value.toString()).toLocaleDateString();
+        }
+        if (value.toString().toLocaleLowerCase() === 'true') return 'SI';
+        if (value.toString().toLocaleLowerCase() === 'false') return 'NO';
+        if (typeof value === 'boolean') {
+          return value ? 'SI' : 'NO';
+        }
 
-    this.http.post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
+        return value.toString();
+      });
+    insertInGoogleSheet(row);
+
+    this.http
+      .post<NetlifyResponse>(this.netlifyFunctionUrl, formData)
       .subscribe({
         next: (response) => {
           this.isSubmitting = false;
 
           if (response.details) {
-            alert(`¡Casi listo! ${response.message}. Nota: ${response.details}`);
+            alert(
+              `¡Casi listo! ${response.message}. Nota: ${response.details}`
+            );
           } else {
             alert('¡Inscripción exitosa! Revisa tu correo.');
           }
@@ -197,16 +235,18 @@ export class ContactComponent {
           if (typeof fbq === 'function') {
             fbq('track', 'ViewContent');
           }
-        }
-      }
-      );
+        },
+      });
   }
 
   onRegisterChildChange() {
     if (this.registerChild) {
       if (this.form.category !== '3 Km') {
         this.form.category = '3 Km';
-        alert(this.translationService.translations().registrations.form.childCategoryWarning);
+        alert(
+          this.translationService.translations().registrations.form
+            .childCategoryWarning
+        );
       }
       this.showChildModal = true;
     } else {
@@ -229,9 +269,15 @@ export class ContactComponent {
 
   resetChildForm() {
     this.childForm = {
-      name: '', surname: '', documentType: '', documentNumber: '',
-      birthdate: '', age: '', bloodType: '', eps: '',
-      tShirtSize: ''
+      name: '',
+      surname: '',
+      documentType: '',
+      documentNumber: '',
+      birthdate: '',
+      age: '',
+      bloodType: '',
+      eps: '',
+      tShirtSize: '',
     };
   }
 
@@ -239,7 +285,10 @@ export class ContactComponent {
     if (this.registerPet) {
       if (this.form.category !== '3 Km') {
         this.form.category = '3 Km';
-        alert(this.translationService.translations().registrations.form.petCategoryWarning);
+        alert(
+          this.translationService.translations().registrations.form
+            .petCategoryWarning
+        );
       }
       this.showPetModal = true;
     } else {
@@ -262,18 +311,33 @@ export class ContactComponent {
 
   resetPetForm() {
     this.petForm = {
-      name: '', breed: '', age: ''
+      name: '',
+      breed: '',
+      age: '',
     };
   }
 
   resetForm() {
     this.form = {
-      name: '', surname: '', documentType: '', documentNumber: '',
-      email: '', phoneNumber: '', address: '', birthdate: '',
-      age: '', bloodType: '', eps: '', category: '',
-      tShirtSize: '', emergencyName: '', emergencyRelationship: '',
-      emergencyPhoneNumber: '', belongsToClub: false, clubCode: '',
-      privacyAccepted: ''
+      name: '',
+      surname: '',
+      documentType: '',
+      documentNumber: '',
+      email: '',
+      phoneNumber: '',
+      address: '',
+      birthdate: '',
+      age: '',
+      bloodType: '',
+      eps: '',
+      category: '',
+      tShirtSize: '',
+      emergencyName: '',
+      emergencyRelationship: '',
+      emergencyPhoneNumber: '',
+      belongsToClub: false,
+      clubCode: '',
+      privacyAccepted: '',
     };
     this.resetChildForm();
     this.registerChild = false;
