@@ -4,11 +4,7 @@
       <!-- Logo -->
       <div class="header__logo">
         <a href="#home" class="header__logo-link">
-          <img
-            src="/logotipo.png"
-            alt="Logo Corramos por un Sueño"
-            class="header__logo-img"
-          />
+          <img src="/logotipo.png" alt="Logo Corramos por un Sueño" class="header__logo-img" />
         </a>
       </div>
 
@@ -16,19 +12,14 @@
       <div class="header__nav-desktop">
         <a href="#home" class="header__nav-link">{{
           t().header.navigation.home
-        }}</a>
+          }}</a>
         <a href="#about" class="header__nav-link">{{
           t().header.navigation.about
-        }}</a>
+          }}</a>
         <a href="#categories" class="header__nav-link"> Distancias </a>
-        <a href="#registration-steps" class="header__nav-link"
-          >Etapas de inscripción</a
-        >
+        <a href="#registration-steps" class="header__nav-link">Etapas de inscripción</a>
 
         <a href="#what-includes" class="header__nav-link">Kit</a>
-        <a href="#contact" class="header__nav-link">{{
-          t().header.navigation.contact
-        }}</a>
       </div>
 
       <!-- CTA Button -->
@@ -36,16 +27,10 @@
         <a href="https://wa.me/+573228674191" target="_blank">
           <img src="/icons/whatsapp-line.svg" alt="Whatsapp" />
         </a>
-        <a
-          href="https://www.facebook.com/profile.php?id=61572904043581"
-          target="_blank"
-        >
+        <a href="https://www.facebook.com/profile.php?id=61572904043581" target="_blank">
           <img src="/icons/facebook-line.svg" alt="Facebook" />
         </a>
-        <a
-          href="https://www.instagram.com/corramos_por_un_sueno/"
-          target="_blank"
-        >
+        <a href="https://www.instagram.com/corramos_por_un_sueno/" target="_blank">
           <img src="/icons/instagram-line.svg" alt="Instagram" />
         </a>
       </div>
@@ -53,20 +38,10 @@
       <!-- Mobile Menu Button -->
       <div class="header__mobile-toggle">
         <button (click)="toggleMobileMenu()" class="header__menu-btn">
-          <svg
-            class="header__menu-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              [attr.d]="
+          <svg class="header__menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="
                 isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'
-              "
-            ></path>
+              "></path>
           </svg>
         </button>
       </div>
@@ -75,42 +50,11 @@
     <!-- Mobile Navigation -->
     <div [class]="mobileMenuClasses">
       <div class="header__mobile-menu">
-        <a
-          href="#home"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >{{ t().header.navigation.home }}</a
-        >
-        <a
-          href="#about"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >{{ t().header.navigation.about }}</a
-        >
-        <a
-          href="#categories"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >Distancias</a
-        >
-        <a
-          href="#registration-steps"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >Etapas de inscripción</a
-        >
-        <a
-          href="#what-includes"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >Kit</a
-        >
-        <a
-          href="#contact"
-          (click)="closeMobileMenu()"
-          class="header__mobile-link"
-          >{{ t().header.navigation.contact }}</a
-        >
+        <a href="#home" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.home }}</a>
+        <a href="#about" (click)="closeMobileMenu()" class="header__mobile-link">{{ t().header.navigation.about }}</a>
+        <a href="#categories" (click)="closeMobileMenu()" class="header__mobile-link">Distancias</a>
+        <a href="#registration-steps" (click)="closeMobileMenu()" class="header__mobile-link">Etapas de inscripción</a>
+        <a href="#what-includes" (click)="closeMobileMenu()" class="header__mobile-link">Kit</a>
       </div>
     </div>
   </nav>

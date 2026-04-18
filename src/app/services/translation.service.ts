@@ -629,7 +629,7 @@ const translations: Record<Language, Translations> = {
         rest: 'LA UNIÓN ANT.',
       },
       cta: {
-        primary: '¡Quiero inscribirme!',
+        primary: '¡Conoce más!',
         secondary: '[Acción Secundaria]',
       },
       stats: {

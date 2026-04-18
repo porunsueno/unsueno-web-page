@@ -7,7 +7,7 @@
           {{ t().about.title.main }}
           <span class="about__title-accent">{{
             t().about.title.highlight
-          }}</span>
+            }}</span>
         </h2>
 
         <p class="about__description">
@@ -22,16 +22,10 @@
         <div class="about__features">
           <div class="about__feature">
             <div class="about__feature-icon">
-              <svg
-                class="about__feature-svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg class="about__feature-svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
+                  clip-rule="evenodd"></path>
               </svg>
             </div>
             <div class="about__feature-content">
@@ -46,16 +40,10 @@
 
           <div class="about__feature">
             <div class="about__feature-icon">
-              <svg
-                class="about__feature-svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg class="about__feature-svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
+                  clip-rule="evenodd"></path>
               </svg>
             </div>
             <div class="about__feature-content">
@@ -70,16 +58,10 @@
 
           <div class="about__feature">
             <div class="about__feature-icon">
-              <svg
-                class="about__feature-svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg class="about__feature-svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
+                  clip-rule="evenodd"></path>
               </svg>
             </div>
             <div class="about__feature-content">
@@ -94,16 +76,10 @@
 
           <div class="about__feature">
             <div class="about__feature-icon">
-              <svg
-                class="about__feature-svg"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
+              <svg class="about__feature-svg" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
                   d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                  clip-rule="evenodd"
-                ></path>
+                  clip-rule="evenodd"></path>
               </svg>
             </div>
             <div class="about__feature-content">
@@ -117,9 +93,9 @@
           </div>
         </div>
 
-        <a href="#contact" class="btn btn--secondary about__cta">
+        <!-- <a href="#contact" class="btn btn--secondary about__cta">
           {{ t().about.cta }}
-        </a>
+        </a> -->
       </div>
       <!-- Carousel -->
       <div class="about__image-wrapper">
@@ -129,65 +105,29 @@
           <!-- Carousel Images -->
           <div class="carousel">
             @for (image of carouselImages; track $index) {
-            <img
-              [src]="image.url"
-              [alt]="image.alt"
-              class="about__image carousel__slide"
-              [class.carousel__slide--active]="currentSlide() === $index"
-            />
+            <img [src]="image.url" [alt]="image.alt" class="about__image carousel__slide"
+              [class.carousel__slide--active]="currentSlide() === $index" />
             }
           </div>
 
           <!-- Carousel Controls -->
-          <button
-            class="carousel__button carousel__button--prev"
-            (click)="prevSlide()"
-            aria-label="Previous slide"
-          >
-            <svg
-              class="carousel__icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-              ></path>
+          <button class="carousel__button carousel__button--prev" (click)="prevSlide()" aria-label="Previous slide">
+            <svg class="carousel__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
             </svg>
           </button>
 
-          <button
-            class="carousel__button carousel__button--next"
-            (click)="nextSlide()"
-            aria-label="Next slide"
-          >
-            <svg
-              class="carousel__icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              ></path>
+          <button class="carousel__button carousel__button--next" (click)="nextSlide()" aria-label="Next slide">
+            <svg class="carousel__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </button>
 
           <!-- Carousel Indicators -->
           <div class="carousel__indicators">
             @for (image of carouselImages; track $index) {
-            <button
-              class="carousel__indicator"
-              [class.carousel__indicator--active]="currentSlide() === $index"
-              (click)="goToSlide($index)"
-              [attr.aria-label]="'Go to slide ' + ($index + 1)"
-            ></button>
+            <button class="carousel__indicator" [class.carousel__indicator--active]="currentSlide() === $index"
+              (click)="goToSlide($index)" [attr.aria-label]="'Go to slide ' + ($index + 1)"></button>
             }
           </div>
 

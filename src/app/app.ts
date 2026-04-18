@@ -25,4 +25,6 @@ import { Partners } from './components/partners/partners';
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
 })
-export class App {}
+export class App {
+  readonly showContactSection = false;
+}
